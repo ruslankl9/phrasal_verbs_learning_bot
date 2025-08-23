@@ -1,7 +1,7 @@
 PY=python
 POETRY?=poetry
 
-.PHONY: run seed export lint fmt typecheck test
+.PHONY: run seed export lint fmt typecheck test clean
 
 run:
 	$(POETRY) run $(PY) -m srsbot.main
@@ -23,4 +23,8 @@ typecheck:
 
 test:
 	$(POETRY) run pytest -q
+
+clean:
+	find . -type f -name '*.pyc' -delete
+	find . -type d -name '__pycache__' -delete
 
