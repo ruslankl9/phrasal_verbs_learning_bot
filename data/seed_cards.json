@@ -1,0 +1,579 @@
+[
+  {
+    "phrasal": "bring up",
+    "meaning_en": "to mention a topic for discussion",
+    "examples": [
+      "She brought up the budget issue at the meeting.",
+      "Don't bring it up now, please."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "bring_up__mention",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "get over",
+    "meaning_en": "to recover from an illness or disappointment",
+    "examples": [
+      "It took him months to get over the flu.",
+      "She still hasn't gotten over the breakup."
+    ],
+    "tags": ["daily", "health"],
+    "sense_uid": "get_over__recover",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "run into",
+    "meaning_en": "to meet someone unexpectedly",
+    "examples": [
+      "I ran into my old boss at the airport.",
+      "We ran into some friends downtown."
+    ],
+    "tags": ["travel", "daily"],
+    "sense_uid": "run_into__meet",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "look up",
+    "meaning_en": "to search for information",
+    "examples": [
+      "I'll look up the term in the dictionary.",
+      "Can you look up her number?"
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "look_up__search",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "carry on",
+    "meaning_en": "to continue doing something",
+    "examples": [
+      "Please carry on with your report.",
+      "They carried on despite the noise."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "carry_on__continue",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "find out",
+    "meaning_en": "to discover information",
+    "examples": [
+      "We need to find out the cause.",
+      "She found out he was leaving soon."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "find_out__discover",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "put off",
+    "meaning_en": "to postpone",
+    "examples": [
+      "Let's put off the meeting until Friday.",
+      "They put it off due to the storm."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "put_off__postpone",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "pick up",
+    "meaning_en": "to collect or learn casually",
+    "examples": [
+      "I'll pick up the documents later.",
+      "She picked up some Spanish while traveling."
+    ],
+    "tags": ["travel", "work"],
+    "sense_uid": "pick_up__collect_learn",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "set up",
+    "meaning_en": "to arrange or establish",
+    "examples": [
+      "We set up a call with the client.",
+      "He set up the projector in the room."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "set_up__arrange",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "take off",
+    "meaning_en": "to depart (plane) or remove",
+    "examples": [
+      "Our flight takes off at 7 pm.",
+      "Please take off your shoes."
+    ],
+    "tags": ["travel", "daily"],
+    "sense_uid": "take_off__depart_remove",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "check in",
+    "meaning_en": "to register at a hotel or airport",
+    "examples": [
+      "We checked in two hours before the flight.",
+      "Let's check in at the hotel first."
+    ],
+    "tags": ["travel"],
+    "sense_uid": "check_in__register",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "check out",
+    "meaning_en": "to leave a hotel or examine",
+    "examples": [
+      "We checked out at noon.",
+      "Check out this new app."
+    ],
+    "tags": ["travel", "daily"],
+    "sense_uid": "check_out__leave_examine",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "figure out",
+    "meaning_en": "to understand or solve",
+    "examples": [
+      "We need to figure out the cause.",
+      "She figured out the puzzle quickly."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "figure_out__solve",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "come across",
+    "meaning_en": "to find by chance or give an impression",
+    "examples": [
+      "I came across an old photo.",
+      "He comes across as confident."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "come_across__find_impress",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "go over",
+    "meaning_en": "to review or examine",
+    "examples": [
+      "Let's go over the report together.",
+      "She went over the budget again."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "go_over__review",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "make up",
+    "meaning_en": "to invent or reconcile",
+    "examples": [
+      "He made up a good excuse.",
+      "They made up after the argument."
+    ],
+    "tags": ["daily"],
+    "sense_uid": "make_up__invent_reconcile",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "turn down",
+    "meaning_en": "to reject or reduce volume",
+    "examples": [
+      "She turned down the offer.",
+      "Please turn down the music."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "turn_down__reject_reduce",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "work out",
+    "meaning_en": "to exercise or resolve",
+    "examples": [
+      "I work out three times a week.",
+      "We worked out a fair deal."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "work_out__exercise_resolve",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "cut back",
+    "meaning_en": "to reduce",
+    "examples": [
+      "We need to cut back on expenses.",
+      "He cut back his sugar intake."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "cut_back__reduce",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "fill out",
+    "meaning_en": "to complete a form",
+    "examples": [
+      "Please fill out this form.",
+      "He filled out the application online."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "fill_out__complete_form",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "call off",
+    "meaning_en": "to cancel",
+    "examples": [
+      "They called off the meeting.",
+      "The event was called off due to rain."
+    ],
+    "tags": ["work", "meetings"],
+    "sense_uid": "call_off__cancel",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "break down",
+    "meaning_en": "to stop working or analyze",
+    "examples": [
+      "The car broke down on the way.",
+      "Let's break down the tasks."
+    ],
+    "tags": ["travel", "work"],
+    "sense_uid": "break_down__stop_analyze",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "get along",
+    "meaning_en": "to have a good relationship",
+    "examples": [
+      "They get along really well.",
+      "Do you get along with your neighbors?"
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "get_along__relate",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "put up with",
+    "meaning_en": "to tolerate",
+    "examples": [
+      "I can't put up with this noise.",
+      "She puts up with a lot at work."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "put_up_with__tolerate",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "come up with",
+    "meaning_en": "to think of an idea",
+    "examples": [
+      "We need to come up with a plan.",
+      "She came up with a better solution."
+    ],
+    "tags": ["work"],
+    "sense_uid": "come_up_with__think_of",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "back out",
+    "meaning_en": "to withdraw from an agreement",
+    "examples": [
+      "They backed out at the last minute.",
+      "He backed out of the deal."
+    ],
+    "tags": ["work"],
+    "sense_uid": "back_out__withdraw",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "catch up",
+    "meaning_en": "to reach the same level or reconnect",
+    "examples": [
+      "She caught up with her tasks.",
+      "Let's catch up this weekend."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "catch_up__reach_reconnect",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "drop off",
+    "meaning_en": "to deliver or decrease",
+    "examples": [
+      "I'll drop off the package later.",
+      "Sales dropped off last quarter."
+    ],
+    "tags": ["work", "travel"],
+    "sense_uid": "drop_off__deliver_decrease",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "get by",
+    "meaning_en": "to manage with what you have",
+    "examples": [
+      "We can get by on this budget.",
+      "He gets by with little sleep."
+    ],
+    "tags": ["daily"],
+    "sense_uid": "get_by__manage",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "hold on",
+    "meaning_en": "to wait or grip firmly",
+    "examples": [
+      "Hold on a second, please.",
+      "Hold on to the rail."
+    ],
+    "tags": ["daily", "travel"],
+    "sense_uid": "hold_on__wait_grip",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "look after",
+    "meaning_en": "to take care of",
+    "examples": [
+      "She looks after her little brother.",
+      "Please look after the plants."
+    ],
+    "tags": ["daily"],
+    "sense_uid": "look_after__care_for",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "run out of",
+    "meaning_en": "to have none left",
+    "examples": [
+      "We ran out of time.",
+      "They ran out of paper in the office."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "run_out_of__deplete",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "sort out",
+    "meaning_en": "to organize or resolve",
+    "examples": [
+      "We need to sort out the schedule.",
+      "She sorted out the issue quickly."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "sort_out__organize_resolve",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "take up",
+    "meaning_en": "to start a hobby or occupy",
+    "examples": [
+      "He took up cycling last year.",
+      "This task takes up too much time."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "take_up__start_occupy",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "try on",
+    "meaning_en": "to put on clothing to test fit",
+    "examples": [
+      "Try on this jacket.",
+      "She tried on three dresses."
+    ],
+    "tags": ["daily", "travel"],
+    "sense_uid": "try_on__test_clothes",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "turn up",
+    "meaning_en": "to appear or increase volume",
+    "examples": [
+      "He turned up late to the meeting.",
+      "Turn up the heat a bit."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "turn_up__appear_increase",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "look forward to",
+    "meaning_en": "to anticipate with pleasure",
+    "examples": [
+      "I look forward to our call.",
+      "She looks forward to the trip."
+    ],
+    "tags": ["work", "travel"],
+    "sense_uid": "look_forward_to__anticipate",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "pay off",
+    "meaning_en": "to bring benefits or finish paying",
+    "examples": [
+      "Your hard work will pay off.",
+      "They finally paid off the loan."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "pay_off__benefit_finish",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "get in",
+    "meaning_en": "to arrive or enter",
+    "examples": [
+      "What time does the train get in?",
+      "We got in just before midnight."
+    ],
+    "tags": ["travel"],
+    "sense_uid": "get_in__arrive",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "take care of",
+    "meaning_en": "to look after or handle",
+    "examples": [
+      "I'll take care of the tickets.",
+      "She takes care of her grandparents."
+    ],
+    "tags": ["daily", "travel", "work"],
+    "sense_uid": "take_care_of__handle",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "bring back",
+    "meaning_en": "to return something or revive a memory",
+    "examples": [
+      "Please bring back the files tomorrow.",
+      "This song brings back memories."
+    ],
+    "tags": ["daily", "work"],
+    "sense_uid": "bring_back__return_revive",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "move on",
+    "meaning_en": "to proceed or accept and continue",
+    "examples": [
+      "Let's move on to the next point.",
+      "It's time to move on from the past."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "move_on__proceed_continue",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "bring in",
+    "meaning_en": "to introduce or earn",
+    "examples": [
+      "We brought in a consultant.",
+      "The new product brings in revenue."
+    ],
+    "tags": ["work"],
+    "sense_uid": "bring_in__introduce_earn",
+    "separable": true,
+    "intransitive": false
+  },
+  {
+    "phrasal": "head out",
+    "meaning_en": "to leave",
+    "examples": [
+      "We should head out early.",
+      "He headed out before sunrise."
+    ],
+    "tags": ["travel", "daily"],
+    "sense_uid": "head_out__leave",
+    "separable": false,
+    "intransitive": true
+  },
+  {
+    "phrasal": "wrap up",
+    "meaning_en": "to finish or cover",
+    "examples": [
+      "Let's wrap up the meeting.",
+      "Wrap up warmly; it's cold."
+    ],
+    "tags": ["work", "travel"],
+    "sense_uid": "wrap_up__finish_cover",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "line up",
+    "meaning_en": "to arrange in order or schedule",
+    "examples": [
+      "We lined up speakers for the event.",
+      "They lined up outside the theater."
+    ],
+    "tags": ["work", "travel"],
+    "sense_uid": "line_up__arrange_schedule",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "turn in",
+    "meaning_en": "to submit or go to bed",
+    "examples": [
+      "Please turn in your reports.",
+      "I think I'll turn in early."
+    ],
+    "tags": ["work", "daily"],
+    "sense_uid": "turn_in__submit_sleep",
+    "separable": true,
+    "intransitive": true
+  },
+  {
+    "phrasal": "look into",
+    "meaning_en": "to investigate",
+    "examples": [
+      "We'll look into the complaint.",
+      "She is looking into new options."
+    ],
+    "tags": ["work"],
+    "sense_uid": "look_into__investigate",
+    "separable": false,
+    "intransitive": true
+  }
+]
+

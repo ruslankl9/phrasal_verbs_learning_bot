@@ -239,3 +239,41 @@ Generate the entire repository with all files, ready to `make install && make ru
 
 ### Considerations
 Don't enter into .venv directory as it only contains python virtual environment.
+
+
+# ---- bot responded
+All set — I generated the full project per prompt.
+
+What I created
+
+- Core: srsbot/ with config.py, db.py, models.py, srs.py, content.py, queue.py, formatters.py, keyboards.py, session.py
+- Handlers: handlers/start.py, today.py, config.py, pack.py, stats.py, snooze.py
+- Scheduler: srsbot/scheduler.py with minute tick and daily push
+- Scripts: scripts/seed_cards.py, scripts/export_cards.py
+- Data: data/seed_cards.json with 40+ realistic cards; DB auto-creates at data/bot.db
+- Tests: tests/test_srs.py, tests/test_queue.py, tests/test_content.py
+- Tooling: pyproject.toml (poetry, ruff, black, mypy), requirements.txt fallback
+- Ops: Dockerfile, docker-compose.yml, Makefile, .env.example, .gitignore, README.md, LICENSE
+
+How to run
+- Configure env: copy .env.example to .env and set BOT_TOKEN.
+- Install (poetry): poetry install
+- Seed DB: python scripts/seed_cards.py data/seed_cards.json
+- Run bot: poetry run python -m srsbot.main (or make run)
+- Docker: docker compose up --build
+
+Notes and assumptions
+
+- SRS rules: Implements learning→review promotion, box bumps, requeue-after-k, jittered intervals, adaptive daily new target, and dynamic +1 new per 5 consecutive
+Good.
+- Daily queue: Prioritizes learning due → reviews due (capped) → new; has a rebalance helper for overload (covered in tests).
+- New selection: Honors pack_tags and avoids multiple senses or same phrasal in the same day.
+- Stats: Basic today/week counts; can be expanded later.
+- Timezone: Stores dates and uses daily checks; scheduler runs on UTC-minute tick. If you need full TZ-local boundaries, I can adjust the date computations to the
+configured TZ.
+
+Want me to:
+
+- Wire the overload rebalance into the live queue builder?
+- Add stricter timezone handling aligned to TZ for due-date and pushes?
+- Run tests or formatters locally and fix any style nits?

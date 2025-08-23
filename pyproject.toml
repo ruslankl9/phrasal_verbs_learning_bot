@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "phrasal-verbs-srs-bot"
+version = "0.1.0"
+description = "Telegram SRS bot for phrasal verbs (aiogram v3, SQLite)"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "srsbot" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiogram = "^3.4.1"
+aiosqlite = "^0.19.0"
+APScheduler = "^3.10.4"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-asyncio = "^0.23.5"
+black = "^24.3.0"
+ruff = "^0.4.2"
+mypy = "^1.8.0"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+check_untyped_defs = true
+pretty = true
+
