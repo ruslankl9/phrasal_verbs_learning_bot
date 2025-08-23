@@ -13,7 +13,7 @@ from .config import BOT_TOKEN
 from .db import init_db
 from .handlers import config as cfg_handler
 from .handlers import help as help_handler
-from .handlers import pack, snooze, start, stats, today
+from .handlers import pack, packs, snooze, start, stats, today
 from .scheduler import daily_tick
 
 
@@ -56,6 +56,7 @@ async def main() -> None:
     dp.include_router(today.router)
     dp.include_router(cfg_handler.router)
     dp.include_router(pack.router)
+    dp.include_router(packs.router)
     dp.include_router(stats.router)
     dp.include_router(snooze.router)
 

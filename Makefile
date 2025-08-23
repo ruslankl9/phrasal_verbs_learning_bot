@@ -7,7 +7,7 @@ run:
 	$(POETRY) run $(PY) -m srsbot.main
 
 seed:
-	$(PY) scripts/seed_cards.py data/seed_cards.json
+	$(POETRY) run $(PY) scripts/seed_cards.py data/seed_cards.json
 
 export:
 	$(PY) scripts/export_cards.py data/seed_cards.json

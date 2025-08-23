@@ -26,6 +26,7 @@ HELP_TEXT = (
     "- /config: show or update settings. Example:\n"
     "  /config daily_new_target=10 review_limit_per_day=40 pack_tags=work,travel\n"
     "- /pack tag[,tag2]: quick way to set pack_tags for new cards.\n"
+    "- /packs: list available packs with word counts; tap to select.\n"
     "- /stats: today/week accuracy and counts.\n"
     "- /snooze [hours]: delay today’s push (default 3h).\n\n"
     "Config parameters:\n"
