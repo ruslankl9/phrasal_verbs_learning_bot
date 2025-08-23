@@ -8,12 +8,9 @@ def kb_main_menu() -> InlineKeyboardMarkup:
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="▶️ Today", callback_data="ui:today"),
-                InlineKeyboardButton(text="⚙️ Config", callback_data="ui:config"),
+                InlineKeyboardButton(text="⚙️ Settings", callback_data="ui:settings"),
             ],
-            [
-                InlineKeyboardButton(text="🧩 Packs", callback_data="ui:packs"),
-                InlineKeyboardButton(text="📊 Stats", callback_data="ui:stats"),
-            ],
+            [InlineKeyboardButton(text="📊 Stats", callback_data="ui:stats")],
             [InlineKeyboardButton(text="😴 Snooze", callback_data="ui:snooze")],
         ]
     )
@@ -70,7 +67,7 @@ def kb_packs(packs: list[tuple[str, int]], selected: set[str]) -> InlineKeyboard
         rows.append(
             [InlineKeyboardButton(text=f"{mark} {tag} ({n})", callback_data=f"ui:packs.toggle:{tag}")]
         )
-    rows.append([InlineKeyboardButton(text="◀️ Back", callback_data="ui:menu")])
+    rows.append([InlineKeyboardButton(text="◀️ Back", callback_data="ui:settings.packs.back")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
@@ -82,4 +79,35 @@ def kb_snooze_options(options: list[int] = [1, 3, 6]) -> InlineKeyboardMarkup:
         ]
     ]
     rows.append([InlineKeyboardButton(text="◀️ Back", callback_data="ui:menu")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def kb_settings_list() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="🆕 Daily new cards", callback_data="ui:settings.input:daily_new_target")],
+            [InlineKeyboardButton(text="🔁 Daily review cap", callback_data="ui:settings.input:review_limit_per_day")],
+            [InlineKeyboardButton(text="⏰ Notification time", callback_data="ui:settings.input:push_time")],
+            [InlineKeyboardButton(text="🧩 Active packs", callback_data="ui:settings.packs")],
+            [InlineKeyboardButton(text="↔️ In-round spacing", callback_data="ui:settings.input:intra_spacing_k")],
+            [InlineKeyboardButton(text="◀️ Back", callback_data="ui:menu")],
+        ]
+    )
+
+
+def kb_settings_input_back() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[[InlineKeyboardButton(text="◀️ Back", callback_data="ui:settings")]]
+    )
+
+
+def kb_settings_packs(packs: list[tuple[str, int]], selected: set[str]) -> InlineKeyboardMarkup:
+    rows = []
+    for tag, n in packs:
+        enabled = tag in selected
+        mark = "✅" if enabled else "☑️"
+        rows.append(
+            [InlineKeyboardButton(text=f"{mark} {tag} ({n})", callback_data=f"ui:settings.packs.toggle:{tag}")]
+        )
+    rows.append([InlineKeyboardButton(text="◀️ Back", callback_data="ui:settings.packs.back")])
     return InlineKeyboardMarkup(inline_keyboard=rows)

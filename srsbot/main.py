@@ -11,8 +11,7 @@ from aiogram.types import Message
 
 from srsbot.config import BOT_TOKEN
 from srsbot.db import init_db
-from srsbot.handlers import config as cfg_handler
-from srsbot.handlers import menu, packs, snooze, start, stats, today
+from srsbot.handlers import menu, packs, settings, snooze, start, stats, today
 from srsbot.scheduler import daily_tick
 
 
@@ -40,7 +39,7 @@ async def main() -> None:
     dp.include_router(start.router)
     dp.include_router(menu.router)
     dp.include_router(today.router)
-    dp.include_router(cfg_handler.router)
+    dp.include_router(settings.router)
     dp.include_router(packs.router)
     dp.include_router(stats.router)
     dp.include_router(snooze.router)

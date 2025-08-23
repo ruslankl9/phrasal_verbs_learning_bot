@@ -41,4 +41,3 @@ async def on_menu(cb: CallbackQuery) -> None:
         screen_id=SCREEN_MENU,
     )
     await cb.answer()
-

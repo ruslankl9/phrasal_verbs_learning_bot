@@ -8,6 +8,8 @@ import aiosqlite
 
 from srsbot.config import DB_PATH
 
+_SENTINEL = object()
+
 
 @contextlib.asynccontextmanager
 async def get_db() -> AsyncIterator[aiosqlite.Connection]:
@@ -98,11 +100,20 @@ async def init_db() -> None:
             CREATE TABLE IF NOT EXISTS user_ui_state (
                 user_id INTEGER PRIMARY KEY,
                 last_ui_message_id INTEGER,
-                current_screen TEXT
+                current_screen TEXT,
+                awaiting_input_field TEXT
             );
             """
         )
         await db.commit()
+        # Migrations: add awaiting_input_field if missing
+        try:
+            await db.execute(
+                "ALTER TABLE user_ui_state ADD COLUMN awaiting_input_field TEXT"
+            )
+            await db.commit()
+        except Exception:
+            pass
 
 
 async def ensure_user_config(user_id: int) -> None:
@@ -133,7 +144,7 @@ async def get_ui_state(user_id: int) -> aiosqlite.Row | None:
     """Return UI state row for a user if exists."""
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT user_id, last_ui_message_id, current_screen FROM user_ui_state WHERE user_id=?",
+            "SELECT user_id, last_ui_message_id, current_screen, awaiting_input_field FROM user_ui_state WHERE user_id=?",
             (user_id,),
         )
         return await cur.fetchone()
@@ -143,6 +154,7 @@ async def set_ui_state(
     user_id: int,
     last_ui_message_id: int | None = None,
     current_screen: str | None = None,
+    awaiting_input_field: str | None | object = _SENTINEL,
 ) -> None:
     """Upsert UI state fields for the user."""
     # Read existing
@@ -153,11 +165,16 @@ async def set_ui_state(
     new_screen = current_screen if current_screen is not None else (
         str(row["current_screen"]) if row and row["current_screen"] is not None else None
     )
+    # Sentinel default means keep existing
+    if awaiting_input_field is _SENTINEL:  # keep existing
+        new_awaiting = row["awaiting_input_field"] if row else None
+    else:
+        new_awaiting = awaiting_input_field
     async with get_db() as db:
         await db.execute(
-            "INSERT INTO user_ui_state(user_id, last_ui_message_id, current_screen) VALUES(?,?,?) "
-            "ON CONFLICT(user_id) DO UPDATE SET last_ui_message_id=excluded.last_ui_message_id, current_screen=excluded.current_screen",
-            (user_id, new_msg_id, new_screen),
+            "INSERT INTO user_ui_state(user_id, last_ui_message_id, current_screen, awaiting_input_field) VALUES(?,?,?,?) "
+            "ON CONFLICT(user_id) DO UPDATE SET last_ui_message_id=excluded.last_ui_message_id, current_screen=excluded.current_screen, awaiting_input_field=excluded.awaiting_input_field",
+            (user_id, new_msg_id, new_screen, new_awaiting),
         )
         await db.commit()
 
@@ -170,6 +187,11 @@ async def clear_ui_message(user_id: int) -> None:
             (user_id,),
         )
         await db.commit()
+
+
+async def set_awaiting_input(user_id: int, field: str | None) -> None:
+    """Set or clear the awaiting input field in UI state."""
+    await set_ui_state(user_id, awaiting_input_field=field)
 
 
 async def get_day_state(user_id: int, session_date: str) -> aiosqlite.Row | None:

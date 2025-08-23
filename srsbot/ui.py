@@ -16,7 +16,8 @@ from srsbot.db import get_ui_state, set_ui_state
 # Screen identifiers
 SCREEN_MENU = "menu"
 SCREEN_TODAY = "today"
-SCREEN_CONFIG = "config"
+SCREEN_SETTINGS = "settings"
+SCREEN_CONFIG = SCREEN_SETTINGS  # backward alias
 SCREEN_PACKS = "packs"
 SCREEN_STATS = "stats"
 SCREEN_SNOOZE = "snooze"
@@ -61,4 +62,3 @@ async def show_screen(
     # Send a fresh message
     msg = await bot.send_message(chat_id, text, reply_markup=reply_markup)
     await set_ui_state(user_id, last_ui_message_id=msg.message_id, current_screen=screen_id)
-
