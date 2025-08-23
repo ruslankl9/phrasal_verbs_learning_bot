@@ -228,6 +228,12 @@ async def on_ans(cb: CallbackQuery) -> None:
     print("queue:", s.queue)
     if not s.queue:
         # End of round: show completion UI with remaining counts
+        # Clean up the previous card message to keep history tidy
+        try:
+            await cb.message.delete()
+        except Exception:
+            # Ignore deletion errors (e.g., already deleted)
+            pass
         async with get_db() as db:
             cur = await db.execute(
                 "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
@@ -297,6 +303,11 @@ async def on_round_repeat(cb: CallbackQuery) -> None:
     assert cb.from_user
     user_id = cb.from_user.id
     today = datetime.now(timezone.utc).date()
+    # Remove the "round complete" message before starting a new round
+    try:
+        await cb.message.delete()
+    except Exception:
+        pass
     # Load config and day state
     async with get_db() as db:
         cur = await db.execute(
@@ -352,6 +363,11 @@ async def on_round_finish(cb: CallbackQuery) -> None:
     assert cb.from_user
     user_id = cb.from_user.id
     today = datetime.now(timezone.utc).date()
+    # Remove the "round complete" message before showing the summary
+    try:
+        await cb.message.delete()
+    except Exception:
+        pass
     async with get_db() as db:
         cur = await db.execute(
             "SELECT good_today, again_today, shown_new_today, served_review_count FROM user_day_state WHERE user_id=? AND session_date=?",
