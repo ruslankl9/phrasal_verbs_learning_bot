@@ -9,12 +9,12 @@ from aiogram.enums import ParseMode
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from .config import BOT_TOKEN
-from .db import init_db
-from .handlers import config as cfg_handler
-from .handlers import help as help_handler
-from .handlers import pack, packs, snooze, start, stats, today
-from .scheduler import daily_tick
+from srsbot.config import BOT_TOKEN
+from srsbot.db import init_db
+from srsbot.handlers import config as cfg_handler
+from srsbot.handlers import help as help_handler
+from srsbot.handlers import pack, packs, snooze, start, stats, today
+from srsbot.scheduler import daily_tick
 
 
 async def run_scheduler(bot: Bot) -> None:
@@ -25,19 +25,6 @@ async def run_scheduler(bot: Bot) -> None:
 
 # Local router for simple, app-wide commands
 router = Router()
-
-
-# @router.message(Command("help"))
-# async def cmd_help(message: Message) -> None:
-#     await message.answer(
-#         "Available commands:\n"
-#         "/start — Intro and opt-in. Creates default config.\n"
-#         "/today — Start or continue today’s session with Again/Good buttons.\n"
-#         "/config — Configure daily_new_target (4–12), review_limit_per_day (20–60), push_time (HH:MM), pack_tags (comma-separated), intra_spacing_k.\n"
-#         "/pack <tag> — Switch pack/tag filter for new cards (e.g., work, travel, daily).\n"
-#         "/stats — Shows streak, new learned today, reviews done, accuracy (today/week), hardest tag.\n"
-#         "/snooze — Snooze today’s notification by N hours (default 3h)."
-#     )
 
 
 async def main() -> None:

@@ -6,7 +6,7 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from ..db import get_db
+from srsbot.db import get_db
 
 
 router = Router()

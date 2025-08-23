@@ -13,3 +13,13 @@ def answer_kb(card_id: int) -> InlineKeyboardMarkup:
         ]
     )
 
+
+def round_end_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton(text="🔁 Repeat round", callback_data="round:repeat"),
+                InlineKeyboardButton(text="✅ Finish session", callback_data="round:finish"),
+            ]
+        ]
+    )

@@ -23,6 +23,9 @@ def select_new_cards(
     - Do not introduce multiple senses of the same phrasal on the same day.
     - Do not duplicate sense_uid.
     """
+    if limit == 0:
+        return []
+
     tagset = {t.strip().lower() for t in pack_tags if t.strip()}
     seen_phrasal: set[str] = set()
     seen_sense: set[str] = set()
@@ -41,4 +44,3 @@ def select_new_cards(
         if len(picked) >= limit:
             break
     return picked
-

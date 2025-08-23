@@ -6,8 +6,8 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 from typing import Optional
 
-from .config import BOX_INTERVALS, JITTER_PCT
-from .models import Answer, Progress
+from srsbot.config import BOX_INTERVALS, JITTER_PCT
+from srsbot.models import Answer, Progress
 
 
 def next_due_for_box(box: int, base_date: date) -> date:
@@ -45,7 +45,7 @@ def on_answer(progress: Progress, answer: Answer, today: date, k: int = 3) -> An
     if p.state == "learning":
         if answer == "again":
             p.learning_good_count = 0
-            return AnswerResult(p, requeue_after=k)
+            return AnswerResult(p, requeue_after=None)
         else:
             p.learning_good_count += 1
             if p.learning_good_count >= 2:
@@ -64,7 +64,7 @@ def on_answer(progress: Progress, answer: Answer, today: date, k: int = 3) -> An
         p.lapses += 1
         p.box = 0
         p.due_at = None
-        return AnswerResult(p, requeue_after=k)
+        return AnswerResult(p, requeue_after=None)
     else:
         p.box = min(p.box + 1, 7)
         p.due_at = next_due_for_box(p.box, today)

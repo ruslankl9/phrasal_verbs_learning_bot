@@ -4,7 +4,7 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from ..db import ensure_user_config
+from srsbot.db import ensure_user_config
 
 
 router = Router()

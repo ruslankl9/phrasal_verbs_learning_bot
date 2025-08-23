@@ -5,8 +5,8 @@ from typing import Optional
 
 from aiogram import Bot
 
-from .config import parse_push_time
-from .db import get_db, update_last_notified
+from srsbot.config import parse_push_time
+from srsbot.db import get_db, update_last_notified
 
 
 async def compute_counts(user_id: int) -> tuple[int, int]:

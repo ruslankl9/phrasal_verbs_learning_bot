@@ -6,12 +6,19 @@ from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import CallbackQuery, Message
 
-from ..db import get_db, init_db
-from ..formatters import render_card
-from ..keyboards import answer_kb
-from ..models import Progress
-from ..session import store
-from ..srs import AnswerResult, on_answer
+from srsbot.db import (
+    get_db,
+    init_db,
+    init_or_get_day_state,
+    increment_day_counters,
+    update_day_state,
+)
+from srsbot.formatters import format_round_complete, format_session_finished, render_card
+from srsbot.keyboards import answer_kb, round_end_keyboard
+from srsbot.models import Progress
+from srsbot.session import store
+from srsbot.srs import AnswerResult, on_answer
+from srsbot.queue import build_round_queue, compute_daily_candidates
 
 
 router = Router()
@@ -22,87 +29,39 @@ async def cmd_today(message: Message) -> None:
     assert message.from_user
     user_id = message.from_user.id
     s = await store.get(user_id)
+    await init_db()
+    today = datetime.now(timezone.utc).date()
+    ds = await init_or_get_day_state(user_id, today.isoformat())
+    # Load config
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
+            (user_id,),
+        )
+        row = await cur.fetchone()
+    daily_new_target = int(row[0]) if row else 8
+    review_limit = int(row[1]) if row else 35
+    pack_tags = (row[2] if row else "daily").split(",")
+
+    # If no active queue, build a round snapshot based on remaining capacities
     if not s.queue:
-        # Build a simple queue from DB: learning due, reviews due today, then some new
-        await init_db()
-        async with get_db() as db:
-            # learning due
-            cur = await db.execute(
-                "SELECT card_id FROM progress WHERE user_id=? AND state='learning'",
-                (user_id,),
-            )
-            learning = [r[0] for r in await cur.fetchall()]
-
-            # reviews due (<= today)
-            cur = await db.execute(
-                "SELECT card_id FROM progress WHERE user_id=? AND state='review' AND due_at<=date('now') ORDER BY due_at ASC",
-                (user_id,),
-            )
-            reviews = [r[0] for r in await cur.fetchall()]
-
-            # config
-            cur = await db.execute(
-                "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
-                (user_id,),
-            )
-            row = await cur.fetchone()
-            daily_new_target = int(row[0]) if row else 8
-            review_limit = int(row[1]) if row else 35
-            pack_tags = (row[2] if row else "daily").split(",")
-
-            # limit reviews and add new cards from packs
-            reviews = reviews[:review_limit]
-            # new candidates: cards without progress for this user
-            cur = await db.execute(
-                """
-                SELECT c.id FROM cards c
-                LEFT JOIN progress p ON p.card_id=c.id AND p.user_id=?
-                WHERE p.card_id IS NULL
-                """,
-                (user_id,),
-            )
-            new_all = [r[0] for r in await cur.fetchall()]
-
-            # Filter by pack tags
-            filtered_new: list[int] = []
-            seen_phrasal: set[str] = set()
-            seen_sense: set[str] = set()
-            tagset = {t.strip().lower() for t in pack_tags if t.strip()}
-            if tagset:
-                for cid in new_all:
-                    cur = await db.execute(
-                        "SELECT tags, phrasal, sense_uid FROM cards WHERE id=?", (cid,)
-                    )
-                    row = await cur.fetchone()
-                    tags = (row[0] or "").lower().split(",")
-                    phrasal = str(row[1])
-                    sense_uid = str(row[2])
-                    if any(t in tagset for t in tags):
-                        if phrasal in seen_phrasal or sense_uid in seen_sense:
-                            continue
-                        seen_phrasal.add(phrasal)
-                        seen_sense.add(sense_uid)
-                        filtered_new.append(cid)
-            else:
-                # No tag filter, still avoid duplicates per phrasal/sense
-                for cid in new_all:
-                    cur = await db.execute(
-                        "SELECT phrasal, sense_uid FROM cards WHERE id=?", (cid,)
-                    )
-                    row = await cur.fetchone()
-                    phrasal = str(row[0])
-                    sense_uid = str(row[1])
-                    if phrasal in seen_phrasal or sense_uid in seen_sense:
-                        continue
-                    seen_phrasal.add(phrasal)
-                    seen_sense.add(sense_uid)
-                    filtered_new.append(cid)
-
-            new = filtered_new[:daily_new_target]
-            s.queue = learning + reviews + new
+        review_remaining = max(0, review_limit - int(ds["served_review_count"]))
+        new_remaining = max(0, daily_new_target - int(ds["shown_new_today"]))
+        s.queue = await build_round_queue(
+            user_id=user_id,
+            today=today,
+            pack_tags=pack_tags,
+            review_remaining=review_remaining,
+            new_remaining=new_remaining,
+        )
+        await update_day_state(
+            user_id,
+            today.isoformat(),
+            round_card_ids_json="[" + ",".join(str(i) for i in s.queue) + "]",
+        )
 
     if not s.queue:
-        await message.answer("You have nothing scheduled today. Enjoy your day!")
+        await message.answer("Nothing left for today 🎉")
         return
 
     next_id = s.queue.pop(0)
@@ -158,6 +117,44 @@ async def on_ans(cb: CallbackQuery) -> None:
 
         res: AnswerResult = on_answer(p, ans, today, k)
 
+        # Update per-day counters on first serve of review/new
+        # Track using seen sets stored in user_day_state JSON columns
+        cur3 = await db.execute(
+            "SELECT review_seen_ids_json, new_seen_ids_json FROM user_day_state WHERE user_id=? AND session_date=?",
+            (user_id, today.isoformat()),
+        )
+        st = await cur3.fetchone()
+        import json as _json
+        review_seen = set(_json.loads(st[0] or "[]")) if st else set()
+        new_seen = set(_json.loads(st[1] or "[]")) if st else set()
+        add_review = 0
+        add_new = 0
+        if state == "review" and card_id not in review_seen:
+            review_seen.add(card_id)
+            add_review = 1
+        if state == "learning" and int(box) == 0 and card_id not in new_seen:
+            new_seen.add(card_id)
+            add_new = 1
+        if add_review or add_new:
+            await db.execute(
+                """
+                UPDATE user_day_state
+                SET served_review_count = served_review_count + ?,
+                    shown_new_today = shown_new_today + ?,
+                    review_seen_ids_json = ?,
+                    new_seen_ids_json = ?
+                WHERE user_id=? AND session_date=?
+                """,
+                (
+                    add_review,
+                    add_new,
+                    _json.dumps(sorted(review_seen)),
+                    _json.dumps(sorted(new_seen)),
+                    user_id,
+                    today.isoformat(),
+                ),
+            )
+
         # Upsert progress
         await db.execute(
             """
@@ -201,8 +198,10 @@ async def on_ans(cb: CallbackQuery) -> None:
     s.shown += 1
     if ans == "good":
         s.good += 1
+        await increment_day_counters(user_id, today.isoformat(), good_delta=1)
         s.consecutive_good += 1
     else:
+        await increment_day_counters(user_id, today.isoformat(), again_delta=1)
         s.consecutive_good = 0
 
     # Requeue if needed
@@ -226,32 +225,60 @@ async def on_ans(cb: CallbackQuery) -> None:
             if row:
                 s.queue.append(int(row[0]))
 
+    print("queue:", s.queue)
     if not s.queue:
-        # Adjust daily_new_target by accuracy
-        accuracy = (s.good / s.shown) if s.shown > 0 else 0.0
+        # End of round: show completion UI with remaining counts
         async with get_db() as db:
             cur = await db.execute(
-                "SELECT daily_new_target FROM user_config WHERE user_id=?", (user_id,)
+                "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
+                (user_id,),
             )
             row = await cur.fetchone()
-            dnt = int(row[0]) if row else 8
-            if accuracy >= 0.8:
-                dnt = min(12, dnt + 2)
-            elif accuracy < 0.6:
-                dnt = max(4, dnt - 2)
-            await db.execute(
-                "UPDATE user_config SET daily_new_target=? WHERE user_id=?", (dnt, user_id)
+        daily_new_target = int(row[0]) if row else 8
+        review_limit = int(row[1]) if row else 35
+        pack_tags = (row[2] if row else "daily").split(",")
+        # Remaining capacities
+        async with get_db() as db:
+            cur = await db.execute(
+                "SELECT served_review_count, shown_new_today, good_today, again_today FROM user_day_state WHERE user_id=? AND session_date=?",
+                (user_id, today.isoformat()),
             )
-            await db.commit()
-        await cb.message.answer(
-            f"Session complete. Accuracy: {accuracy:.0%}. Daily new target is now {dnt}."
+            ds = await cur.fetchone()
+        served_reviews = int(ds[0]) if ds else 0
+        shown_new = int(ds[1]) if ds else 0
+        good_today = int(ds[2]) if ds else 0
+        again_today = int(ds[3]) if ds else 0
+        review_remaining = max(0, review_limit - served_reviews)
+        new_remaining = max(0, daily_new_target - shown_new)
+        # Candidates now
+        learning_due, reviews_due_all, new_candidates = await compute_daily_candidates(
+            user_id, today
         )
-        await store.clear(user_id)
+        # Apply remaining caps to compute remaining today
+        remaining_learning = len(learning_due)
+        remaining_reviews = min(len(reviews_due_all), review_remaining)
+        # Filter new by tags and cap
+        from srsbot.content import select_new_cards
+
+        new_picked = select_new_cards(new_candidates, pack_tags, new_remaining)
+        remaining_new = len(new_picked)
+
+        await cb.message.answer(
+            format_round_complete(
+                good_today,
+                again_today,
+                remaining_learning,
+                remaining_reviews,
+                remaining_new,
+            ),
+            reply_markup=round_end_keyboard(),
+        )
         await cb.answer()
         return
 
     # Show next card
     next_id = s.queue.pop(0)
+    print("next_id:", next_id)
     async with get_db() as db:
         cur = await db.execute(
             "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
@@ -262,4 +289,81 @@ async def on_ans(cb: CallbackQuery) -> None:
         await cb.message.edit_text(
             render_card(row[0], row[1], row[2]), reply_markup=answer_kb(next_id)
         )
+    await cb.answer()
+
+
+@router.callback_query(F.data == "round:repeat")
+async def on_round_repeat(cb: CallbackQuery) -> None:
+    assert cb.from_user
+    user_id = cb.from_user.id
+    today = datetime.now(timezone.utc).date()
+    # Load config and day state
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
+            (user_id,),
+        )
+        row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT served_review_count, shown_new_today FROM user_day_state WHERE user_id=? AND session_date=?",
+            (user_id, today.isoformat()),
+        )
+        ds = await cur2.fetchone()
+    daily_new_target = int(row[0]) if row else 8
+    review_limit = int(row[1]) if row else 35
+    pack_tags = (row[2] if row else "daily").split(",")
+    served_reviews = int(ds[0]) if ds else 0
+    shown_new = int(ds[1]) if ds else 0
+    review_remaining = max(0, review_limit - served_reviews)
+    new_remaining = max(0, daily_new_target - shown_new)
+
+    s = await store.get(user_id)
+    s.queue = await build_round_queue(user_id, today, pack_tags, review_remaining, new_remaining)
+    if not s.queue:
+        await cb.message.answer("Nothing left for today 🎉", reply_markup=round_end_keyboard())
+        await cb.answer()
+        return
+    # Increment round index
+    async with get_db() as db:
+        await db.execute(
+            "UPDATE user_day_state SET round_index=round_index+1, round_card_ids_json=? WHERE user_id=? AND session_date=?",
+            ("[" + ",".join(str(i) for i in s.queue) + "]", user_id, today.isoformat()),
+        )
+        await db.commit()
+    # Show first card of new round
+    next_id = s.queue.pop(0)
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            (next_id,),
+        )
+        row = await cur.fetchone()
+    if not row:
+        await cb.message.answer("Card not found.")
+    else:
+        await cb.message.answer(
+            render_card(row[0], row[1], row[2]), reply_markup=answer_kb(next_id)
+        )
+    await cb.answer()
+
+
+@router.callback_query(F.data == "round:finish")
+async def on_round_finish(cb: CallbackQuery) -> None:
+    assert cb.from_user
+    user_id = cb.from_user.id
+    today = datetime.now(timezone.utc).date()
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT good_today, again_today, shown_new_today, served_review_count FROM user_day_state WHERE user_id=? AND session_date=?",
+            (user_id, today.isoformat()),
+        )
+        ds = await cur.fetchone()
+    good_today = int(ds[0]) if ds else 0
+    again_today = int(ds[1]) if ds else 0
+    learned_today = int(ds[2]) if ds else 0
+    reviews_done = int(ds[3]) if ds else 0
+    await cb.message.answer(
+        format_session_finished(good_today, again_today, learned_today, reviews_done)
+    )
+    await store.clear(user_id)
     await cb.answer()

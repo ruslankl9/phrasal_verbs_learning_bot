@@ -4,7 +4,7 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from ..db import get_db
+from srsbot.db import get_db
 
 
 router = Router()
@@ -29,7 +29,7 @@ async def cmd_config(message: Message) -> None:
             v = max(4, min(12, int(updates["daily_new_target"])))
             updates["daily_new_target"] = v
         if "review_limit_per_day" in updates:
-            v = max(20, min(60, int(updates["review_limit_per_day"])))
+            v = max(10, min(60, int(updates["review_limit_per_day"])))
             updates["review_limit_per_day"] = v
         if "intra_spacing_k" in updates:
             v = max(1, min(8, int(updates["intra_spacing_k"])))

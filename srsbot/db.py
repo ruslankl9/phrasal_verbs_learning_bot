@@ -6,7 +6,7 @@ from typing import AsyncIterator
 
 import aiosqlite
 
-from .config import DB_PATH
+from srsbot.config import DB_PATH
 
 
 @contextlib.asynccontextmanager
@@ -77,6 +77,22 @@ async def init_db() -> None:
                 is_new INTEGER NOT NULL DEFAULT 0,
                 tags TEXT
             );
+
+            -- Per-day state for rounds and counters
+            CREATE TABLE IF NOT EXISTS user_day_state (
+                user_id INTEGER NOT NULL,
+                session_date TEXT NOT NULL,
+                round_index INTEGER NOT NULL DEFAULT 1,
+                served_review_count INTEGER NOT NULL DEFAULT 0,
+                shown_new_today INTEGER NOT NULL DEFAULT 0,
+                good_today INTEGER NOT NULL DEFAULT 0,
+                again_today INTEGER NOT NULL DEFAULT 0,
+                round_card_ids_json TEXT,
+                review_seen_ids_json TEXT,
+                new_seen_ids_json TEXT,
+                PRIMARY KEY (user_id, session_date)
+            );
+            CREATE INDEX IF NOT EXISTS ix_user_day_state_user_date ON user_day_state(user_id, session_date);
             """
         )
         await db.commit()
@@ -105,3 +121,75 @@ async def update_last_notified(user_id: int, d: date) -> None:
         )
         await db.commit()
 
+
+async def get_day_state(user_id: int, session_date: str) -> aiosqlite.Row | None:
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT * FROM user_day_state WHERE user_id=? AND session_date=?",
+            (user_id, session_date),
+        )
+        return await cur.fetchone()
+
+
+async def init_or_get_day_state(user_id: int, session_date: str) -> aiosqlite.Row:
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT * FROM user_day_state WHERE user_id=? AND session_date=?",
+            (user_id, session_date),
+        )
+        row = await cur.fetchone()
+        if row is None:
+            await db.execute(
+                """
+                INSERT INTO user_day_state(user_id, session_date, round_index, served_review_count, shown_new_today, good_today, again_today, round_card_ids_json, review_seen_ids_json, new_seen_ids_json)
+                VALUES(?, ?, 1, 0, 0, 0, 0, NULL, '[]', '[]')
+                """,
+                (user_id, session_date),
+            )
+            await db.commit()
+            cur = await db.execute(
+                "SELECT * FROM user_day_state WHERE user_id=? AND session_date=?",
+                (user_id, session_date),
+            )
+            row = await cur.fetchone()
+        return row  # type: ignore[return-value]
+
+
+async def update_day_state(
+    user_id: int,
+    session_date: str,
+    **fields: object,
+) -> None:
+    if not fields:
+        return
+    cols = ", ".join(f"{k}=?" for k in fields.keys())
+    vals = list(fields.values()) + [user_id, session_date]
+    async with get_db() as db:
+        await db.execute(
+            f"UPDATE user_day_state SET {cols} WHERE user_id=? AND session_date=?",
+            vals,
+        )
+        await db.commit()
+
+
+async def increment_day_counters(
+    user_id: int,
+    session_date: str,
+    good_delta: int = 0,
+    again_delta: int = 0,
+    review_served_delta: int = 0,
+    new_shown_delta: int = 0,
+) -> None:
+    async with get_db() as db:
+        await db.execute(
+            """
+            UPDATE user_day_state
+            SET good_today = good_today + ?,
+                again_today = again_today + ?,
+                served_review_count = served_review_count + ?,
+                shown_new_today = shown_new_today + ?
+            WHERE user_id=? AND session_date=?
+            """,
+            (good_delta, again_delta, review_served_delta, new_shown_delta, user_id, session_date),
+        )
+        await db.commit()
