@@ -93,6 +93,13 @@ async def init_db() -> None:
                 PRIMARY KEY (user_id, session_date)
             );
             CREATE INDEX IF NOT EXISTS ix_user_day_state_user_date ON user_day_state(user_id, session_date);
+
+            -- UI state for inline navigation and message cleanup
+            CREATE TABLE IF NOT EXISTS user_ui_state (
+                user_id INTEGER PRIMARY KEY,
+                last_ui_message_id INTEGER,
+                current_screen TEXT
+            );
             """
         )
         await db.commit()
@@ -118,6 +125,49 @@ async def update_last_notified(user_id: int, d: date) -> None:
     async with get_db() as db:
         await db.execute(
             "UPDATE user_state SET last_notified_date=? WHERE user_id=?", (d.isoformat(), user_id)
+        )
+        await db.commit()
+
+
+async def get_ui_state(user_id: int) -> aiosqlite.Row | None:
+    """Return UI state row for a user if exists."""
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT user_id, last_ui_message_id, current_screen FROM user_ui_state WHERE user_id=?",
+            (user_id,),
+        )
+        return await cur.fetchone()
+
+
+async def set_ui_state(
+    user_id: int,
+    last_ui_message_id: int | None = None,
+    current_screen: str | None = None,
+) -> None:
+    """Upsert UI state fields for the user."""
+    # Read existing
+    row = await get_ui_state(user_id)
+    new_msg_id = last_ui_message_id if last_ui_message_id is not None else (
+        int(row["last_ui_message_id"]) if row and row["last_ui_message_id"] is not None else None
+    )
+    new_screen = current_screen if current_screen is not None else (
+        str(row["current_screen"]) if row and row["current_screen"] is not None else None
+    )
+    async with get_db() as db:
+        await db.execute(
+            "INSERT INTO user_ui_state(user_id, last_ui_message_id, current_screen) VALUES(?,?,?) "
+            "ON CONFLICT(user_id) DO UPDATE SET last_ui_message_id=excluded.last_ui_message_id, current_screen=excluded.current_screen",
+            (user_id, new_msg_id, new_screen),
+        )
+        await db.commit()
+
+
+async def clear_ui_message(user_id: int) -> None:
+    """Clear stored UI message id for the user (screen unchanged)."""
+    async with get_db() as db:
+        await db.execute(
+            "UPDATE user_ui_state SET last_ui_message_id=NULL WHERE user_id=?",
+            (user_id,),
         )
         await db.commit()
 

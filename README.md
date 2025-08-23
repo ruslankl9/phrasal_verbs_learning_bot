@@ -15,11 +15,11 @@ A minimal, production-ready Telegram bot to learn English phrasal verbs using a 
 ## Commands
 
 - `/start` — Intro and opt-in. Creates default config.
+- `/menu` — Open the inline Main Menu (Today, Config, Packs, Stats, Snooze).
 - `/today` — Start or continue today’s session with Again/Good buttons.
 - `/config` — Configure `daily_new_target` (4–12), `review_limit_per_day` (20–60), `push_time` (HH:MM), `pack_tags` (comma-separated), `intra_spacing_k`.
-- `/pack <tag>` — Switch pack/tag filter for new cards (e.g., work, travel, daily).
-- `/stats` — Shows streak, new learned today, reviews done, accuracy (today/week), hardest tag.
-- `/snooze` — Snooze today’s notification by N hours (default 3h).
+- `/stats` — Shows streak, new learned today, reviews done, accuracy (today/week).
+- `/snooze` — Snooze today’s notification by N hours (default 3h) or open snooze screen.
 
 ## Setup
 
@@ -96,7 +96,17 @@ docker compose up --build
 
 The bot reads `.env` for the token and config.
 
+## Menu Navigation
+
+- Open the menu with `/menu` or `/help`.
+- The bot keeps a single active UI message; navigating between screens edits that message (or replaces it) to keep chat history clean.
+- Screens:
+  - `▶️ Today`: study cards with Again/Good and a persistent `🏁 Finish session` button. When finished, you see a short summary and return to the menu.
+  - `⚙️ Config`: view current config; you can still update via `/config key=value` and the screen updates in place.
+  - `🧩 Packs`: toggle packs via checkbox buttons; changes apply immediately and the list updates in place. Use `◀️ Back` to return.
+  - `📊 Stats`: view today/week stats with Back.
+  - `😴 Snooze`: quick +1h/+3h/+6h options with Back.
+
 ## License
 
 MIT
-

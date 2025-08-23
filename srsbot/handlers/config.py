@@ -1,10 +1,12 @@
 from __future__ import annotations
 
-from aiogram import Router
+from aiogram import F, Router
 from aiogram.filters import Command
-from aiogram.types import Message
+from aiogram.types import CallbackQuery, Message
 
 from srsbot.db import get_db
+from srsbot.keyboards import kb_back_to_menu
+from srsbot.ui import SCREEN_CONFIG, show_screen
 
 
 router = Router()
@@ -42,7 +44,15 @@ async def cmd_config(message: Message) -> None:
                 (*updates.values(), user_id),
             )
             await db.commit()
-        await message.answer("Config updated.")
+        # Re-render config in place
+        text_out = await _render_config(user_id)
+        await show_screen(
+            bot=message.bot,
+            user_id=user_id,
+            text=text_out,
+            reply_markup=kb_back_to_menu(),
+            screen_id=SCREEN_CONFIG,
+        )
         return
 
     # Show current config
@@ -54,15 +64,53 @@ async def cmd_config(message: Message) -> None:
         )
         row = await cur.fetchone()
     if not row:
-        await message.answer("No config found. Use /start first.")
+        await show_screen(
+            bot=message.bot,
+            user_id=user_id,
+            text="No config found. Use /start first.",
+            reply_markup=kb_back_to_menu(),
+            screen_id=SCREEN_CONFIG,
+        )
         return
-    await message.answer(
-        "Your config:\n"
+    await show_screen(
+        bot=message.bot,
+        user_id=user_id,
+        text=await _render_config(user_id),
+        reply_markup=kb_back_to_menu(),
+        screen_id=SCREEN_CONFIG,
+    )
+
+
+async def _render_config(user_id: int) -> str:
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT daily_new_target, review_limit_per_day, push_time, pack_tags, intra_spacing_k"
+            " FROM user_config WHERE user_id=?",
+            (user_id,),
+        )
+        row = await cur.fetchone()
+    if not row:
+        return "<b>Config</b>\nNo config found. Use /start first."
+    return (
+        "<b>Config</b>\n"
         f"daily_new_target: {row[0]}\n"
         f"review_limit_per_day: {row[1]}\n"
         f"push_time: {row[2]}\n"
         f"pack_tags: {row[3]}\n"
-        f"intra_spacing_k: {row[4]}\n"
-        "\nUpdate with: /config key=value ..."
+        f"intra_spacing_k: {row[4]}\n\n"
+        "Update with: /config key=value ..."
     )
 
+
+@router.callback_query(F.data == "ui:config")
+async def on_config_open(cb: CallbackQuery) -> None:
+    assert cb.from_user
+    user_id = cb.from_user.id
+    await show_screen(
+        bot=cb.message.bot,  # type: ignore[union-attr]
+        user_id=user_id,
+        text=await _render_config(user_id),
+        reply_markup=kb_back_to_menu(),
+        screen_id=SCREEN_CONFIG,
+    )
+    await cb.answer()

@@ -17,6 +17,5 @@ async def cmd_start(message: Message) -> None:
     await ensure_user_config(user_id)
     await message.answer(
         "Welcome! This bot helps you learn English phrasal verbs with a daily SRS session.\n"
-        "Use /today to begin today’s session. Configure with /config."
+        "Open the menu with /menu to start Today, configure options, and more."
     )
-

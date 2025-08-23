@@ -14,11 +14,12 @@ from srsbot.db import (
     update_day_state,
 )
 from srsbot.formatters import format_round_complete, format_session_finished, render_card
-from srsbot.keyboards import answer_kb, round_end_keyboard
+from srsbot.keyboards import round_end_keyboard, today_card_kb, kb_main_menu
 from srsbot.models import Progress
 from srsbot.session import store
 from srsbot.srs import AnswerResult, on_answer
 from srsbot.queue import build_round_queue, compute_daily_candidates
+from srsbot.ui import SCREEN_TODAY, SCREEN_MENU, show_screen
 
 
 router = Router()
@@ -61,7 +62,13 @@ async def cmd_today(message: Message) -> None:
         )
 
     if not s.queue:
-        await message.answer("Nothing left for today 🎉")
+        await show_screen(
+            bot=message.bot,
+            user_id=user_id,
+            text="Nothing left for today 🎉",
+            reply_markup=round_end_keyboard(),
+            screen_id=SCREEN_TODAY,
+        )
         return
 
     next_id = s.queue.pop(0)
@@ -72,9 +79,95 @@ async def cmd_today(message: Message) -> None:
         )
         row = await cur.fetchone()
     if not row:
-        await message.answer("Card not found.")
+        await show_screen(
+            bot=message.bot,
+            user_id=user_id,
+            text="Card not found.",
+            reply_markup=kb_main_menu(),
+            screen_id=SCREEN_MENU,
+        )
         return
-    await message.answer(render_card(row[0], row[1], row[2]), reply_markup=answer_kb(next_id))
+    await show_screen(
+        bot=message.bot,
+        user_id=user_id,
+        text=render_card(row[0], row[1], row[2]),
+        reply_markup=today_card_kb(next_id),
+        screen_id=SCREEN_TODAY,
+    )
+
+
+@router.callback_query(F.data == "ui:today")
+async def on_today_from_menu(cb: CallbackQuery) -> None:
+    # Open or continue today flow from the Main Menu
+    assert cb.from_user
+    user_id = cb.from_user.id
+    s = await store.get(user_id)
+    await init_db()
+    today = datetime.now(timezone.utc).date()
+    ds = await init_or_get_day_state(user_id, today.isoformat())
+    # Load config
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
+            (user_id,),
+        )
+        row = await cur.fetchone()
+    daily_new_target = int(row[0]) if row else 8
+    review_limit = int(row[1]) if row else 35
+    pack_tags = (row[2] if row else "daily").split(",")
+
+    if not s.queue:
+        review_remaining = max(0, review_limit - int(ds["served_review_count"]))
+        new_remaining = max(0, daily_new_target - int(ds["shown_new_today"]))
+        s.queue = await build_round_queue(
+            user_id=user_id,
+            today=today,
+            pack_tags=pack_tags,
+            review_remaining=review_remaining,
+            new_remaining=new_remaining,
+        )
+        await update_day_state(
+            user_id,
+            today.isoformat(),
+            round_card_ids_json="[" + ",".join(str(i) for i in s.queue) + "]",
+        )
+
+    if not s.queue:
+        await show_screen(
+            bot=cb.message.bot,  # type: ignore[union-attr]
+            user_id=user_id,
+            text="Nothing left for today 🎉",
+            reply_markup=round_end_keyboard(),
+            screen_id=SCREEN_TODAY,
+        )
+        await cb.answer()
+        return
+
+    next_id = s.queue.pop(0)
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            (next_id,),
+        )
+        row = await cur.fetchone()
+    if not row:
+        await show_screen(
+            bot=cb.message.bot,  # type: ignore[union-attr]
+            user_id=user_id,
+            text="Card not found.",
+            reply_markup=kb_main_menu(),
+            screen_id=SCREEN_MENU,
+        )
+        await cb.answer()
+        return
+    await show_screen(
+        bot=cb.message.bot,  # type: ignore[union-attr]
+        user_id=user_id,
+        text=render_card(row[0], row[1], row[2]),
+        reply_markup=today_card_kb(next_id),
+        screen_id=SCREEN_TODAY,
+    )
+    await cb.answer()
 
 
 @router.callback_query(F.data.startswith("ans:"))
@@ -227,13 +320,7 @@ async def on_ans(cb: CallbackQuery) -> None:
 
     print("queue:", s.queue)
     if not s.queue:
-        # End of round: show completion UI with remaining counts
-        # Clean up the previous card message to keep history tidy
-        try:
-            await cb.message.delete()
-        except Exception:
-            # Ignore deletion errors (e.g., already deleted)
-            pass
+        # End of round: show completion UI with remaining counts in place
         async with get_db() as db:
             cur = await db.execute(
                 "SELECT daily_new_target, review_limit_per_day, pack_tags FROM user_config WHERE user_id=?",
@@ -269,7 +356,8 @@ async def on_ans(cb: CallbackQuery) -> None:
         new_picked = select_new_cards(new_candidates, pack_tags, new_remaining)
         remaining_new = len(new_picked)
 
-        await cb.message.answer(
+        # Show round complete in the same message
+        await cb.message.edit_text(
             format_round_complete(
                 good_today,
                 again_today,
@@ -293,7 +381,7 @@ async def on_ans(cb: CallbackQuery) -> None:
         row = await cur.fetchone()
     if row:
         await cb.message.edit_text(
-            render_card(row[0], row[1], row[2]), reply_markup=answer_kb(next_id)
+            render_card(row[0], row[1], row[2]), reply_markup=today_card_kb(next_id)
         )
     await cb.answer()
 
@@ -303,11 +391,6 @@ async def on_round_repeat(cb: CallbackQuery) -> None:
     assert cb.from_user
     user_id = cb.from_user.id
     today = datetime.now(timezone.utc).date()
-    # Remove the "round complete" message before starting a new round
-    try:
-        await cb.message.delete()
-    except Exception:
-        pass
     # Load config and day state
     async with get_db() as db:
         cur = await db.execute(
@@ -331,7 +414,9 @@ async def on_round_repeat(cb: CallbackQuery) -> None:
     s = await store.get(user_id)
     s.queue = await build_round_queue(user_id, today, pack_tags, review_remaining, new_remaining)
     if not s.queue:
-        await cb.message.answer("Nothing left for today 🎉", reply_markup=round_end_keyboard())
+        await cb.message.edit_text(
+            "Nothing left for today 🎉", reply_markup=round_end_keyboard()
+        )
         await cb.answer()
         return
     # Increment round index
@@ -350,24 +435,19 @@ async def on_round_repeat(cb: CallbackQuery) -> None:
         )
         row = await cur.fetchone()
     if not row:
-        await cb.message.answer("Card not found.")
+        await cb.message.edit_text("Card not found.")
     else:
-        await cb.message.answer(
-            render_card(row[0], row[1], row[2]), reply_markup=answer_kb(next_id)
+        await cb.message.edit_text(
+            render_card(row[0], row[1], row[2]), reply_markup=today_card_kb(next_id)
         )
     await cb.answer()
 
 
-@router.callback_query(F.data == "round:finish")
+@router.callback_query(F.data.in_({"round:finish", "ui:today.finish"}))
 async def on_round_finish(cb: CallbackQuery) -> None:
     assert cb.from_user
     user_id = cb.from_user.id
     today = datetime.now(timezone.utc).date()
-    # Remove the "round complete" message before showing the summary
-    try:
-        await cb.message.delete()
-    except Exception:
-        pass
     async with get_db() as db:
         cur = await db.execute(
             "SELECT good_today, again_today, shown_new_today, served_review_count FROM user_day_state WHERE user_id=? AND session_date=?",
@@ -378,8 +458,16 @@ async def on_round_finish(cb: CallbackQuery) -> None:
     again_today = int(ds[1]) if ds else 0
     learned_today = int(ds[2]) if ds else 0
     reviews_done = int(ds[3]) if ds else 0
-    await cb.message.answer(
-        format_session_finished(good_today, again_today, learned_today, reviews_done)
+    summary = format_session_finished(
+        good_today, again_today, learned_today, reviews_done
+    )
+    # Show menu after finishing
+    await show_screen(
+        bot=cb.message.bot,  # type: ignore[union-attr]
+        user_id=user_id,
+        text=f"{summary}\n\n<b>Main Menu</b>",
+        reply_markup=kb_main_menu(),
+        screen_id=SCREEN_MENU,
     )
     await store.clear(user_id)
     await cb.answer()
