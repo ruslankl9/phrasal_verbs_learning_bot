@@ -1,0 +1,774 @@
+phrasal,meaning_en,examples,tags,sense_uid,separable,intransitive
+act on,to take action based on advice or info,"[""We acted on the feedback."",""The police acted on a tip.""]","[""work"",""daily""]",act_on__action,false,false
+act out,to perform or express,"[""The kids acted out a play."",""He acted out his frustration.""]","[""daily""]",act_out__perform,false,false
+act up,to behave badly or fail,"[""The server acted up again."",""The child acted up at school.""]","[""IT"",""daily""]",act_up__fail,false,false
+add up,to make sense,"[""Her story doesn’t add up."",""The numbers finally add up.""]","[""work"",""daily""]",add_up__makesense,false,true
+allow for,to consider or include,"[""The plan allows for delays."",""You must allow for differences.""]","[""work"",""projects""]",allow_for__consider,false,false
+answer back,to reply rudely,"[""The student answered back."",""He answered back at his boss.""]","[""work"",""daily""]",answer_back__rude,false,false
+ask around,to ask many people,"[""I asked around about the issue."",""She asked around for recommendations.""]","[""work"",""daily""]",ask_around__inquire,false,true
+ask out,to invite on a date,"[""He asked her out to dinner."",""She was asked out by a colleague.""]","[""daily""]",ask_out__invite,true,false
+back down,to withdraw a claim,"[""He backed down after the argument."",""They backed down under pressure.""]","[""work"",""daily""]",back_down__withdraw,false,false
+back off,to retreat,"[""The dog backed off."",""He backed off when challenged.""]","[""daily""]",back_off__retreat,false,false
+back out,to withdraw from something,"[""He backed out of the deal."", ""We backed out of the deployment.""]","[""IT"", ""work""]",back_out__withdraw,false,false
+back out of,to withdraw,"[""He backed out of the deal."",""She backed out of the contract.""]","[""work"",""projects""]",back_out_of__withdraw,false,false
+back up,to make a copy for security,"[""Don't forget to back up the database."", ""We backed up all the files.""]","[""IT"", ""work""]",back_up__copy,true,false
+bail out,to help in difficulty,"[""The bank was bailed out."",""He bailed out his friend.""]","[""work"",""finance""]",bail_out__help,false,false
+bear down on,to press hard,"[""She bore down on her studies."",""The law bore down on crime.""]","[""work"",""daily""]",bear_down_on__press,false,false
+bear out,to confirm,"[""The data bore out his theory."",""Evidence bore out the claim.""]","[""work"",""projects""]",bear_out__confirm,true,false
+bear with,to be patient,"[""Please bear with me for a moment."",""She bore with the delay.""]","[""work"",""daily""]",bear_with__patience,false,false
+blow out,to extinguish,"[""He blew out the candles."",""The tire blew out suddenly.""]","[""daily""]",blow_out__extinguish,true,false
+blow over,to pass without serious effect,"[""The scandal blew over quickly."",""The storm blew over.""]","[""work"",""daily""]",blow_over__pass,false,false
+blow up,to explode or become angry,"[""The bomb blew up."",""He blew up at the mistake.""]","[""work"",""daily""]",blow_up__explode,false,false
+blow up at,to lose temper,"[""He blew up at his colleague."",""She blew up at the mistake.""]","[""work"",""daily""]",blow_up_at__anger,false,false
+boil down to,to be the main point,"[""It boils down to lack of time."",""The issue boils down to money.""]","[""work"",""projects""]",boil_down_to__main,false,false
+boot up,to start a computer,"[""Boot up the system."",""The PC booted up slowly.""]","[""IT""]",boot_up__start,false,false
+branch out,to expand,"[""The company branched out into AI."",""She branched out into new hobbies.""]","[""work"",""career""]",branch_out__expand,false,false
+break down,to fail or analyze,"[""The car broke down."", ""We broke down the problem into steps.""]","[""IT"", ""daily""]",break_down__fail,false,false
+break down into,to divide,"[""We broke down the task into steps."",""The report breaks down into sections.""]","[""work"",""projects""]",break_down_into__divide,false,false
+break in,to interrupt or train,"[""He broke in during the call."",""They broke in new employees.""]","[""work"",""meetings""]",break_in__interrupt_train,false,false
+break in on,to interrupt,"[""He broke in on the meeting."",""She broke in on the call.""]","[""work"",""meetings""]",break_in_on__interrupt,false,false
+break into,to enter by force or start suddenly,"[""Hackers broke into the system."",""He broke into the conversation.""]","[""IT"",""meetings""]",break_into__enter,false,false
+break off,to end abruptly,"[""They broke off negotiations."",""He broke off the meeting.""]","[""work"",""meetings""]",break_off__end,true,false
+break off from,to separate,"[""He broke off from the group."",""The company broke off from the merger.""]","[""work"",""projects""]",break_off_from__separate,false,false
+break out,to start suddenly,"[""A fire broke out."",""War broke out in the region.""]","[""daily""]",break_out__start,false,false
+break out of,to escape,"[""He broke out of prison."",""She broke out of the habit.""]","[""daily""]",break_out_of__escape,false,false
+break through,to overcome,"[""We broke through the barrier."",""She broke through with a new idea.""]","[""work"",""projects""]",break_through__overcome,false,false
+break up,to separate or end,"[""The meeting broke up late."",""They broke up last year.""]","[""work"",""daily""]",break_up__end,false,false
+break up with,to end relationship,"[""She broke up with her boyfriend."",""He broke up with her last year.""]","[""daily""]",break_up_with__end,false,false
+bring about,to cause,"[""The new update brought about big changes."",""His actions brought about improvements.""]","[""work"",""projects""]",bring_about__cause,true,false
+bring along,to take someone or something,"[""Bring along your laptop."",""He brought along a colleague.""]","[""work"",""daily""]",bring_along__take,true,false
+bring back,to reintroduce,"[""They brought back an old feature."",""The song brought back memories.""]","[""work"",""daily""]",bring_back__reintroduce,true,false
+bring back,to return,"[""The update brought back old bugs."",""She brought back souvenirs.""]","[""work"",""daily""]",bring_back__return,true,false
+bring down,to cause to fail or stop working,"[""The bug brought down the system."", ""Heavy traffic brought down the site.""]","[""IT""]",bring_down__fail,true,false
+bring down,to reduce or make something fail,"[""The update brought down costs."",""The bug brought down the server.""]","[""IT"",""projects""]",bring_down__reduce,true,false
+bring forward,to move to an earlier date,"[""They brought forward the release."", ""The meeting was brought forward.""]","[""work"", ""projects""]",bring_forward__earlier,true,false
+bring in,to involve or earn,"[""They brought in a consultant."",""The product brought in revenue.""]","[""work"",""projects""]",bring_in__involve_earn,true,false
+bring in line,to align or standardize,"[""We need to bring our processes in line."",""The project was brought in line with requirements.""]","[""work"",""projects""]",bring_in_line__align,false,false
+bring on,to cause,"[""Stress can bring on illness."",""The new law brought on protests.""]","[""work"",""daily""]",bring_on__cause,true,false
+bring out,to publish or highlight,"[""They brought out a new release."",""The meeting brought out hidden problems.""]","[""work"",""projects""]",bring_out__publish,true,false
+bring over,to take to someone,"[""Bring over the files."",""She brought her friend over.""]","[""work"",""daily""]",bring_over__take,true,false
+bring together,to unite,"[""The event brought together experts worldwide."",""The project brought together many teams.""]","[""work"",""projects""]",bring_together__unite,true,false
+bring up,to mention a topic for discussion,"[""She brought up the issue at the meeting."", ""Let's not bring this up now.""]","[""work"", ""daily"", ""meetings""]",bring_up__mention,true,false
+brush up on,to improve knowledge,"[""She brushed up on SQL."",""He brushed up on his English.""]","[""work"",""career""]",brush_up_on__improve,false,false
+bump into,to meet unexpectedly,"[""I bumped into my boss."",""He bumped into an old friend.""]","[""daily""]",bump_into__meet,false,false
+bump up,to increase,"[""They bumped up salaries."",""He bumped up the priority.""]","[""work"",""projects""]",bump_up__increase,true,false
+burn out,to exhaust,"[""He burned out after months of work."",""She burned out from stress.""]","[""work"",""daily""]",burn_out__exhaust,false,false
+butt in,to interrupt,"[""He butted in during the call."",""She butted in with a comment.""]","[""meetings"",""daily""]",butt_in__interrupt,false,false
+butt in on,to intrude,"[""He butted in on our chat."",""She butted in on the call.""]","[""work"",""daily""]",butt_in_on__intrude,false,false
+call back,to return a call,"[""I’ll call you back later."",""She never called back.""]","[""work"",""daily""]",call_back__return,true,false
+call for,to require or demand,"[""This situation calls for urgent action."",""The recipe calls for sugar.""]","[""work"",""daily""]",call_for__require,false,false
+call in,to request presence or consult,"[""They called in a specialist."",""He was called in for questioning.""]","[""work"",""projects""]",call_in__request,false,false
+call off,to cancel,"[""They called off the meeting."",""The match was called off due to rain.""]","[""work"",""projects""]",call_off__cancel,true,false
+call on,to ask someone to do something,"[""The teacher called on a student."",""He called on me for help.""]","[""work"",""daily""]",call_on__ask,false,false
+call out,to shout or criticize,"[""He called out the bug."",""She called out the unfair policy.""]","[""work"",""meetings""]",call_out__criticize,true,false
+call up,to phone,"[""She called up her client."",""He called me up last night.""]","[""work"",""daily""]",call_up__phone,true,false
+calm down,to relax,"[""Calm down, it’s okay."",""He calmed down after the error was fixed.""]","[""daily""]",calm_down__relax,false,false
+care for,to look after,"[""She cared for her child."",""He cared for his pet.""]","[""daily""]",care_for__lookafter,false,false
+carry off,to succeed,"[""She carried off the presentation."",""He carried off the prize.""]","[""work"",""projects""]",carry_off__succeed,true,false
+carry on,to continue,"[""Carry on with your work."",""She carried on talking.""]","[""work"",""daily""]",carry_on__continue,false,false
+carry on with,to continue,"[""Carry on with your tasks."",""He carried on with his project.""]","[""work"",""projects""]",carry_on_with__continue,false,false
+carry out,to perform or complete a task,"[""They carried out the plan successfully."", ""The system carries out a daily backup.""]","[""work"", ""IT""]",carry_out__perform,true,false
+carry over,to transfer,"[""The task carried over to the next sprint."",""Vacation days carried over.""]","[""work"",""projects""]",carry_over__transfer,false,false
+catch on,to become popular or understand,"[""The new app caught on quickly."",""He didn’t catch on at first.""]","[""work"",""daily""]",catch_on__popular,false,false
+catch up,to reach the same level,"[""I need to catch up on my emails."", ""She caught up with the team.""]","[""work"", ""daily""]",catch_up__reach,false,false
+catch up on,to do something missed,"[""I need to catch up on emails."",""She caught up on her studies.""]","[""work"",""daily""]",catch_up_on__missed,false,false
+check back,to return later,"[""Check back tomorrow for updates."",""I'll check back after lunch.""]","[""IT"",""work""]",check_back__return,false,false
+check in,to report or register,"[""We need to check in at the office."", ""Let's check in on the project status.""]","[""work"", ""meetings""]",check_in__report,false,false
+check in on,to monitor,"[""Check in on the servers."",""He checked in on his friend.""]","[""IT"",""daily""]",check_in_on__monitor,false,false
+check into,to investigate,"[""We're checking into the issue."",""They checked into the bug report.""]","[""IT"",""projects""]",check_into__investigate,false,false
+check on,check monitor,"[""I need to check on the project."",""Could you check on the kids?""]","[""work"",""daily""]",check_on__check_monitor,false,false
+check out of,to leave or settle,"[""He checked out of the hotel."",""They checked out of the system.""]","[""daily"",""IT""]",check_out_of__leave,false,false
+check up on,to verify,"[""She checked up on the interns."",""He checked up on the servers.""]","[""work"",""IT""]",check_up_on__verify,false,false
+chill out,to relax,"[""We chilled out at home."", ""Chill out, everything is fine.""]","[""daily"", ""smalltalk""]",chill_out__relax,false,false
+chime in,to interrupt with a comment,"[""She chimed in with a good suggestion."", ""Can I chime in here?""]","[""work"", ""meetings""]",chime_in__interrupt,false,false
+chip away at,to gradually reduce,"[""They chipped away at the debt."",""He chipped away at the backlog.""]","[""work"",""projects""]",chip_away_at__reduce,false,false
+chip in,to contribute,"[""We all chipped in for a gift."",""She chipped in with her ideas.""]","[""work"",""meetings""]",chip_in__contribute,false,false
+clam up,to become silent,"[""He clammed up when asked."",""She clammed up during the meeting.""]","[""work"",""daily""]",clam_up__silent,false,false
+clean out,to empty,"[""They cleaned out the storage."",""He cleaned out his desk.""]","[""work"",""daily""]",clean_out__empty,true,false
+clean up,to remove unnecessary things,"[""Clean up old files."", ""We cleaned up the codebase.""]","[""IT""]",clean_up__remove,true,false
+clean up after,to tidy for someone,"[""She cleaned up after her kids."",""He cleaned up after the party.""]","[""daily""]",clean_up_after__tidy,false,false
+clear up,to resolve or clarify,"[""We need to clear up this misunderstanding."", ""The sky cleared up after the storm.""]","[""work"", ""daily""]",clear_up__resolve,true,false
+clog up,to block,"[""The pipes clogged up."",""Too many requests clogged up the server.""]","[""IT"",""daily""]",clog_up__block,true,false
+close down,to stop permanently,"[""The shop closed down."",""They closed down the old system.""]","[""work"",""IT""]",close_down__stop,true,false
+close in on,to approach,"[""The deadline is closing in on us."",""The police closed in on the suspect.""]","[""work"",""projects""]",close_in_on__approach,false,false
+come across,to encounter or appear,"[""I came across an error in the logs."", ""He came across as confident.""]","[""work"", ""daily""]",come_across__encounter,false,false
+come across as,to appear,"[""He comes across as confident."",""She came across as shy.""]","[""work"",""daily""]",come_across_as__appear,false,false
+come along,to accompany,"[""He came along with us."", ""She came along to the event.""]","[""daily"", ""smalltalk""]",come_along__accompany,false,false
+come along,to progress or join,"[""The project is coming along."",""She came along with us.""]","[""work"",""daily""]",come_along__progress,false,false
+come along with,to accompany,"[""She came along with us."",""He came along with a friend.""]","[""daily""]",come_along_with__accompany,false,false
+come around,to change opinion,"[""She came around after discussion."",""He came around eventually.""]","[""work"",""daily""]",come_around__change,false,false
+come back to,to return,"[""Let’s come back to this later."",""It all comes back to trust.""]","[""work"",""meetings""]",come_back_to__return,false,false
+come back up,to be restored or available again,"[""The service came back up after an hour."", ""The system came back up quickly.""]","[""IT""]",come_back_up__restore,false,false
+come by,to obtain,"[""Good datasets are hard to come by."",""He came by some old hardware.""]","[""work"",""IT""]",come_by__obtain,false,false
+come down to,to be explained by,"[""It all comes down to cost."",""The decision came down to timing.""]","[""work"",""projects""]",come_down_to__explain,false,false
+come down with,to become ill,"[""He came down with a cold."",""She came down with flu.""]","[""daily""]",come_down_with__ill,false,false
+come forward,to volunteer,"[""She came forward with evidence."",""He came forward to help.""]","[""work"",""daily""]",come_forward__volunteer,false,false
+come in handy,to be useful,"[""This script will come in handy."",""His advice came in handy.""]","[""work"",""IT""]",come_in_handy__useful,false,false
+come off,to succeed,"[""The project came off well."",""His plan didn’t come off.""]","[""work"",""projects""]",come_off__succeed,false,false
+come out,to be released or revealed,"[""The new version came out today."",""The truth came out during review.""]","[""work"",""daily""]",come_out__release,false,false
+come out with,to say or publish,"[""He came out with a rude comment."",""They came out with a new version.""]","[""work"",""daily""]",come_out_with__publish,true,false
+come through with,to provide,"[""He came through with the money."",""They came through with support.""]","[""work"",""projects""]",come_through_with__provide,false,false
+come up,to arise,"[""The issue came up during testing."",""Something came up so I can’t join.""]","[""work"",""meetings""]",come_up__arise,false,false
+come up against,to face difficulties,"[""We came up against limitations."",""They came up against strong resistance.""]","[""work"",""projects""]",come_up_against__face,false,false
+come up with,to produce or create an idea,"[""He came up with a new approach."", ""She came up with a brilliant idea.""]","[""work"", ""IT"", ""meetings""]",come_up_with__create,false,false
+count on,to rely,"[""You can count on me."",""We count on stable servers.""]","[""work"",""daily""]",count_on__rely,false,false
+crack down on,to enforce strictly,"[""They cracked down on security."",""Police cracked down on crime.""]","[""IT"",""law""]",crack_down_on__enforce,false,false
+crack up,to laugh uncontrollably,"[""The joke cracked him up."",""She cracked up during the show.""]","[""daily""]",crack_up__laugh,false,false
+crop up,to appear unexpectedly,"[""Problems keep cropping up."",""An error cropped up in the logs.""]","[""IT"",""daily""]",crop_up__appear,false,false
+cut back,to reduce,"[""We cut back costs last year."",""They cut back on testing.""]","[""work"",""projects""]",cut_back__reduce,true,false
+cut back on,to reduce,"[""We cut back on expenses."",""He cut back on sugar.""]","[""work"",""daily""]",cut_back_on__reduce,false,false
+cut down,to reduce,"[""We need to cut down the expenses."",""Cut down on sugar.""]","[""work"",""daily""]",cut_down__reduce,true,false
+cut in,to interrupt,"[""She cut in during the discussion."",""The car cut in front of me.""]","[""meetings"",""daily""]",cut_in__interrupt,false,false
+cut off,to disconnect,"[""The call was cut off."",""He cut off the internet.""]","[""IT"",""daily""]",cut_off__disconnect,true,false
+cut off,to interrupt someone speaking,"[""He was cut off during the call."", ""Sorry to cut you off, but we need to move on.""]","[""work"", ""meetings""]",cut_off__interrupt,true,false
+cut off from,to isolate,"[""The town was cut off from power."",""He was cut off from the internet.""]","[""IT"",""daily""]",cut_off_from__isolate,false,false
+cut out,to remove or stop,"[""Cut out unnecessary code."", ""She cut out sugar from her diet.""]","[""work"", ""daily""]",cut_out__remove,true,false
+cut out for,to be suitable,"[""He is cut out for leadership."",""She is cut out for coding.""]","[""work"",""career""]",cut_out_for__suitable,false,false
+cut through,to go directly or make understood,"[""We cut through the park."",""The speaker cut through the jargon.""]","[""work"",""daily""]",cut_through__direct,false,false
+cut up,to slice or upset,"[""He cut up the vegetables."",""She was really cut up about the news.""]","[""daily""]",cut_up__slice,true,false
+deal out,to distribute,"[""He dealt out the tasks."",""She dealt out the cards.""]","[""work"",""daily""]",deal_out__distribute,true,false
+deal with,to handle or manage a situation,"[""We must deal with this bug immediately."", ""I don’t want to deal with it now.""]","[""work"", ""daily""]",deal_with__handle,false,false
+die away,to diminish gradually,"[""The sound died away."",""The applause died away slowly.""]","[""daily""]",die_away__fade,false,false
+die down,to become weaker,"[""The noise died down."",""The protest died down.""]","[""daily""]",die_down__weaken,false,false
+dig into,to investigate or eat eagerly,"[""He dug into the data logs."",""They dug into their meal.""]","[""work"",""IT""]",dig_into__investigate,false,false
+dig up,to discover or unearth,"[""The journalist dug up old files."",""He dug up information about the project.""]","[""work"",""daily""]",dig_up__discover,true,false
+divide up,to share,"[""They divided up the tasks."",""The land was divided up among heirs.""]","[""work"",""projects""]",divide_up__share,true,false
+do away with,to get rid of,"[""They did away with old rules."",""We should do away with bureaucracy.""]","[""work"",""projects""]",do_away_with__remove,false,false
+do up,to fasten or renovate,"[""Do up your jacket."",""They did up the office.""]","[""daily""]",do_up__fasten,true,false
+do without,to manage without,"[""We can do without extra servers."",""She had to do without coffee.""]","[""work"",""daily""]",do_without__manage,false,false
+drag on,to last too long,"[""The meeting dragged on for hours."",""The case dragged on for years.""]","[""work"",""daily""]",drag_on__last,false,false
+draw back,to retreat or hesitate,"[""He drew back from the risky plan."",""She drew back in fear.""]","[""work"",""daily""]",draw_back__retreat,false,false
+draw in,to attract or involve,"[""The talk drew in many listeners."",""The project drew in several experts.""]","[""work"",""projects""]",draw_in__attract,false,false
+draw on,to use,"[""He drew on his experience."",""She drew on her knowledge of Python.""]","[""work"",""career""]",draw_on__use,false,false
+draw out,to prolong,"[""He drew out the explanation."",""The meeting was drawn out.""]","[""work"",""projects""]",draw_out__prolong,true,false
+draw up,to prepare a document or plan,"[""They drew up a new contract."", ""Let's draw up a project plan.""]","[""work"", ""projects""]",draw_up__prepare,true,false
+draw up with,to stop beside,"[""The car drew up with a screech."",""A taxi drew up with us outside.""]","[""daily""]",draw_up_with__stop,false,false
+dream of,to imagine,"[""She dreamed of success."",""He dreamed of moving abroad.""]","[""daily""]",dream_of__imagine,false,false
+dream up,to invent,"[""He dreamed up a new solution."",""She dreamed up an idea for the app.""]","[""work"",""projects""]",dream_up__invent,true,false
+dress down,to scold or wear casual clothes,"[""He was dressed down by his boss."",""We dress down on Fridays.""]","[""work"",""daily""]",dress_down__scold,false,false
+dress up,to wear formal clothes,"[""He dressed up for the interview."",""She dressed up for the party.""]","[""daily""]",dress_up__formal,true,false
+drift apart,to become less close,"[""They drifted apart after graduation."",""Friends often drift apart.""]","[""daily""]",drift_apart__distance,false,false
+drift off,to fall asleep,"[""He drifted off in class."",""She drifted off on the sofa.""]","[""daily""]",drift_off__sleep,false,false
+drop by,to visit briefly,"[""She dropped by my office."", ""I dropped by the store.""]","[""daily"", ""smalltalk""]",drop_by__visit,false,false
+drop off,to deliver or decrease,"[""I’ll drop off the package."",""Attendance dropped off.""]","[""work"",""daily""]",drop_off__deliver,true,false
+drop off in,to decline,"[""Attendance dropped off in winter."",""Sales dropped off in summer.""]","[""work"",""projects""]",drop_off_in__decline,false,false
+drop off to sleep,to fall asleep,"[""He dropped off during the meeting."",""She dropped off on the bus.""]","[""daily""]",drop_off_to_sleep__sleep,false,false
+drop out,to quit,"[""He dropped out of the course."", ""She dropped out of the project.""]","[""work"", ""daily""]",drop_out__quit,false,false
+ease off,to reduce,"[""The rain eased off."",""Work pressure eased off after the deadline.""]","[""work"",""daily""]",ease_off__reduce,false,false
+eat out,to dine in a restaurant,"[""We ate out last night."",""They often eat out on weekends.""]","[""daily""]",eat_out__dine,false,false
+eat up,to consume eagerly,"[""The kids ate up the cake."",""The new feature ate up resources.""]","[""work"",""IT""]",eat_up__consume,true,false
+egg on,to encourage,"[""They egged him on to take risks."",""She egged her friend on.""]","[""daily""]",egg_on__encourage,true,false
+end up with,to finally have,"[""We ended up with too many tasks."",""She ended up with a headache.""]","[""work"",""daily""]",end_up_with__final,false,false
+explain away,to justify,"[""He explained away the mistake."",""She explained away the delay.""]","[""work"",""meetings""]",explain_away__justify,true,false
+face off,to confront,"[""The teams faced off in court."",""They faced off in the debate.""]","[""work"",""projects""]",face_off__confront,false,false
+face up to,to accept,"[""He faced up to his mistakes."",""She faced up to the challenge.""]","[""work"",""daily""]",face_up_to__accept,false,false
+fade away,to disappear,"[""The sound faded away."",""His influence faded away.""]","[""daily""]",fade_away__disappear,false,false
+fall apart,to break into pieces,"[""The old codebase fell apart."",""The chair fell apart.""]","[""IT"",""daily""]",fall_apart__break,false,false
+fall back,to retreat,"[""The troops fell back."",""He fell back in surprise.""]","[""daily""]",fall_back__retreat,false,false
+fall back on,to use as backup,"[""We can fall back on the old system."",""She fell back on her savings.""]","[""IT"",""daily""]",fall_back_on__backup,false,false
+fall behind,to be late with work,"[""He fell behind on his tasks."", ""We can't fall behind schedule.""]","[""work"", ""projects""]",fall_behind__late,false,false
+fall behind in,to lag,"[""She fell behind in her studies."",""They fell behind in payments.""]","[""work"",""projects""]",fall_behind_in__lag,false,false
+fall down,to collapse,"[""The wall fell down."",""He fell down the stairs.""]","[""daily""]",fall_down__collapse,false,false
+fall for,to be deceived or attracted,"[""He fell for the scam."",""She fell for his charm.""]","[""daily""]",fall_for__deceived,false,false
+fall into,to begin by chance,"[""He fell into the habit of late nights."",""She fell into conversation with a stranger.""]","[""daily""]",fall_into__begin,false,false
+fall on,to attack or eat eagerly,"[""The dog fell on the intruder."",""The children fell on the cake.""]","[""daily""]",fall_on__attack,false,false
+fall out,to argue,"[""They fell out over the budget."", ""He fell out with his friend.""]","[""daily"", ""smalltalk""]",fall_out__argue,false,false
+fall out with,to quarrel,"[""He fell out with his friend."",""They fell out with management.""]","[""work"",""daily""]",fall_out_with__quarrel,false,false
+fall over,to trip,"[""She fell over a chair."",""He fell over while running.""]","[""daily""]",fall_over__trip,false,false
+fall through,to fail,"[""The deal fell through."",""The plan fell through at the last moment.""]","[""work"",""projects""]",fall_through__fail,false,false
+farm out,to outsource,"[""They farmed out the testing."",""The work was farmed out to contractors.""]","[""work"",""IT""]",farm_out__outsource,true,false
+fend off,to defend against,"[""He fended off criticism."",""She fended off an attacker.""]","[""work"",""daily""]",fend_off__defend,true,false
+figure on,to expect,"[""We figure on finishing tomorrow."",""They figured on a quick solution.""]","[""work"",""projects""]",figure_on__expect,false,false
+figure out,to solve or understand,"[""He figured out the solution."",""She figured out the puzzle.""]","[""work"",""daily""]",figure_out__solve,false,false
+file away,to store,"[""He filed away the documents."",""She filed away her notes.""]","[""work"",""daily""]",file_away__store,true,false
+fill in,to complete a form / to substitute,"[""Please fill in this form."", ""She filled in for her colleague.""]","[""work"", ""daily""]",fill_in__complete,true,false
+fill in for,to substitute,"[""She filled in for her colleague."",""He filled in for the teacher.""]","[""work"",""daily""]",fill_in_for__substitute,false,false
+fill out,to complete a form,"[""Fill out the registration form."",""She filled out the questionnaire.""]","[""work"",""daily""]",fill_out__complete,true,false
+find out,to discover,"[""I found out the truth."",""She found out about the bug.""]","[""work"",""daily""]",find_out__discover,false,false
+finish off,to complete,"[""He finished off the report."",""She finished off the cake.""]","[""work"",""daily""]",finish_off__complete,true,false
+fix up,to repair or arrange,"[""They fixed up the old office."",""We fixed up a meeting.""]","[""work"",""daily""]",fix_up__repair,true,false
+fix up with,to arrange,"[""They fixed her up with a mentor."",""He fixed me up with a ticket.""]","[""work"",""daily""]",fix_up_with__arrange,true,false
+flare up,to suddenly begin,"[""Violence flared up."",""His asthma flared up.""]","[""daily""]",flare_up__sudden,false,false
+focus on,to concentrate,"[""Focus on your tasks."",""She focused on the main issue.""]","[""work"",""daily""]",focus_on__concentrate,false,false
+fold up,to collapse or close,"[""The chair folded up."",""The business folded up.""]","[""work"",""daily""]",fold_up__collapse,true,false
+follow through,to continue until completed,"[""He followed through with his promise."", ""They followed through on the plan.""]","[""work"", ""projects""]",follow_through__complete,false,false
+follow up,to continue or check afterwards,"[""I'll follow up on the ticket."",""She followed up with an email.""]","[""work"",""meetings""]",follow_up__continue,false,false
+follow up with,to continue or check,"[""He followed up with an email."",""She followed up with a call.""]","[""work"",""projects""]",follow_up_with__continue,false,false
+fool around,to waste time,"[""Stop fooling around at work."",""The kids fooled around outside.""]","[""work"",""daily""]",fool_around__waste,false,false
+freeze up,to stop working or speaking,"[""The computer froze up."",""He froze up during the speech.""]","[""IT"",""daily""]",freeze_up__stop,false,false
+freshen up,to wash or tidy,"[""I need to freshen up before dinner."",""She freshened up after the flight.""]","[""daily""]",freshen_up__tidy,false,false
+frown on,to disapprove,"[""The manager frowned on lateness."",""Society frowns on corruption.""]","[""work"",""daily""]",frown_on__disapprove,false,false
+frown upon,to disapprove,"[""The manager frowned upon delays."",""Society frowns upon corruption.""]","[""work"",""daily""]",frown_upon__disapprove,false,false
+fuel up,to refuel,"[""We fueled up the car."",""He fueled up before the trip.""]","[""daily""]",fuel_up__refuel,true,false
+gear up,to prepare,"[""The team is gearing up for release."",""She geared up for the exam.""]","[""work"",""projects""]",gear_up__prepare,false,false
+gear up for,to prepare,"[""We are gearing up for release."",""She geared up for exams.""]","[""work"",""projects""]",gear_up_for__prepare,false,false
+get across,to communicate,"[""He got his point across well."",""She struggled to get across her message.""]","[""work"",""meetings""]",get_across__communicate,false,false
+get ahead,to succeed,"[""She got ahead quickly in her career."",""Learning English helps you get ahead.""]","[""work"",""career""]",get_ahead__succeed,false,false
+get ahead of,to surpass,"[""He got ahead of his colleagues."",""They got ahead of schedule.""]","[""work"",""career""]",get_ahead_of__surpass,false,false
+get along,to have a good relationship,"[""They get along well."",""I don’t get along with my boss.""]","[""work"",""daily""]",get_along__relationship,false,false
+get around,to avoid or travel,"[""He got around the rule."",""She gets around easily by bike.""]","[""work"",""daily""]",get_around__avoid,false,false
+get around to,to finally do,"[""I got around to finishing the report."",""She got around to answering emails.""]","[""work"",""daily""]",get_around_to__finally,false,false
+get at,to mean or reach,"[""What are you getting at?"",""The dog couldn’t get at the food.""]","[""work"",""daily""]",get_at__mean,false,false
+get away,to escape,"[""They got away from the office early."",""The thief got away.""]","[""work"",""daily""]",get_away__escape,false,false
+get away with,to avoid punishment,"[""He got away with the mistake."",""They got away with breaking the rules.""]","[""work"",""daily""]",get_away_with__avoid,false,false
+get back,to return,"[""He got back to work quickly."",""We’ll get back to this later.""]","[""work"",""daily""]",get_back__return,false,false
+get back at,to take revenge,"[""He got back at his rival."",""She got back at him with a prank.""]","[""daily""]",get_back_at__revenge,false,false
+get back into,to return to activity,"[""She got back into painting."",""He got back into training.""]","[""daily""]",get_back_into__return,false,false
+get back to,to return to a topic or person,"[""I'll get back to you soon."",""We need to get back to the agenda.""]","[""work"",""meetings""]",get_back_to__return,false,false
+get behind,to fail to progress,"[""He got behind in payments."",""She got behind in her studies.""]","[""work"",""daily""]",get_behind__fail,false,false
+get by,to manage,"[""We can get by with limited resources."",""He got by on little sleep.""]","[""work"",""daily""]",get_by__manage,false,false
+get by on,to manage with little,"[""He gets by on little sleep."",""She got by on a small income.""]","[""daily""]",get_by_on__manage,false,false
+get down to,to start focusing,"[""Let’s get down to business."",""He got down to work quickly.""]","[""work"",""projects""]",get_down_to__start,false,false
+get in on,to participate,"[""He got in on the project."",""She got in on the deal.""]","[""work"",""projects""]",get_in_on__participate,false,false
+get into,to enter or become interested,"[""She got into data engineering."",""Hackers got into the system.""]","[""IT"",""career""]",get_into__enter,false,false
+get off,to leave or dismount,"[""She got off the bus."",""He got off work early.""]","[""daily""]",get_off__leave,false,false
+get off with,to escape lightly,"[""He got off with a warning."",""She got off with a fine.""]","[""work"",""daily""]",get_off_with__escape,false,false
+get on with,to continue,"[""Get on with your work."",""She got on with her life.""]","[""work"",""daily""]",get_on_with__continue,false,false
+get out,to leave,"[""Get out of the room."",""He got out early.""]","[""daily""]",get_out__leave,false,false
+get out of,to avoid or exit,"[""He got out of the meeting."",""She got out of doing extra work.""]","[""work"",""daily""]",get_out_of__avoid,false,false
+get over,to recover,"[""He got over the flu."",""She got over the failed exam.""]","[""daily"",""career""]",get_over__recover,false,false
+get round to,to finally do,"[""I got round to fixing the bug."",""She got round to cleaning.""]","[""work"",""daily""]",get_round_to__finally,false,false
+get through,to succeed in reaching or finishing,"[""We finally got through the backlog."",""She got through to the support team.""]","[""work"",""IT""]",get_through__succeed,false,false
+get through to,to make someone understand,"[""I finally got through to him."",""She got through to the students.""]","[""work"",""meetings""]",get_through_to__understand,false,false
+get together,to meet socially,"[""We got together after work."",""They got together at the café.""]","[""daily""]",get_together__meet,false,false
+get up to,to do (often mischievous),"[""What are you getting up to?"",""The kids got up to trouble.""]","[""daily""]",get_up_to__do,false,false
+give away,to donate or reveal,"[""They gave away free samples."",""He gave away the secret.""]","[""work"",""daily""]",give_away__donate_reveal,true,false
+give back,to return,"[""Give back the borrowed book."",""He gave back the money.""]","[""work"",""daily""]",give_back__return,true,false
+give in,to stop resisting,"[""She gave in to the pressure."",""He finally gave in.""]","[""work"",""daily""]",give_in__surrender,false,false
+give in to,to surrender,"[""He gave in to the pressure."",""She gave in to temptation.""]","[""work"",""daily""]",give_in_to__surrender,false,false
+give out,to distribute or stop working,"[""They gave out certificates."",""The engine gave out.""]","[""work"",""daily""]",give_out__distribute,true,false
+give out to,to fail or break down,"[""The old machine finally gave out."",""Her strength gave out.""]","[""IT"",""daily""]",give_out_to__fail,false,false
+give up,to stop trying,"[""Don't give up now."",""He gave up learning Spanish.""]","[""work"",""daily""]",give_up__stop,false,false
+gloss over,to avoid discussing,"[""They glossed over the problems."",""He glossed over his mistakes.""]","[""work"",""meetings""]",gloss_over__avoid,false,false
+go about,to begin or approach,"[""How should we go about fixing this?"",""She went about her work calmly.""]","[""work"",""projects""]",go_about__approach,false,false
+go after,to pursue,"[""He went after a new job."",""She went after her goals.""]","[""work"",""career""]",go_after__pursue,false,false
+go against,to oppose,"[""The decision goes against our values."",""He went against the manager’s advice.""]","[""work"",""projects""]",go_against__oppose,false,false
+go ahead,to proceed,"[""Go ahead with the deployment."", ""She went ahead despite doubts.""]","[""work"", ""projects""]",go_ahead__proceed,false,false
+go ahead with,to proceed,"[""Go ahead with the plan."",""They went ahead with the release.""]","[""work"",""projects""]",go_ahead_with__proceed,false,false
+go along with,to agree,"[""She went along with the decision."",""He went along with the proposal.""]","[""work"",""meetings""]",go_along_with__agree,false,false
+go around,to circulate or be enough,"[""Rumors are going around."",""There’s enough food to go around.""]","[""work"",""daily""]",go_around__circulate,false,false
+go away,to leave or disappear,"[""Go away, I’m busy."",""The pain went away.""]","[""daily""]",go_away__leave,false,false
+go back on,to break a promise,"[""He went back on his word."",""The company went back on its promise.""]","[""work"",""daily""]",go_back_on__break,false,false
+go back over,to review again,"[""Let’s go back over the document."",""She went back over her notes.""]","[""work"",""projects""]",go_back_over__review,false,false
+go by,to pass or use a name,"[""Time goes by quickly."",""He goes by a nickname.""]","[""work"",""daily""]",go_by__pass,false,false
+go down,to decrease or be remembered,"[""Sales went down last quarter."",""That day will go down in history.""]","[""work"",""daily""]",go_down__decrease,false,false
+go for,to attempt or choose,"[""He went for the promotion."",""She went for the last slice.""]","[""work"",""daily""]",go_for__attempt,false,false
+go in for,to enjoy or participate,"[""She goes in for hiking."",""He went in for the contest.""]","[""daily""]",go_in_for__participate,false,false
+go into,to enter or describe in detail,"[""The report goes into detail."",""He went into the room.""]","[""work"",""projects""]",go_into__detail,false,false
+go off,to explode or stop working,"[""The alarm went off."",""The bomb went off.""]","[""IT"",""daily""]",go_off__explode,false,false
+go off with,to leave with,"[""She went off with her friend."",""He went off with the prize.""]","[""daily""]",go_off_with__leave,false,false
+go on,to continue,"[""The show must go on."",""He went on talking.""]","[""work"",""daily""]",go_on__continue,false,false
+go on about,to talk excessively,"[""He kept going on about his job."",""She goes on about politics.""]","[""daily""]",go_on_about__talk,false,false
+go out,to stop burning or leave,"[""The lights went out."",""They went out last night.""]","[""daily""]",go_out__stop_leave,false,false
+go over,to review or examine,"[""Let's go over the report together."", ""She went over the code twice.""]","[""work"", ""IT"", ""meetings""]",go_over__review,false,false
+go over to,to switch to,"[""They went over to a new system."",""He went over to the other side.""]","[""work"",""IT""]",go_over_to__switch,false,false
+go through with,to complete despite difficulty,"[""He went through with the plan."",""They went through with the merger.""]","[""work"",""projects""]",go_through_with__complete,false,false
+go together,to match,"[""These colors go together well."",""Hard work and success go together.""]","[""daily""]",go_together__match,false,false
+go under,to fail or sink,"[""The company went under."",""The boat went under quickly.""]","[""work"",""daily""]",go_under__fail,false,false
+go up,to increase,"[""Prices went up again."",""The temperature went up.""]","[""work"",""daily""]",go_up__increase,false,false
+go without,to live without,"[""We had to go without internet."",""She went without lunch.""]","[""work"",""daily""]",go_without__live,false,false
+grow apart,to become distant,"[""They grew apart over the years."",""We grew apart after school.""]","[""daily""]",grow_apart__distant,false,false
+grow into,to develop into,"[""She grew into a confident leader."",""He grew into his role.""]","[""work"",""career""]",grow_into__develop,false,false
+grow on,to become liked,"[""This song grew on me."",""The idea grew on the team.""]","[""daily"",""work""]",grow_on__liked,false,false
+grow out of,to stop liking or needing,"[""He grew out of gaming."",""She grew out of her old clothes.""]","[""daily""]",grow_out_of__stop,false,false
+grow up,to mature,"[""He grew up in London."",""She grew up quickly.""]","[""daily""]",grow_up__mature,false,false
+hand back,to return,"[""He handed back the report."",""She handed back the borrowed book.""]","[""work"",""daily""]",hand_back__return,true,false
+hand down,to pass to younger,"[""The tradition was handed down."",""He handed down his watch.""]","[""daily""]",hand_down__pass,true,false
+hand in,to submit,"[""Please hand in your report."",""He handed in his resignation.""]","[""work"",""projects""]",hand_in__submit,true,false
+hand out,to distribute,"[""She handed out leaflets."",""They handed out the tests.""]","[""work"",""daily""]",hand_out__distribute,true,false
+hand over,to give control or responsibility to someone else,"[""He handed over the project to me."", ""The shift was handed over smoothly.""]","[""work"", ""projects""]",hand_over__transfer,true,false
+hang about,to wait aimlessly,"[""They hung about outside."",""He hung about near the station.""]","[""daily""]",hang_about__wait,false,false
+hang around,to loiter,"[""Stop hanging around the office."",""They hung around the park.""]","[""daily""]",hang_around__loiter,false,false
+hang on,to wait or hold tightly,"[""Hang on a second."",""He hung on to the rope.""]","[""work"",""daily""]",hang_on__wait,false,false
+hang out,to spend time socially,"[""We hung out after work."", ""They hang out at the café.""]","[""daily"", ""smalltalk""]",hang_out__social,false,false
+hang over,to cause anxiety,"[""The deadline is hanging over us."",""The threat hung over the city.""]","[""work"",""daily""]",hang_over__anxiety,false,false
+hang up,to end a call,"[""She hung up the phone."",""He hung up on me.""]","[""work"",""daily""]",hang_up__end_call,true,false
+head back,to return,"[""We headed back home."",""She headed back to the office.""]","[""daily""]",head_back__return,false,false
+head for,to move toward,"[""He headed for the door."",""They are heading for trouble.""]","[""daily""]",head_for__move,false,false
+head off,to prevent,"[""We headed off a crisis."",""He headed off the argument.""]","[""work"",""projects""]",head_off__prevent,false,false
+head out,to leave,"[""Let's head out for lunch."", ""He headed out early.""]","[""daily"", ""smalltalk""]",head_out__leave,false,false
+head up,to lead,"[""She heads up the new team."",""He headed up the committee.""]","[""work"",""projects""]",head_up__lead,false,false
+hit back,to retaliate,"[""He hit back at critics."",""She hit back strongly.""]","[""work"",""daily""]",hit_back__retaliate,false,false
+hit on,to discover or flirt,"[""He hit on a new idea."",""He hit on her at the party.""]","[""work"",""daily""]",hit_on__discover,false,false
+hit out at,to criticize,"[""The minister hit out at the media."",""He hit out at the policy.""]","[""work"",""daily""]",hit_out_at__criticize,false,false
+hold against,to blame,"[""She held the error against him."",""He held it against her for years.""]","[""work"",""daily""]",hold_against__blame,false,false
+hold back,to restrain,"[""She held back her anger."",""They held back information.""]","[""work"",""daily""]",hold_back__restrain,true,false
+hold forth,to speak at length,"[""He held forth on politics."",""She held forth during the meeting.""]","[""work"",""meetings""]",hold_forth__speak,false,false
+hold off,to delay,"[""Hold off on deploying until tests finish."",""The rain held off until evening.""]","[""work"",""projects""]",hold_off__delay,false,false
+hold on,to wait,"[""Hold on a second."",""Hold on, I’ll check the logs.""]","[""work"",""daily""]",hold_on__wait,false,false
+hold on to,to keep,"[""Hold on to your tickets."",""She held on to her old laptop.""]","[""work"",""daily""]",hold_on_to__keep,false,false
+hold out,to continue,"[""He held out under pressure."",""They held out until help arrived.""]","[""work"",""daily""]",hold_out__continue,false,false
+hold out for,to wait for something better,"[""They held out for a higher salary."",""She held out for a better offer.""]","[""work"",""career""]",hold_out_for__wait,false,false
+hold out on,to withhold,"[""He held out on giving details."",""She held out on me.""]","[""work"",""daily""]",hold_out_on__withhold,false,false
+hold over,to postpone,"[""The decision was held over."",""They held over the event.""]","[""work"",""projects""]",hold_over__postpone,true,false
+hold up,to delay or block,"[""Traffic held us up."", ""The deployment was held up by errors.""]","[""work"", ""daily""]",hold_up__delay,true,false
+hold up as,to use as example,"[""He was held up as a model employee."",""The project was held up as a success.""]","[""work"",""projects""]",hold_up_as__example,true,false
+hook up,to connect,"[""Hook up the new device."", ""He hooked up the API.""]","[""IT""]",hook_up__connect,true,false
+hunt down,to search persistently,"[""They hunted down the bug."",""Police hunted down the suspect.""]","[""IT"",""daily""]",hunt_down__search,true,false
+hurry up,to be quick,"[""Hurry up, we’re late."",""He hurried up with the report.""]","[""work"",""daily""]",hurry_up__quick,false,false
+iron out,to resolve,"[""They ironed out the differences."",""We need to iron out the details.""]","[""work"",""projects""]",iron_out__resolve,false,false
+jack up,to increase,"[""They jacked up the prices."",""He jacked up the car.""]","[""work"",""daily""]",jack_up__increase,true,false
+join in,to participate,"[""She joined in the discussion."",""He joined in the fun.""]","[""work"",""daily""]",join_in__participate,false,false
+join up,to enlist or connect,"[""He joined up with the army."",""The wires joined up.""]","[""work"",""daily""]",join_up__enlist,false,false
+jot down,to write quickly,"[""Jot down the notes."",""He jotted down the number.""]","[""work"",""daily""]",jot_down__write,true,false
+jump at,to eagerly accept,"[""She jumped at the offer."",""He jumped at the chance.""]","[""work"",""daily""]",jump_at__accept,false,false
+jump in,to intervene quickly,"[""She jumped in with an answer."",""He jumped in to help.""]","[""work"",""meetings""]",jump_in__intervene,false,false
+jump on,to criticize,"[""He jumped on the mistake."",""She jumped on him for being late.""]","[""work"",""daily""]",jump_on__criticize,false,false
+keep at,to persist,"[""Keep at your studies."",""She kept at the task until it was done.""]","[""work"",""career""]",keep_at__persist,false,false
+keep away,to avoid,"[""Keep away from the server room."",""He kept away from conflicts.""]","[""work"",""daily""]",keep_away__avoid,false,false
+keep away from,to avoid,"[""Keep away from the servers."",""She kept away from conflict.""]","[""work"",""daily""]",keep_away_from__avoid,false,false
+keep back,to withhold,"[""He kept back some information."",""The update was kept back.""]","[""work"",""projects""]",keep_back__withhold,true,false
+keep down,to control or reduce,"[""Keep the noise down."",""They kept down costs effectively.""]","[""work"",""daily""]",keep_down__reduce,true,false
+keep from,to prevent,"[""He kept me from leaving."",""She kept herself from crying.""]","[""work"",""daily""]",keep_from__prevent,false,false
+keep in with,to stay friendly,"[""He kept in with management."",""She kept in with her colleagues.""]","[""work"",""daily""]",keep_in_with__friendly,false,false
+keep off,to stay away from,"[""Keep off the grass."",""Keep off this topic during the meeting.""]","[""work"",""daily""]",keep_off__stayaway,false,false
+keep on,to continue,"[""Keep on practicing coding."",""She kept on talking despite interruptions.""]","[""work"",""daily""]",keep_on__continue,false,false
+keep on at,to nag or pester,"[""She kept on at him to finish the work."",""He kept on at me about deadlines.""]","[""work"",""daily""]",keep_on_at__nag,false,false
+keep out,to prevent entry,"[""Keep out of the restricted area."",""Unauthorized users were kept out.""]","[""IT"",""security""]",keep_out__prevent,false,false
+keep out of,to avoid involvement,"[""Keep out of this dispute."",""He kept out of trouble.""]","[""work"",""daily""]",keep_out_of__avoid,false,false
+keep to,to stick to,"[""Keep to the plan."",""He kept to his promises.""]","[""work"",""projects""]",keep_to__stick,false,false
+keep under,to monitor,"[""Keep the servers under observation."",""He was kept under review.""]","[""IT"",""projects""]",keep_under__monitor,false,false
+keep up with,to stay at the same level,"[""It's hard to keep up with new technologies."",""She kept up with her tasks easily.""]","[""work"",""IT""]",keep_up_with__stay,false,false
+kick against,to resist,"[""He kicked against the new rules."",""They kicked against authority.""]","[""work"",""daily""]",kick_against__resist,false,false
+kick in,to start to take effect,"[""The painkillers kicked in."",""The new law kicked in last week.""]","[""daily""]",kick_in__start,false,false
+kick off,"to begin (a meeting, project, event)","[""The meeting kicked off at 10."",""We kicked off the new sprint today.""]","[""work"",""projects""]",kick_off__start,true,true
+kick out,to force someone to leave,"[""He was kicked out of the group."",""They kicked out the disruptive user.""]","[""work"",""daily""]",kick_out__expel,true,false
+kick up,to cause trouble,"[""He kicked up a fuss."",""They kicked up dust.""]","[""daily""]",kick_up__trouble,true,false
+knock back,to drink quickly or refuse,"[""He knocked back three beers."",""She knocked back the offer.""]","[""daily""]",knock_back__drink_refuse,true,false
+knock down,to demolish or reduce,"[""They knocked down the building."",""The price was knocked down.""]","[""work"",""daily""]",knock_down__demolish,true,false
+knock off,to stop working or reduce,"[""Let’s knock off for the day."",""They knocked 10% off the price.""]","[""work"",""daily""]",knock_off__stop_reduce,true,false
+knock out,to eliminate or render unconscious,"[""The bug knocked out the system."",""He was knocked out in the fight.""]","[""IT"",""daily""]",knock_out__eliminate,true,false
+knock out of,to eliminate,"[""They were knocked out of the tournament."",""He was knocked out of the contest.""]","[""daily""]",knock_out_of__eliminate,false,false
+knock together,to build quickly,"[""They knocked together a prototype."",""We knocked together a quick script.""]","[""work"",""projects""]",knock_together__build,true,false
+knuckle down,to focus seriously,"[""It’s time to knuckle down and study."",""She knuckled down to work.""]","[""work"",""projects""]",knuckle_down__focus,false,false
+knuckle under,to yield or submit,"[""He knuckled under to pressure."",""She knuckled under to authority.""]","[""work"",""daily""]",knuckle_under__submit,false,false
+lap up,to enjoy eagerly,"[""The crowd lapped up the performance."",""He lapped up the praise.""]","[""daily""]",lap_up__enjoy,false,false
+lash out,to attack verbally or physically,"[""He lashed out at his colleague."",""She lashed out in anger.""]","[""work"",""daily""]",lash_out__attack,false,false
+lay aside,to stop temporarily,"[""He laid aside the project."",""They laid aside differences.""]","[""work"",""projects""]",lay_aside__stop,true,false
+lay down,to establish rules,"[""They laid down strict policies."",""The law lays down requirements.""]","[""work"",""daily""]",lay_down__establish,true,false
+lay into,to attack verbally,"[""He laid into his colleague."",""She laid into the poor service.""]","[""work"",""daily""]",lay_into__attack,false,false
+lay off,to dismiss from job,"[""The company laid off workers."", ""He was laid off last year.""]","[""work"", ""daily""]",lay_off__dismiss,true,false
+lay off of,to stop using or doing,"[""Lay off of junk food."",""Lay off of bothering him.""]","[""daily""]",lay_off_of__stop,false,false
+lay out,to arrange or set out (items/plan) clearly,"[""She laid out the plan."",""He laid the components out on the desk.""]","[""work"",""projects""]",lay_out__arrange,true,false
+lay out,to explain clearly and in detail,"[""He laid out the requirements clearly."",""Let me lay out the options.""]","[""work"",""projects""]",lay_out__explain,true,false
+lay out for,to spend money,"[""He laid out for new equipment."",""The company laid out for licenses.""]","[""work"",""IT""]",lay_out_for__spend,true,false
+lay up,to store/put aside for future use,"[""They laid up supplies for winter."",""Parts were laid up in the warehouse.""]","[""work"",""daily""]",lay_up__store,true,false
+leaf through,to skim,"[""He leafed through the magazine."",""She leafed through the report.""]","[""work"",""daily""]",leaf_through__skim,false,false
+leave out,to omit,"[""They left out key details."",""She left out his name.""]","[""work"",""projects""]",leave_out__omit,true,false
+let down,to disappoint or lower,"[""He let down his team."",""The rope let down slowly.""]","[""work"",""daily""]",let_down__disappoint,true,false
+let in on,to share a secret,"[""He let me in on the plan."",""She let them in on her idea.""]","[""work"",""daily""]",let_in_on__secret,false,false
+let off,to excuse or explode,"[""He was let off with a warning."",""Fireworks were let off.""]","[""daily""]",let_off__excuse,true,false
+let out,to release,"[""They let out the prisoners."",""She let out a sigh.""]","[""daily""]",let_out__release,true,false
+let up,to stop or lessen,"[""The rain let up."",""Work pressure never lets up.""]","[""daily""]",let_up__stop,false,false
+light up,to illuminate or become happy,"[""The room lit up."",""Her face lit up with joy.""]","[""daily""]",light_up__illuminate,true,false
+line up,to arrange/organize in order or schedule,"[""They lined up interviews."",""We lined the chairs up.""]","[""work"",""projects""]",line_up__arrange,true,true
+line up with,to match or align,"[""The results line up with expectations."",""His story didn’t line up with the facts.""]","[""work"",""projects""]",line_up_with__align,false,false
+live down,to overcome shame,"[""He’ll never live down that mistake."",""She lived down the embarrassment.""]","[""work"",""daily""]",live_down__overcome,false,false
+live through,to survive,"[""They lived through hard times."",""He lived through the war.""]","[""daily""]",live_through__survive,false,false
+live up to,to meet expectations,"[""The product lived up to the hype."",""She lived up to her reputation.""]","[""work"",""daily""]",live_up_to__meet,false,false
+live with,to tolerate,"[""We must live with uncertainty."",""She lives with her mistakes.""]","[""work"",""daily""]",live_with__tolerate,false,false
+log in,to access a system,"[""Log in with your credentials."", ""I can't log in to the server.""]","[""IT""]",log_in__access,false,false
+log off,to disconnect from a system,"[""Log off when you’re done."",""He logged off early.""]","[""IT""]",log_off__disconnect,false,false
+log on,to access a computer system,"[""Log on to the portal."",""She logged on successfully.""]","[""IT""]",log_on__access,false,false
+log out,to exit a system,"[""Don't forget to log out after work."", ""She logged out of the app.""]","[""IT""]",log_out__exit,false,false
+look after,to take care of,"[""He looks after the servers."",""She looks after the interns.""]","[""work"",""daily""]",look_after__care,false,false
+look ahead,to plan for the future,"[""We need to look ahead five years."",""She always looks ahead.""]","[""work"",""projects""]",look_ahead__plan,false,false
+look ahead to,to think about the future,"[""We’re looking ahead to next year."",""She looks ahead to retirement.""]","[""work"",""projects""]",look_ahead_to__future,false,false
+look around,to explore,"[""We looked around the new office."",""He looked around for options.""]","[""work"",""daily""]",look_around__explore,false,false
+look at,to examine,"[""Look at the code carefully."",""She looked at the results.""]","[""work"",""IT""]",look_at__examine,false,false
+look back,to reflect,"[""Look back at your progress."",""He looked back on his career.""]","[""work"",""career""]",look_back__reflect,false,false
+look back on,to reflect on/remember the past,"[""She looked back on her career."",""He looked back on happy memories.""]","[""work"",""daily""]",look_back_on__reflect,false,false
+look beyond,to think of future possibilities,"[""Look beyond short-term results."",""They looked beyond the current issue.""]","[""work"",""projects""]",look_beyond__future,false,false
+look down on,to regard as inferior / disrespect,"[""He looks down on junior staff."",""She looked down on their efforts.""]","[""work"",""daily""]",look_down_on__inferior,false,false
+look for,to search,"[""We're looking for new solutions."",""She is looking for her keys.""]","[""work"",""daily""]",look_for__search,false,false
+look forward to,to anticipate,"[""I look forward to the meeting."",""She looks forward to working with you.""]","[""work"",""daily""]",look_forward_to__anticipate,false,false
+look in on,to check briefly,"[""She looked in on her friend."",""He looked in on the servers.""]","[""work"",""IT""]",look_in_on__check,false,false
+look into,to investigate,"[""We’ll look into the error."",""The team looked into the issue.""]","[""work"",""IT""]",look_into__investigate,false,false
+look on,to watch,"[""He looked on as they argued."",""She looked on silently.""]","[""daily""]",look_on__watch,false,false
+look out,to be careful,"[""Look out! There’s a bug."",""Look out when deploying.""]","[""IT"",""daily""]",look_out__careful,false,false
+look out for,to be vigilant for / watch for,"[""Look out for phishing emails."",""Watch out for errors.""]","[""IT"",""security""]",look_out_for__watch_for,false,false
+look out for,to take care of / protect,"[""He looks out for his team."",""Look out for your little brother.""]","[""work"",""daily""]",look_out_for__take_care_of,false,false
+look over,to review quickly,"[""Look over the documentation."",""He looked over the plan.""]","[""work"",""projects""]",look_over__review,false,false
+look through,"to examine/scan (docs, code, logs)","[""She looked through the report."",""He looked through the code.""]","[""work"",""IT""]",look_through__examine,false,false
+look through,to read quickly/skim,"[""He looked through the files."",""She looked through the magazine.""]","[""work"",""daily""]",look_through__read,false,false
+look to,to rely on or consider,"[""We look to technology for solutions."",""He looks to his mentor for advice.""]","[""work"",""projects""]",look_to__rely,false,false
+look up,to search for information,"[""Look up the error code."",""I looked it up online.""]","[""IT"",""daily""]",look_up__search,true,false
+look up to,to admire,"[""I look up to my manager."",""They look up to her skills.""]","[""work"",""daily""]",look_up_to__admire,false,false
+look upon,to regard as,"[""He looks upon it as a challenge."",""They look upon her as a leader.""]","[""work"",""daily""]",look_upon__regard,false,false
+luck out,to be lucky,"[""We lucked out with the weather."",""He really lucked out on that deal.""]","[""daily""]",luck_out__lucky,false,false
+make after,to chase,"[""The police made after the thief."",""He made after the bus.""]","[""daily""]",make_after__chase,false,false
+make away with,to steal,"[""The burglars made away with cash."",""He made away with the prize.""]","[""daily""]",make_away_with__steal,false,false
+make for,to move towards,"[""She made for the exit."",""He made for the door.""]","[""daily""]",make_for__move_towards,false,true
+make for,to contribute to / lead to (result/condition),"[""Rain makes for bad traffic."",""Caching makes for faster loads.""]","[""daily"",""IT""]",make_for__lead_to,false,true
+make into,to convert,"[""They made the room into an office."",""He made the story into a film.""]","[""work"",""projects""]",make_into__convert,true,false
+make of,to interpret / form an opinion about,"[""What do you make of this error?"",""She made nothing of the remark.""]","[""work"",""daily""]",make_of__interpret,false,false
+make off with,to steal,"[""The thief made off with her purse."",""They made off with the documents.""]","[""daily""]",make_off_with__steal,false,false
+make out,to discern/understand with difficulty,"[""I can’t make out the handwriting."",""We couldn’t make the words out.""]","[""work"",""daily""]",make_out__discern,true,false
+make out,to kiss passionately,"[""They were making out in the park."",""The couple made out behind the venue.""]","[""daily""]",make_out__kiss,false,true
+make over,to transfer ownership,"[""They made over the property."",""He made the business over to his son.""]","[""work"",""daily""]",make_over__transfer,true,false
+make up,to invent/fabricate,"[""He made up an excuse."",""She made the whole story up.""]","[""work"",""daily""]",make_up__invent,true,false
+make up,to become friends again / reconcile,"[""They made up after the fight."",""Come on, let’s make up.""]","[""daily""]",make_up__reconcile,false,true
+make up for,to compensate,"[""He made up for the lost time."", ""This will make up for the delay.""]","[""work"", ""daily""]",make_up_for__compensate,false,false
+make with,to produce quickly,"[""He made with the coffee."",""She made with a smile.""]","[""daily""]",make_with__produce,false,false
+map out,to plan in detail,"[""Let's map out the project."", ""They mapped out their strategy.""]","[""work"", ""projects""]",map_out__plan,true,false
+measure up,to be good enough,"[""He didn’t measure up to expectations."",""She measured up well in the interview.""]","[""work"",""career""]",measure_up__sufficient,false,false
+meet up,to meet,"[""We met up after work."",""They met up in the city.""]","[""daily""]",meet_up__meet,false,false
+mess about,to waste time,"[""Stop messing about and get to work."",""The kids were messing about in class.""]","[""daily""]",mess_about__waste,false,false
+mess around,to waste time,"[""Stop messing around and work."", ""They were just messing around.""]","[""daily"", ""smalltalk""]",mess_around__waste,false,false
+mess around with,to handle carelessly,"[""Don’t mess around with the servers."",""He was messing around with the settings.""]","[""IT"",""daily""]",mess_around_with__careless,false,false
+mess up,to make a mistake,"[""He messed up the presentation."",""She messed up the database.""]","[""work"",""IT""]",mess_up__mistake,true,false
+miss out on,to fail to benefit,"[""She missed out on the opportunity."",""He missed out on the training.""]","[""work"",""career""]",miss_out_on__fail,false,false
+mix in with,to socialize,"[""He mixed in with the crowd."",""She mixed in with new colleagues.""]","[""work"",""daily""]",mix_in_with__socialize,false,false
+mix up,to confuse,"[""He mixed up the dates."",""I always mix up these terms.""]","[""work"",""daily""]",mix_up__confuse,true,false
+move forward,to make progress,"[""Let's move forward with the plan."", ""We are moving forward despite the challenges.""]","[""work"", ""projects""]",move_forward__progress,false,false
+move in on,to take control,"[""The company moved in on a competitor."",""Police moved in on the suspects.""]","[""work"",""projects""]",move_in_on__control,false,false
+move on,to continue,"[""Let's move on to the next topic."", ""He moved on after the breakup.""]","[""work"", ""daily""]",move_on__continue,false,false
+move out,to leave residence,"[""He moved out of the apartment."",""They moved out last year.""]","[""daily""]",move_out__leave,false,false
+move over,to shift position,"[""Move over so I can sit."",""He moved over to another team.""]","[""work"",""daily""]",move_over__shift,false,false
+nail down,to define or secure,"[""We nailed down the requirements."",""They nailed down a contract.""]","[""work"",""projects""]",nail_down__define,true,false
+narrow down,to reduce options,"[""We narrowed down the candidates."",""They narrowed down the list.""]","[""work"",""projects""]",narrow_down__reduce,true,false
+narrow down to,to reduce to,"[""We narrowed it down to two options."",""The suspect list was narrowed down to three.""]","[""work"",""projects""]",narrow_down_to__reduce,false,false
+nod off,to fall asleep,"[""He nodded off during the meeting."",""She nodded off on the sofa.""]","[""daily""]",nod_off__sleep,false,false
+note down,to record information,"[""Note down this phone number."", ""He noted down the errors.""]","[""work"", ""daily""]",note_down__record,true,false
+open up,to start talking or unlock,"[""She opened up about her past."",""They opened up a new store.""]","[""work"",""daily""]",open_up__talk,false,false
+opt out,to choose not to participate,"[""She opted out of the project."",""He opted out of the survey.""]","[""work"",""projects""]",opt_out__not_participate,false,false
+own up,to admit,"[""He owned up to the mistake."",""She owned up to breaking the rules.""]","[""work"",""daily""]",own_up__admit,false,false
+own up to,to confess,"[""He owned up to the mistake."",""She owned up to cheating.""]","[""work"",""daily""]",own_up_to__confess,false,false
+pack away,to store or eat a lot,"[""He packed away his winter clothes."",""She packed away two pizzas.""]","[""daily""]",pack_away__store,true,false
+pack in,to stop or crowd,"[""He packed in his job."",""They packed in thousands of fans.""]","[""work"",""daily""]",pack_in__stop,false,false
+pack off,to send away,"[""They packed the kids off to school."",""He was packed off to boarding school.""]","[""daily""]",pack_off__send,true,false
+pack out,to fill,"[""The stadium was packed out."",""The hall was packed out with fans.""]","[""daily""]",pack_out__fill,true,false
+pack up,to stop working or gather belongings,"[""The laptop packed up."",""Let’s pack up and leave.""]","[""work"",""daily""]",pack_up__stop,true,false
+pair up,to partner,"[""The students paired up for the task."",""We paired up in the lab.""]","[""work"",""daily""]",pair_up__partner,false,false
+paper over,to hide a problem,"[""They papered over the cracks."",""She papered over the issue.""]","[""work"",""projects""]",paper_over__hide,true,false
+part with,to give up,"[""He parted with his old laptop."",""She parted with valuable jewelry.""]","[""daily""]",part_with__giveup,false,false
+pass around,to distribute,"[""They passed around the agenda."",""She passed around snacks.""]","[""work"",""meetings""]",pass_around__distribute,true,false
+pass away,to die,"[""His grandfather passed away."",""She passed away peacefully.""]","[""daily""]",pass_away__die,false,false
+pass off as,to pretend,"[""He passed himself off as a doctor."",""She passed the fake off as real.""]","[""work"",""daily""]",pass_off_as__pretend,false,false
+pass on,to transmit or decline,"[""She passed on the message."",""He passed on dessert.""]","[""work"",""daily""]",pass_on__transmit,false,false
+pass out,to faint / lose consciousness,"[""He passed out during the talk."",""She passed out on the bus.""]","[""daily""]",pass_out__faint,false,true
+pass out,to distribute/hand out,"[""They passed out leaflets."",""The teacher passed the tests out.""]","[""work"",""daily""]",pass_out__distribute,true,false
+pass over,to ignore,"[""She was passed over for promotion."",""He felt passed over by his boss.""]","[""work"",""career""]",pass_over__ignore,true,false
+pass up,to decline,"[""Don’t pass up this opportunity."",""He passed up the offer.""]","[""work"",""career""]",pass_up__decline,true,false
+patch up,to fix temporarily,"[""They patched up the issue."", ""He patched up the old server.""]","[""IT""]",patch_up__fix,true,false
+pay back,to return money,"[""I’ll pay you back tomorrow."",""She paid back the loan.""]","[""work"",""daily""]",pay_back__return,true,false
+pay off,to repay a debt/loan fully,"[""He paid off his debts."",""We paid the mortgage off early.""]","[""work"",""daily""]",pay_off__repay,true,false
+pay off,to yield good results / succeed,"[""Hard work paid off."",""The strategy paid off.""]","[""work"",""projects""]",pay_off__succeed,false,true
+pay out,to distribute money,"[""The company paid out bonuses."",""The insurance paid out after the accident.""]","[""work"",""daily""]",pay_out__distribute,true,false
+phase out,to gradually end use,"[""They plan to phase the model out."",""We will phase out single-use plastics.""]","[""work"",""daily""]",phase_out__gradually_end_use,false,false
+pick at,to eat little or find faults,"[""He picked at his food."",""She picked at every detail.""]","[""daily""]",pick_at__fault,false,false
+pick off,to target individually,"[""The sniper picked off the soldiers."",""The reviewer picked off minor mistakes.""]","[""work"",""daily""]",pick_off__target,true,false
+pick on,to bully or criticize,"[""He was picked on at school."",""She picks on her little brother.""]","[""daily""]",pick_on__bully,false,false
+pick out,to choose,"[""Pick out a book to read."",""She picked out a new laptop.""]","[""work"",""daily""]",pick_out__choose,true,false
+pick up,to collect or learn,"[""She picked up the package."",""He picked up Spanish quickly.""]","[""work"",""daily""]",pick_up__collect,true,false
+pick up on,to notice,"[""She picked up on his nervousness."",""He picked up on the mistake.""]","[""work"",""daily""]",pick_up_on__notice,false,false
+pile into,to enter enthusiastically,"[""The kids piled into the car."",""Investors piled into the stock.""]","[""daily"",""finance""]",pile_into__enter,false,false
+pile on,to add pressure,"[""They piled on the criticism."",""He piled on more work.""]","[""work"",""daily""]",pile_on__pressure,false,false
+pipe up,to speak suddenly,"[""She piped up with a suggestion."",""He piped up during the lecture.""]","[""work"",""meetings""]",pipe_up__speak,false,false
+play along,to pretend to cooperate,"[""She played along with the joke."",""He played along in the meeting.""]","[""work"",""daily""]",play_along__pretend,false,false
+play along with,to cooperate,"[""He played along with the plan."",""She played along with the prank.""]","[""work"",""daily""]",play_along_with__cooperate,false,false
+play at,to pretend,"[""The kids were playing at being doctors."",""He was just playing at working.""]","[""daily""]",play_at__pretend,false,false
+play down,to minimize,"[""He played down the issue."",""She played down her role.""]","[""work"",""meetings""]",play_down__minimize,true,false
+play up,to exaggerate,"[""The media played up the story."",""He played up his achievements.""]","[""work"",""daily""]",play_up__exaggerate,true,false
+plug in,to connect a device,"[""Plug in the charger."", ""The monitor is not plugged in.""]","[""IT""]",plug_in__connect,true,false
+point out,to indicate or mention something important,"[""She pointed out the mistake."", ""He pointed out that we need more tests.""]","[""work"", ""meetings""]",point_out__indicate,true,false
+point to,to indicate,"[""The results point to a problem."",""He pointed to the error.""]","[""work"",""IT""]",point_to__indicate,false,false
+polish off,to finish,"[""He polished off the cake."",""They polished off the project.""]","[""daily"",""work""]",polish_off__finish,true,false
+polish up,to improve,"[""She polished up her English."",""He polished up his presentation.""]","[""work"",""career""]",polish_up__improve,true,false
+pop in,to enter briefly,"[""He popped in to say hello."", ""I popped in during lunch.""]","[""daily"", ""smalltalk""]",pop_in__visit,false,false
+pull ahead,to move in front,"[""The company pulled ahead of competitors."",""He pulled ahead in the race.""]","[""work"",""career""]",pull_ahead__lead,false,false
+pull ahead of,to overtake,"[""She pulled ahead of the competition."",""He pulled ahead of schedule.""]","[""work"",""projects""]",pull_ahead_of__overtake,false,false
+pull apart,to separate,"[""They pulled apart the components."",""He pulled the argument apart.""]","[""work"",""IT""]",pull_apart__separate,true,false
+pull back,to retreat,"[""The army pulled back."",""He pulled back from the risky plan.""]","[""daily""]",pull_back__retreat,false,false
+pull down,to demolish or earn,"[""They pulled down the old building."",""He pulled down a high salary.""]","[""work"",""daily""]",pull_down__demolish,true,false
+pull for,to support,"[""We’re pulling for your success."",""She pulled for her friend.""]","[""daily""]",pull_for__support,false,false
+pull in,to earn or arrest,"[""He pulls in a big salary."",""The police pulled in two suspects.""]","[""work"",""daily""]",pull_in__earn_arrest,true,false
+pull off,to succeed,"[""He pulled off a big win."",""They pulled off the project successfully.""]","[""work"",""projects""]",pull_off__succeed,true,false
+pull out,to withdraw,"[""The company pulled out of the deal."",""He pulled out at the last minute.""]","[""work"",""projects""]",pull_out__withdraw,true,false
+pull out of,to withdraw,"[""They pulled out of the deal."",""He pulled out of the race.""]","[""work"",""projects""]",pull_out_of__withdraw,false,false
+pull over,to stop by the side,"[""The car pulled over suddenly."",""He pulled over for the police.""]","[""daily""]",pull_over__stop,false,false
+pull through,to recover / survive,"[""He pulled through surgery."",""The company pulled through the crisis.""]","[""work"",""daily""]",pull_through__recover,false,true
+pull together,to cooperate,"[""We need to pull together as a team."",""They pulled together during the crisis.""]","[""work"",""projects""]",pull_together__cooperate,false,false
+pull up,to stop (vehicle or person),"[""The car pulled up outside."",""He pulled up to the gate.""]","[""daily""]",pull_up__stop,false,false
+pull up,"to display (data, info)","[""Can you pull up the logs?"",""She pulled up the document on screen.""]","[""IT"",""work""]",pull_up__display,true,false
+pull up with,to tolerate,"[""I can’t pull up with his behavior."",""She won’t pull up with delays.""]","[""work"",""daily""]",pull_up_with__tolerate,false,false
+push ahead with,to continue despite,"[""They pushed ahead with the project."",""She pushed ahead with her plan.""]","[""work"",""projects""]",push_ahead_with__continue,false,false
+push back,to delay,"[""The deadline was pushed back."", ""They pushed back the meeting.""]","[""work"", ""projects""]",push_back__delay,true,false
+push for,to demand,"[""They are pushing for higher wages."",""He pushed for a new feature.""]","[""work"",""projects""]",push_for__demand,false,false
+push in,to interrupt or enter rudely,"[""He pushed in line."",""She pushed in during the conversation.""]","[""daily""]",push_in__interrupt,false,false
+push on,to continue,"[""We pushed on despite fatigue."",""He pushed on with the journey.""]","[""daily""]",push_on__continue,false,false
+push out,to expel,"[""They pushed out the competitor."",""He was pushed out of the club.""]","[""work"",""daily""]",push_out__expel,true,false
+push over,to knock down,"[""The kids pushed over the fence."",""He pushed over the stack of boxes.""]","[""daily""]",push_over__knock,true,false
+put across,to communicate clearly,"[""He put across his point well."",""She put across the message effectively.""]","[""work"",""meetings""]",put_across__communicate,true,false
+put aside,to save or ignore,"[""Put aside money for later."",""She put aside her doubts.""]","[""work"",""daily""]",put_aside__save_ignore,true,false
+put away,to tidy or imprison,"[""She put away the groceries."",""He was put away for 10 years.""]","[""daily""]",put_away__tidy,true,false
+put back,to return,"[""He put back the book."",""She put the files back on the shelf.""]","[""work"",""daily""]",put_back__return,true,false
+put down,to criticize or write,"[""He put down his opponent."",""She put down notes.""]","[""work"",""daily""]",put_down__criticize,true,false
+put down for,to register,"[""He was put down for training."",""She put me down for the course.""]","[""work"",""career""]",put_down_for__register,true,false
+put forward,to suggest,"[""She put forward a new idea."",""He put forward a solution.""]","[""work"",""meetings""]",put_forward__suggest,true,false
+put in,to submit or install,"[""He put in his application."",""They put in a new system.""]","[""work"",""IT""]",put_in__submit,true,false
+put off,to postpone,"[""Don't put off the meeting again."", ""He put off doing his homework.""]","[""work"", ""daily""]",put_off__postpone,true,false
+put on,to dress or perform,"[""She put on a jacket."",""They put on a show.""]","[""daily""]",put_on__dress,true,false
+put onto,to inform,"[""She put me onto a good idea."",""He put them onto the new method.""]","[""work"",""daily""]",put_onto__inform,true,false
+put out,to extinguish (fire/light),"[""He put out the fire."",""They put out the candles.""]","[""daily""]",put_out__extinguish,true,false
+put out,to publish / release,"[""The company put out a press release."",""They put out a new album.""]","[""work"",""projects""]",put_out__publish,true,false
+put through,to connect or cause,"[""I’ll put you through to IT."",""They put him through training.""]","[""work"",""IT""]",put_through__connect,true,false
+put through to,to connect,"[""I’ll put you through to support."",""She put me through to HR.""]","[""work"",""IT""]",put_through_to__connect,true,false
+put together,to assemble,"[""They put together a proposal."",""He put together a new PC.""]","[""work"",""IT""]",put_together__assemble,true,false
+put up,to provide or build,"[""They put up a new office."",""He put up with the workload.""]","[""work"",""projects""]",put_up__provide,true,false
+put up to,to persuade to do something,"[""They put him up to the prank."",""She was put up to asking the question.""]","[""daily""]",put_up_to__persuade,false,false
+put up with,to tolerate,"[""I can’t put up with these bugs."",""She put up with the delay.""]","[""work"",""daily""]",put_up_with__tolerate,false,false
+put upon,to take advantage of,"[""She felt put upon by her colleagues."",""He was put upon to do extra work.""]","[""work"",""daily""]",put_upon__exploit,false,false
+quest after,to seek,"[""He quested after knowledge."",""They quested after fame.""]","[""daily""]",quest_after__seek,false,false
+quiet down,to become quieter,"[""The noise quieted down."",""The crowd quieted down after the speech.""]","[""daily""]",quiet_down__quieter,false,false
+quiz on,to test knowledge,"[""The teacher quizzed us on grammar."",""He was quizzed on regulations.""]","[""work"",""career""]",quiz_on__test,false,false
+rack up,to accumulate,"[""He racked up debts."",""She racked up experience in IT.""]","[""work"",""daily""]",rack_up__accumulate,true,false
+rain down on,to fall heavily,"[""Bullets rained down on the city."",""Complaints rained down on the service.""]","[""daily""]",rain_down_on__fall,false,false
+ramble on,to talk aimlessly,"[""He rambled on about his trip."",""She rambled on during the lecture.""]","[""work"",""daily""]",ramble_on__aimless,false,false
+rat out,to betray,"[""He ratted out his partner."",""She ratted out the thief.""]","[""daily""]",rat_out__betray,false,false
+reach out to,to contact,"[""She reached out to her mentor."",""He reached out to the client.""]","[""work"",""meetings""]",reach_out_to__contact,false,false
+read into,to interpret more,"[""Don’t read into her words too much."",""He read into the statistics.""]","[""work"",""daily""]",read_into__interpret,false,false
+read out,to read aloud,"[""She read out the announcement."",""He read out the list of names.""]","[""work"",""meetings""]",read_out__aloud,true,false
+read over,to check carefully,"[""Read over the contract."",""He read over his notes.""]","[""work"",""projects""]",read_over__check,false,false
+read up on,to research,"[""She read up on cloud computing."",""He read up on the topic.""]","[""work"",""IT""]",read_up_on__research,false,false
+reason out,to logically conclude,"[""They reasoned out the problem."",""He reasoned out the cause.""]","[""work"",""projects""]",reason_out__conclude,false,false
+reckon on,to expect,"[""We didn’t reckon on delays."",""He reckoned on her support.""]","[""work"",""projects""]",reckon_on__expect,false,false
+reel off,to recite quickly,"[""He reeled off statistics."",""She reeled off the names.""]","[""work"",""daily""]",reel_off__recite,true,false
+rely on,to depend,"[""She relies on her colleagues."",""We rely on stable systems.""]","[""work"",""daily""]",rely_on__depend,false,false
+remark on,to comment,"[""She remarked on the progress."",""He remarked on her skills.""]","[""work"",""meetings""]",remark_on__comment,false,false
+report back,to give feedback,"[""He reported back to the manager."",""She reported back after the mission.""]","[""work"",""projects""]",report_back__feedback,false,false
+resort to,to use as a last option,"[""They resorted to violence."",""He resorted to restarting the server.""]","[""work"",""IT""]",resort_to__last_option,false,false
+rest on,to depend on,"[""The argument rests on false data."",""Success rests on preparation.""]","[""work"",""projects""]",rest_on__depend,false,false
+result in,to cause,"[""The error resulted in downtime."",""His actions resulted in success.""]","[""work"",""IT""]",result_in__cause,false,false
+revert to,to return to,"[""They reverted to the old version."",""He reverted to his old habits.""]","[""work"",""IT""]",revert_to__return,false,false
+ride out,to survive,"[""They rode out the crisis."",""He rode out the storm.""]","[""work"",""daily""]",ride_out__survive,false,false
+ring off,to end a call,"[""She rang off after the conversation."",""He rang off quickly.""]","[""daily""]",ring_off__end_call,false,false
+ring up,to telephone,"[""She rang up her friend."",""He rang up the office.""]","[""daily""]",ring_up__telephone,true,false
+rise up against,to rebel,"[""The citizens rose up against injustice."",""They rose up against the government.""]","[""daily""]",rise_up_against__rebel,false,false
+roll back,to reverse / revert to a previous state,"[""They rolled back the update."",""The admin rolled back the changes.""]","[""work"",""IT""]",roll_back__revert,false,false
+roll out,to launch or introduce,"[""We rolled out the new version last week."", ""The product is being rolled out globally.""]","[""IT"", ""projects""]",roll_out__launch,false,false
+roll over,to transfer or submit,"[""Vacation days rolled over."",""He rolled over the debt.""]","[""work"",""daily""]",roll_over__transfer,true,false
+rope in,to persuade to help,"[""They roped him in for extra work."",""She was roped in to organize the event.""]","[""work"",""projects""]",rope_in__persuade,true,false
+rough out,to draft roughly,"[""He roughed out the design."",""They roughed out a plan.""]","[""work"",""projects""]",rough_out__draft,true,false
+rub in,to remind unkindly,"[""Stop rubbing it in."",""He rubbed in her mistake.""]","[""daily""]",rub_in__remind,true,false
+rule out,to eliminate as an option,"[""We ruled out that solution."",""The doctor ruled out flu.""]","[""work"",""projects""]",rule_out__eliminate,true,false
+run across,to find by chance,"[""I ran across an old friend."",""She ran across a useful article.""]","[""daily""]",run_across__chance,false,false
+run after,to chase,"[""He ran after the bus."",""She ran after her dreams.""]","[""daily""]",run_after__chase,false,false
+run against,to oppose,"[""He ran against her in the election."",""They ran against difficulties.""]","[""work"",""projects""]",run_against__oppose,false,false
+run along,to leave,"[""It’s time for you to run along."",""The kids ran along to play.""]","[""daily""]",run_along__leave,false,false
+run away,to escape,"[""He ran away from home."",""The thief ran away.""]","[""daily""]",run_away__escape,false,false
+run away with,to steal or be carried away,"[""The thief ran away with the money."",""Her imagination ran away with her.""]","[""daily""]",run_away_with__steal,false,false
+run by,to check with,"[""Run the idea by your manager."",""She ran the proposal by her team.""]","[""work"",""meetings""]",run_by__check,false,false
+run down,to criticize,"[""He ran down the outdated system."",""She ran down his efforts.""]","[""work"",""daily""]",run_down__criticize,true,false
+run down,to hit with a vehicle,"[""The car ran down a cyclist."",""He was nearly run down crossing the street.""]","[""daily""]",run_down__hit,false,false
+run into,to encounter,"[""I ran into an old friend."",""We ran into some problems.""]","[""daily"",""work""]",run_into__encounter,false,false
+run off,to leave quickly,"[""He ran off with her bag."",""She ran off after class.""]","[""daily""]",run_off__leave,false,false
+run off with,to elope or steal,"[""He ran off with her purse."",""She ran off with her boyfriend.""]","[""daily""]",run_off_with__elope,false,false
+run on,to continue,"[""The meeting ran on too long."",""Her explanation ran on for hours.""]","[""work"",""daily""]",run_on__continue,false,false
+run out of,to exhaust a supply,"[""We ran out of memory."",""They ran out of paper.""]","[""IT"",""daily""]",run_out_of__exhaust,false,false
+run out on,to abandon,"[""He ran out on his family."",""She ran out on her responsibilities.""]","[""daily""]",run_out_on__abandon,false,false
+run over,to exceed time / review,"[""The meeting ran over time."",""Let's run over the checklist.""]","[""work"",""meetings""]",run_over__exceed,true,true
+run through,to practice / rehearse,"[""Let's run through the demo again."",""She ran through her notes.""]","[""work"",""meetings""]",run_through__practice,true,false
+run through,to quickly review,"[""Let's run through the checklist."",""She ran through the slides.""]","[""work"",""projects""]",run_through__review,true,false
+run through,to use up resources,"[""We ran through all our savings."",""The program quickly ran through memory.""]","[""work"",""IT""]",run_through__use_up,false,false
+run up,to accumulate,"[""They ran up debts."",""He ran up a huge phone bill.""]","[""work"",""daily""]",run_up__accumulate,false,false
+run up against,to face problems,"[""We ran up against delays."",""He ran up against opposition.""]","[""work"",""projects""]",run_up_against__face,false,false
+rush into,to do hastily,"[""They rushed into the deal."",""He rushed into answering.""]","[""work"",""projects""]",rush_into__hasty,false,false
+rush out,to produce quickly,"[""They rushed out the update."",""The publisher rushed out the book.""]","[""work"",""IT""]",rush_out__produce,true,false
+sail through,to succeed easily,"[""She sailed through the test."",""They sailed through the deployment.""]","[""work"",""career""]",sail_through__succeed,false,false
+save up for,to save money,"[""She’s saving up for a laptop."",""He saved up for a vacation.""]","[""daily""]",save_up_for__money,false,false
+scale down,to reduce capacity,"[""We scaled down instances to save costs."", ""They scaled down the project.""]","[""IT""]",scale_down__reduce,false,false
+scale up,to increase capacity,"[""We scaled up the cluster."", ""The company scaled up operations.""]","[""IT""]",scale_up__increase,false,false
+scare off,to frighten away,"[""The guard scared off the intruder."",""The high price scared off buyers.""]","[""daily""]",scare_off__frighten,true,false
+scrape by,to barely manage,"[""They scraped by on low income."",""He scraped by with little sleep.""]","[""daily""]",scrape_by__manage,false,false
+scratch out,to manage with effort,"[""He scratched out a living."",""She scratched out a victory.""]","[""daily""]",scratch_out__manage,false,false
+screen out,to exclude,"[""The filter screens out spam."",""They screened out weak candidates.""]","[""work"",""IT""]",screen_out__exclude,true,false
+see about,to arrange,"[""I’ll see about getting tickets."",""She saw about the repairs.""]","[""work"",""daily""]",see_about__arrange,false,false
+see off,to say goodbye,"[""They saw him off at the airport."",""She saw off her guests.""]","[""daily""]",see_off__goodbye,true,false
+see out,to finish,"[""He saw out his contract."",""She saw out the final semester.""]","[""work"",""projects""]",see_out__finish,true,false
+see through,to realize truth,"[""She saw through his lies."",""He saw through the excuse.""]","[""work"",""daily""]",see_through__realize,false,false
+see to,to handle,"[""She’ll see to the arrangements."",""He saw to the repairs.""]","[""work"",""projects""]",see_to__handle,false,false
+sell off,to liquidate,"[""They sold off old equipment."",""The company sold off assets.""]","[""work"",""finance""]",sell_off__liquidate,true,false
+sell out,to sell completely or betray,"[""The tickets sold out quickly."",""He sold out his friends.""]","[""daily""]",sell_out__sell,true,false
+send away for,to order by mail,"[""She sent away for a catalog."",""He sent away for parts.""]","[""daily""]",send_away_for__order,false,false
+send back,to return,"[""She sent back the package."",""He sent back the meal.""]","[""daily""]",send_back__return,true,false
+send for,to request,"[""She sent for a doctor."",""He sent for help.""]","[""daily""]",send_for__request,false,false
+send in,to submit,"[""He sent in his report."",""They sent in applications.""]","[""work"",""projects""]",send_in__submit,true,false
+send off,to dispatch,"[""They sent off the documents."",""He sent off the email.""]","[""work"",""IT""]",send_off__dispatch,true,false
+send out,to distribute,"[""They sent out invitations."",""The system sent out alerts.""]","[""work"",""IT""]",send_out__distribute,true,false
+send up,to parody,"[""The show sent up politicians."",""He sent up the system errors.""]","[""daily""]",send_up__parody,true,false
+set about,to begin / start doing,"[""They set about solving the issue."",""She set about cleaning the office.""]","[""work"",""projects""]",set_about__begin,false,false
+set against,to oppose,"[""He set himself against the plan."",""They were set against change.""]","[""work"",""projects""]",set_against__oppose,false,false
+set aside,to reserve time or resources,"[""Set aside time for this task."", ""He set aside money for a trip.""]","[""work"", ""daily""]",set_aside__reserve,true,false
+set back,to delay progress,"[""The outage set us back."",""The illness set him back.""]","[""work"",""projects""]",set_back__delay,true,false
+set down,to write / record,"[""She set down her thoughts."",""He set down notes during the lecture.""]","[""work"",""daily""]",set_down__write,true,false
+set down,to land (plane/vehicle),"[""The plane set down safely."",""The helicopter set down in the field.""]","[""daily""]",set_down__land,false,false
+set forth,to explain,"[""He set forth his ideas."",""The document sets forth the terms.""]","[""work"",""projects""]",set_forth__explain,false,false
+set off,to start a journey or trigger,"[""They set off on a trip."",""The alarm was set off.""]","[""work"",""daily""]",set_off__trigger,true,false
+set on,to attack,"[""The dog was set on the thief."",""He was set on by bullies.""]","[""daily""]",set_on__attack,false,false
+set out,to start / begin,"[""He set out on his career."",""She set out early in the morning.""]","[""work"",""projects""]",set_out__start,false,false
+set out,to arrange / present,"[""She set out the plan clearly."",""He set out the evidence.""]","[""work"",""projects""]",set_out__arrange,true,false
+set up,to arrange or prepare something,"[""We need to set up a new database."", ""They set up a meeting for Monday.""]","[""work"", ""IT""]",set_up__arrange,true,false
+set up with,to arrange or provide,"[""We set him up with access."",""They set her up with a mentor.""]","[""work"",""IT""]",set_up_with__arrange,false,false
+set upon,to attack suddenly,"[""They were set upon by robbers."",""The plan was set upon immediately.""]","[""daily""]",set_upon__attack,false,false
+settle down,to become calm or establish,"[""He settled down after moving."",""The class settled down quickly.""]","[""daily""]",settle_down__calm,false,false
+settle for,to accept less,"[""He settled for a cheaper laptop."",""She settled for second place.""]","[""work"",""daily""]",settle_for__accept,false,false
+settle in,to adapt,"[""She settled in at her new job."",""He settled in quickly.""]","[""work"",""daily""]",settle_in__adapt,false,false
+settle on,to decide,"[""They settled on a new design."",""She settled on the blue dress.""]","[""work"",""projects""]",settle_on__decide,false,false
+settle up,to pay debts,"[""They settled up after dinner."",""He settled up his account.""]","[""work"",""daily""]",settle_up__pay,false,false
+shake off,to get rid of,"[""He shook off the flu."",""She shook off her doubts.""]","[""daily""]",shake_off__remove,true,false
+shape up,to improve,"[""He needs to shape up at work."",""She shaped up before the exam.""]","[""work"",""daily""]",shape_up__improve,false,false
+shine through,to be evident,"[""Her talent shines through."",""His effort shone through.""]","[""work"",""daily""]",shine_through__evident,false,false
+shoot down,to reject,"[""They shot down the proposal."",""He shot down the idea quickly.""]","[""work"",""projects""]",shoot_down__reject,true,false
+shoot for,to aim,"[""We’re shooting for success."",""She’s shooting for promotion.""]","[""work"",""career""]",shoot_for__aim,false,false
+show around,to guide,"[""He showed us around the office."",""She showed her friends around town.""]","[""daily""]",show_around__guide,true,false
+show off,to boast / display proudly,"[""He shows off his coding skills."",""She showed off her new phone.""]","[""work"",""daily""]",show_off__display,false,false
+show up,to appear,"[""He showed up late."", ""She didn't show up at all.""]","[""daily"", ""smalltalk""]",show_up__appear,false,false
+shrug off,to dismiss,"[""He shrugged off criticism."",""She shrugged off the problem.""]","[""work"",""daily""]",shrug_off__dismiss,true,false
+shut away,to imprison,"[""He was shut away for years."",""She shut herself away to study.""]","[""daily""]",shut_away__imprison,true,false
+shut down,to close / stop operation,"[""They shut down the server."",""The shop shut down last year.""]","[""IT"",""daily""]",shut_down__stop,false,false
+shut in,to confine,"[""She was shut in all winter."",""He shut in his feelings.""]","[""daily""]",shut_in__confine,true,false
+shut out,to exclude,"[""She shut out distractions."",""They shut him out of the meeting.""]","[""work"",""daily""]",shut_out__exclude,true,false
+shut out of,to exclude,"[""He was shut out of the meeting."",""They shut her out of the decision.""]","[""work"",""projects""]",shut_out_of__exclude,false,false
+shut up,to stop talking,"[""He told them to shut up."",""She shut up during the speech.""]","[""daily""]",shut_up__stop,false,false
+side with,to support,"[""He sided with his colleague."",""She sided with management.""]","[""work"",""daily""]",side_with__support,false,false
+sign away,to give up rights,"[""He signed away his property."",""She signed away her inheritance.""]","[""work"",""legal""]",sign_away__relinquish,true,false
+sign in,to authenticate / register,"[""Sign in with Google."",""Please sign in at reception.""]","[""IT"",""work""]",sign_in__authenticate,false,false
+sign off,to approve or end,"[""The manager signed off the request."",""She signed off with a smile.""]","[""work"",""projects""]",sign_off__approve,false,false
+sign off on,to approve,"[""The manager signed off on the budget."",""She signed off on the changes.""]","[""work"",""projects""]",sign_off_on__approve,false,false
+sign on,to agree or register,"[""He signed on for the new project."",""They signed on to the plan.""]","[""work"",""projects""]",sign_on__agree,false,false
+sign on to,to agree or enroll,"[""He signed on to the project."",""She signed on to the class.""]","[""work"",""projects""]",sign_on_to__enroll,false,false
+sign out,to exit / leave,"[""Sign out from all devices."",""Please sign out when you leave.""]","[""IT"",""daily""]",sign_out__exit,false,false
+sign up,to register,"[""She signed up for the workshop."",""He signed up to the newsletter.""]","[""work"",""daily""]",sign_up__register,false,false
+sign up for,to register,"[""She signed up for training."",""He signed up for the course.""]","[""work"",""career""]",sign_up_for__register,false,false
+sit back,to relax or do nothing,"[""He sat back after finishing."",""They sat back and watched.""]","[""daily""]",sit_back__relax,false,false
+sit in on,to attend as observer,"[""She sat in on the lecture."",""He sat in on the meeting.""]","[""work"",""meetings""]",sit_in_on__observe,false,false
+sit out,to not participate,"[""She sat out the game."",""He sat out of the project.""]","[""work"",""daily""]",sit_out__not_participate,false,false
+sit out of,to skip,"[""She sat out of the game."",""He sat out of the project.""]","[""work"",""daily""]",sit_out_of__skip,false,false
+sleep in,to wake late,"[""They slept in on Sunday."",""He slept in after a long night.""]","[""daily""]",sleep_in__late,false,false
+sleep on,to delay decision,"[""Let’s sleep on it."",""He slept on the offer.""]","[""work"",""projects""]",sleep_on__delay,false,false
+slip away,to leave quietly,"[""She slipped away unnoticed."",""He slipped away from the party.""]","[""daily""]",slip_away__quiet,false,false
+slip into,to gradually enter,"[""He slipped into sleep."",""She slipped into depression.""]","[""daily""]",slip_into__enter,false,false
+slip out of,to avoid,"[""He slipped out of the meeting."",""She slipped out of her duties.""]","[""work"",""daily""]",slip_out_of__avoid,false,false
+slow down,to reduce speed,"[""He slowed down at the corner."",""They slowed down the pace of work.""]","[""work"",""daily""]",slow_down__reduce,false,false
+snap out of,to recover quickly,"[""He snapped out of his bad mood."",""She snapped out of daydreaming.""]","[""daily""]",snap_out_of__recover,false,false
+snap up,to seize quickly,"[""Tickets were snapped up."",""She snapped up the bargain.""]","[""daily""]",snap_up__seize,true,false
+sort out,to organize / resolve,"[""They sorted out the issue."",""She sorted out the files.""]","[""work"",""projects""]",sort_out__resolve,true,false
+speak for,to represent,"[""He spoke for the group."",""She spoke for her team.""]","[""work"",""meetings""]",speak_for__represent,false,false
+speak of,to mention,"[""She spoke of her plans."",""He spoke of the challenges.""]","[""work"",""daily""]",speak_of__mention,false,false
+speak out,to express an opinion openly,"[""She spoke out against the policy."", ""Employees spoke out about the issue.""]","[""work"", ""meetings""]",speak_out__express,false,false
+speak out against,to oppose vocally,"[""He spoke out against the law."",""They spoke out against injustice.""]","[""work"",""daily""]",speak_out_against__oppose,false,false
+speak up,to express oneself clearly,"[""Please speak up during the call."", ""She spoke up about the issue.""]","[""work"", ""meetings""]",speak_up__express,false,false
+speak up for,to defend,"[""She spoke up for her friend."",""He spoke up for his idea.""]","[""work"",""meetings""]",speak_up_for__defend,false,false
+speed up,to accelerate,"[""They sped up the deployment."",""He needs to speed up his work.""]","[""IT"",""projects""]",speed_up__accelerate,true,false
+spell out,to explain clearly,"[""Can you spell out the requirements?"",""He spelled out the plan.""]","[""work"",""projects""]",spell_out__explain,true,false
+spin off,to create a separate entity,"[""They spun off a new company."",""The project was spun off.""]","[""work"",""business""]",spin_off__separate,true,false
+spin up,to start a server or resource,"[""We spun up a new VM."", ""They spun up containers.""]","[""IT""]",spin_up__start,false,false
+split up,to separate,"[""The band split up."",""They split up after 10 years.""]","[""daily""]",split_up__separate,false,false
+spread out,to cover a wide area,"[""The files were spread out on the desk."",""The crowd spread out in the park.""]","[""daily""]",spread_out__cover,false,false
+spring up,to appear suddenly,"[""New startups are springing up."",""Problems sprang up unexpectedly.""]","[""work"",""projects""]",spring_up__appear,false,false
+stack up against,to compare with,"[""How does our system stack up against competitors?"",""He stacked up well against his peers.""]","[""work"",""IT""]",stack_up_against__compare,false,false
+stand around,to wait idly,"[""They stood around chatting."",""We stood around waiting for the bus.""]","[""daily""]",stand_around__idle,false,false
+stand aside,to let pass or withdraw,"[""She stood aside to let him through."",""He stood aside from the project.""]","[""work"",""daily""]",stand_aside__withdraw,false,false
+stand back,to keep distance,"[""Stand back from the fire."",""He stood back to let others pass.""]","[""daily""]",stand_back__distance,false,false
+stand by,to support or wait,"[""We stand by our decision."",""He stood by his friend.""]","[""work"",""daily""]",stand_by__support,false,false
+stand down,to resign or withdraw,"[""He stood down as chairman."",""The guard was told to stand down.""]","[""work"",""projects""]",stand_down__resign,false,false
+stand for,to represent,"[""IBM stands for International Business Machines."",""This stands for equality.""]","[""work"",""daily""]",stand_for__represent,false,false
+stand in for,to substitute,"[""He stood in for his colleague."",""She stood in for the teacher.""]","[""work"",""career""]",stand_in_for__substitute,false,false
+stand out,to be noticeable,"[""Her talent stands out."",""The error message stood out in red.""]","[""work"",""daily""]",stand_out__notice,false,false
+stand up for,to defend,"[""He stood up for his colleague."",""They stood up for their rights.""]","[""work"",""daily""]",stand_up_for__defend,false,false
+stand up to,to resist,"[""He stood up to the manager."",""She stood up to criticism.""]","[""work"",""daily""]",stand_up_to__resist,false,false
+start off,to begin,"[""He started off with a joke."",""The project started off well.""]","[""work"",""projects""]",start_off__begin,false,false
+start out,to begin career,"[""She started out as a teacher."",""He started out in sales.""]","[""work"",""career""]",start_out__career,false,false
+start over,to begin again,"[""They started over after the failure."",""He started over in a new city.""]","[""work"",""projects""]",start_over__again,false,false
+stay away from,to avoid,"[""Stay away from the restricted folder."",""He stayed away from trouble.""]","[""work"",""daily""]",stay_away_from__avoid,false,false
+stay in,to remain indoors,"[""We stayed in all weekend."",""She stayed in to work.""]","[""daily""]",stay_in__remain,false,false
+stay out of,to not get involved,"[""Stay out of this argument."",""He stayed out of office politics.""]","[""work"",""daily""]",stay_out_of__not_involved,false,false
+stay up,to remain awake,"[""He stayed up late coding."",""She stayed up all night.""]","[""daily""]",stay_up__awake,false,false
+step aside,to move so someone can pass or resign,"[""He stepped aside for the new manager."",""She stepped aside to let him through.""]","[""work"",""daily""]",step_aside__resign,false,false
+step back,to move away or reconsider,"[""Let's step back and see the bigger picture."", ""He stepped back from his role.""]","[""work"", ""projects""]",step_back__reconsider,false,false
+step down,to resign,"[""He stepped down as CEO."", ""The manager stepped down.""]","[""work"", ""daily""]",step_down__resign,false,false
+step in,to get involved,"[""The manager stepped in to resolve the conflict."", ""I had to step in and help.""]","[""work"", ""meetings""]",step_in__intervene,false,false
+step up,to increase effort,"[""He stepped up his game."",""The company stepped up hiring.""]","[""work"",""projects""]",step_up__increase,true,false
+step up,to take responsibility / action,"[""He stepped up when the team needed him."",""She stepped up to lead the project.""]","[""work"",""projects""]",step_up__responsibility,false,false
+stick around,to stay nearby,"[""Stick around for the Q&A."",""He stuck around after the meeting.""]","[""work"",""daily""]",stick_around__stay,false,false
+stick out,to be noticeable,"[""His tie stuck out in the meeting."",""She stuck out in the crowd.""]","[""work"",""daily""]",stick_out__notice,false,false
+stick to,to follow / adhere,"[""Stick to the plan."",""He sticks to his values.""]","[""work"",""projects""]",stick_to__follow,false,false
+stick up for,to defend,"[""She stuck up for her friend."",""He stuck up for the junior team.""]","[""work"",""daily""]",stick_up_for__defend,false,false
+stock up on,to collect supplies,"[""They stocked up on food."",""He stocked up on paper.""]","[""daily""]",stock_up_on__supplies,false,false
+stumble upon,to discover by chance,"[""She stumbled upon a hidden café."",""He stumbled upon an old file.""]","[""daily""]",stumble_upon__discover,false,false
+sum up,to summarize,"[""He summed up the results."",""She summed up the meeting.""]","[""work"",""meetings""]",sum_up__summarize,true,false
+swear by,to strongly trust,"[""She swears by meditation."",""He swears by this tool.""]","[""daily""]",swear_by__trust,false,false
+switch off,to stop focusing or power down,"[""Switch off the server."",""He switched off after work.""]","[""IT"",""daily""]",switch_off__stop,true,false
+switch on,to activate,"[""Switch on the lights."",""She switched on her laptop.""]","[""IT"",""daily""]",switch_on__activate,true,false
+switch over,to change from one to another,"[""We switched over to a new provider."", ""They switched over the system.""]","[""IT"", ""projects""]",switch_over__change,false,false
+take after,to resemble,"[""She takes after her mother."",""He takes after his father.""]","[""daily""]",take_after__resemble,false,false
+take apart,to disassemble,"[""He took apart the computer."",""They took apart the engine.""]","[""IT"",""daily""]",take_apart__disassemble,true,false
+take aside,to speak privately,"[""The boss took him aside."",""She was taken aside after class.""]","[""work"",""meetings""]",take_aside__private,true,false
+take away,to remove,"[""Take away the rubbish."",""The new law takes away freedoms.""]","[""work"",""daily""]",take_away__remove,true,false
+take back,to retract,"[""I take back what I said."",""The company took back faulty products.""]","[""work"",""daily""]",take_back__retract,true,false
+take down,to remove / take notes,"[""They took down the website."",""She took down the minutes.""]","[""work"",""IT""]",take_down__remove,true,false
+take in,to absorb / understand,"[""It’s a lot to take in."",""She took in the details.""]","[""work"",""daily""]",take_in__understand,true,false
+take in,to deceive,"[""He was taken in by the scam."",""The story took me in completely.""]","[""work"",""daily""]",take_in__deceive,false,false
+take off,to depart,"[""The plane took off."",""He took off right after the meeting.""]","[""daily""]",take_off__depart,false,false
+take off,to succeed rapidly,"[""Her career took off quickly."",""The product really took off.""]","[""work"",""projects""]",take_off__succeed,false,true
+take on,to accept responsibility,"[""He took on the role of team lead."", ""Don't take on too many tasks.""]","[""work"", ""projects""]",take_on__accept,true,false
+take out,to remove or extract,"[""Take out the trash."",""He took out the old code.""]","[""work"",""daily""]",take_out__remove,true,false
+take over,to assume control,"[""He took over as project lead."",""Another company took over the startup.""]","[""work"",""projects""]",take_over__control,false,false
+take to,to develop a liking,"[""He took to Python quickly."",""She took to her new colleagues.""]","[""work"",""daily""]",take_to__liking,false,false
+take up,to start / begin an activity,"[""She took up painting."",""He took up swimming.""]","[""work"",""daily""]",take_up__start,true,false
+take up,"to occupy (space, time)","[""The desk takes up space."",""The task took up my whole day.""]","[""work"",""daily""]",take_up__occupy,false,false
+talk back,to reply rudely,"[""The student talked back to the teacher."",""He talked back to his boss.""]","[""work"",""daily""]",talk_back__rude,false,false
+talk into,to persuade,"[""They talked him into joining."",""She talked me into buying it.""]","[""work"",""daily""]",talk_into__persuade,true,false
+talk out of,to dissuade,"[""He talked me out of quitting."",""She talked him out of investing.""]","[""work"",""daily""]",talk_out_of__dissuade,true,false
+talk over,to discuss,"[""Let's talk over the details."", ""We talked it over and agreed.""]","[""work"", ""meetings""]",talk_over__discuss,false,false
+talk through,to discuss step by step,"[""Let's talk through the plan."", ""She talked me through the process.""]","[""work"", ""meetings""]",talk_through__explain,false,false
+team up,to collaborate,"[""They teamed up for the project."",""We teamed up to solve the bug.""]","[""work"",""projects""]",team_up__collaborate,false,false
+team up with,to collaborate,"[""They teamed up with another team."",""He teamed up with her for the task.""]","[""work"",""projects""]",team_up_with__collaborate,false,false
+test out,to try something,"[""We tested out the new API."", ""They tested out the feature.""]","[""IT"", ""projects""]",test_out__try,true,false
+think over,to consider,"[""Think over the proposal."",""She thought it over carefully.""]","[""work"",""projects""]",think_over__consider,false,false
+think through,to analyze carefully,"[""We need to think through the risks."",""He thought through his decision.""]","[""work"",""projects""]",think_through__analyze,false,false
+think up,to invent,"[""She thought up a clever solution."",""He thought up a new excuse.""]","[""work"",""daily""]",think_up__invent,true,false
+throw away,to discard,"[""Throw away old files."",""He threw away the broken charger.""]","[""work"",""daily""]",throw_away__discard,true,false
+throw out,to discard or eject,"[""They threw out old code."",""He was thrown out of the meeting.""]","[""work"",""daily""]",throw_out__discard,true,false
+throw up,to vomit or produce,"[""He threw up after dinner."",""The new policy threw up challenges.""]","[""daily"",""work""]",throw_up__vomit,false,false
+tidy up,to clean or organize,"[""She tidied up her desk."",""They tidied up the code.""]","[""work"",""daily""]",tidy_up__organize,true,false
+touch on,to briefly mention,"[""He touched on the budget issue."", ""She touched on the new project.""]","[""work"", ""meetings""]",touch_on__mention,false,false
+try on,to test clothing,"[""She tried on the new dress."",""He tried on a jacket.""]","[""daily""]",try_on__clothing,true,false
+try out,to test,"[""They tried out the new software."",""He tried out for the team.""]","[""work"",""IT""]",try_out__test,true,false
+turn around,to improve or reverse,"[""The company turned around quickly."",""He turned the situation around.""]","[""work"",""projects""]",turn_around__improve,true,false
+turn back,to return,"[""They turned back halfway."",""He turned back to get his keys.""]","[""daily""]",turn_back__return,false,false
+turn down,to refuse or lower,"[""She turned down the offer."",""He turned down the volume.""]","[""work"",""daily""]",turn_down__refuse,true,false
+turn in,to submit or sleep,"[""He turned in his report."",""She turned in early.""]","[""work"",""daily""]",turn_in__submit,true,false
+turn into,to become,"[""The bug turned into a major issue."",""He turned into a great leader.""]","[""work"",""daily""]",turn_into__become,false,false
+turn off,to deactivate or stop,"[""Turn off the machine."", ""She turned off the alarm.""]","[""IT"", ""daily""]",turn_off__deactivate,true,false
+turn on,to activate or power something,"[""Turn on the lights."", ""I turned on the computer.""]","[""IT"", ""daily""]",turn_on__activate,true,false
+turn out,to result in a certain way,"[""The migration turned out to be a success."", ""It turned out he was right.""]","[""work"", ""daily""]",turn_out__result,false,false
+turn over,to rotate or transfer,"[""Turn over the page."",""He turned over responsibilities.""]","[""work"",""projects""]",turn_over__rotate,true,false
+turn up,to appear,"[""She turned up late."",""He turned up at the party.""]","[""work"",""daily""]",turn_up__appear,false,true
+turn up,"to increase (volume, level)","[""He turned up the volume."",""She turned up the heat.""]","[""daily""]",turn_up__increase,true,false
+unplug,to disconnect a device,"[""Unplug the USB drive safely."", ""He unplugged the lamp.""]","[""IT""]",unplug__disconnect,true,false
+use up,to consume completely,"[""They used up all the resources."", ""She used up the last page.""]","[""work"", ""daily""]",use_up__consume,true,false
+wake up,to stop sleeping,"[""She woke up at 7."",""He woke up early.""]","[""daily""]",wake_up__wake,false,true
+wash up,to clean dishes or oneself,"[""She washed up after dinner."",""He washed up before bed.""]","[""daily""]",wash_up__clean,false,false
+watch out,to be careful,"[""Watch out for mistakes."",""Watch out, the floor is wet.""]","[""work"",""daily""]",watch_out__care,false,false
+watch out for,to be careful,"[""Watch out for errors."",""Watch out for cars.""]","[""work"",""daily""]",watch_out_for__care,false,false
+wear off,to fade,"[""The effect wore off quickly."",""Her excitement wore off.""]","[""daily""]",wear_off__fade,false,false
+wear out,to exhaust (person),"[""He was worn out after work."",""The kids wore me out.""]","[""daily""]",wear_out__exhaust,false,false
+wear out,to damage / wear down (object),"[""These shoes wore out quickly."",""The tires wore out after 20,000 km.""]","[""daily""]",wear_out__damage,false,false
+wind down,to relax after work,"[""Let's wind down after the sprint."", ""They wound down with a drink.""]","[""daily"", ""smalltalk""]",wind_down__relax,false,false
+wind up,to finish or end,"[""Let's wind up the meeting."",""He wound up in hospital.""]","[""work"",""daily""]",wind_up__finish,false,false
+wipe out,to destroy or eradicate,"[""The crash wiped out data."",""The disease wiped out a village.""]","[""IT"",""daily""]",wipe_out__destroy,true,false
+work on,to focus effort,"[""She is working on a new project."",""He worked on his presentation.""]","[""work"",""projects""]",work_on__focus,false,false
+work out,to exercise,"[""He works out every morning."",""She works out daily.""]","[""daily""]",work_out__exercise,false,true
+work out,to resolve / solve,"[""We worked out the issue."",""They worked out the details.""]","[""work"",""projects""]",work_out__solve,true,false
+work up,to develop or generate,"[""He worked up a report."",""She worked up the courage.""]","[""work"",""daily""]",work_up__develop,true,false
+wrap up,to finish or complete,"[""Let's wrap up this discussion."", ""They wrapped up the release successfully.""]","[""work"", ""projects""]",wrap_up__finish,false,false
+write down,to note,"[""Write down the password."",""He wrote down the steps.""]","[""work"",""daily""]",write_down__note,true,false
+write off,to cancel or disregard,"[""They wrote off the debt."",""He wrote off the old laptop.""]","[""work"",""daily""]",write_off__cancel,true,false
+write out,to complete in writing,"[""Write out the full query."",""He wrote out the contract.""]","[""work"",""projects""]",write_out__complete,true,false
+write up,to prepare a formal report,"[""She wrote up the minutes."",""He wrote up a contract.""]","[""work"",""projects""]",write_up__report,true,false
+zip up,to close / fasten with a zipper,"[""Zip up your jacket."",""He zipped up the bag.""]","[""daily""]",zip_up__fasten,true,false
+zone out,to lose focus,"[""He zoned out in class."",""She zoned out during the talk.""]","[""work"",""daily""]",zone_out__lose_focus,false,true
+zoom in,to focus closely,"[""Zoom in on the image."",""She zoomed in on the data.""]","[""IT"",""daily""]",zoom_in__focus,true,false
+zoom out,to view more broadly,"[""Zoom out to see the big picture."",""He zoomed out on the map.""]","[""IT"",""daily""]",zoom_out__view,true,false

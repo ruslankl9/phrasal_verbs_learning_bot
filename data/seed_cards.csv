@@ -1,0 +1,21 @@
+phrasal,meaning_en,examples,tags,sense_uid,separable,intransitive
+bring up,to mention a topic for discussion,"[""She brought up the budget issue at the meeting."",""Don't bring it up now, please.""]","[""work"",""meetings""]",bring_up__mention,true,false
+look into,to investigate or examine,"[""The team will look into the delay."",""I'll look into it and get back to you.""]","[""work"",""planning""]",look_into__investigate,false,false
+put off,to delay or postpone,"[""We had to put off the call."",""Don't put it off until next week.""]","[""work"",""time_management""]",put_off__postpone,true,false
+get over,to recover from something,"[""It took her months to get over the flu."",""You'll get over the disappointment soon.""]","[""health"",""feelings""]",get_over__recover,false,true
+run into,to meet by chance,"[""I ran into an old friend downtown."",""We might run into issues later.""]","[""social"",""everyday""]",run_into__encounter,false,true
+carry on,to continue doing something,"[""Please carry on with your presentation."",""They carried on despite the noise.""]","[""work"",""meetings""]",carry_on__continue,false,false
+set up,to arrange or establish,"[""Let's set up a demo for Friday."",""They set up the projector before the talk.""]","[""work"",""meetings""]",set_up__arrange,true,false
+turn down,to reject an offer or request,"[""She turned down the job offer."",""He turned it down politely.""]","[""work"",""careers""]",turn_down__reject,true,false
+work out,to exercise or to solve a problem,"[""She works out three times a week."",""Let's work out a solution together.""]","[""health"",""problem_solving""]",work_out__solve,false,false
+point out,to highlight or indicate,"[""She pointed out a mistake in the report."",""I should point it out before we submit.""]","[""work"",""editing""]",point_out__indicate,true,false
+carry out,execute a task or plan,"[""They carried the plan out on time."",""We carried out the test safely.""]","[""work""]",carry_out__execute,true,false
+give up,stop trying or quit,"[""He gave up after two tries."",""She gave smoking up last year.""]","[""daily"",""work""]",give_up__quit,true,true
+hand in,submit something to a person,"[""Please hand your report in by noon."",""She handed in her keys before leaving.""]","[""work"",""daily""]",hand_in__submit,true,false
+point out,highlight something important,"[""He pointed the typo out during the meeting."",""Thanks for pointing out the risk.""]","[""work""]",point_out__highlight,true,false
+put together,assemble from parts,"[""They put the presentation together overnight."",""She put together a quick budget.""]","[""work""]",put_together__assemble,true,false
+brush up on,improve knowledge of a subject,"[""I need to brush up on my Excel."",""He brushed up on his Spanish before the trip.""]","[""work"",""study""]",brush_up_on__refresh_knowledge,false,false
+catch on,understand after some time,"[""It took me a while to catch on."",""The idea is starting to catch on at work.""]","[""work"",""daily""]",catch_on__understand,false,true
+come up,arise unexpectedly,"[""Something urgent came up this morning."",""The issue came up during the call.""]","[""work"",""daily""]",come_up__arise,false,true
+iron out,resolve small problems,"[""Let's iron the details out tomorrow."",""They ironed out the last few issues.""]","[""work""]",iron_out__resolve,true,false
+hand over,transfer control or responsibility,"[""Please hand the account over to Mia."",""He handed over the files after the audit.""]","[""work""]",hand_over__transfer,true,false

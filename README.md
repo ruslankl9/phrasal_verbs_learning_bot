@@ -65,16 +65,16 @@ make run
 ## Database and Seeding
 
 - The SQLite DB is stored in `data/bot.db` (auto-created).
-- Seed at least 40 sample cards:
+- Seed sample cards from CSV:
 
 ```bash
-python scripts/seed_cards.py data/seed_cards.json
+python scripts/seed_cards.py data/seed_cards.csv
 ```
 
-Export cards back to JSON for maintenance:
+Export cards back to CSV for maintenance:
 
 ```bash
-python scripts/export_cards.py data/seed_cards.json
+python scripts/export_cards.py data/export_cards.csv
 ```
 
 ## Lint/Format/Typecheck/Tests
@@ -95,6 +95,38 @@ docker compose up --build
 ```
 
 The bot reads `.env` for the token and config.
+
+## CSV Seed Format
+
+- File: `data/seed_cards.csv`
+- Encoding: UTF-8; header row required; comma-separated; double quotes escape doubled inside.
+- Arrays (`examples`, `tags`) are compact JSON arrays inside a single cell.
+- Booleans: `true|false` (lowercase).
+- Columns (in order): `phrasal,meaning_en,examples,tags,sense_uid,separable,intransitive`.
+
+Example row:
+
+```
+phrasal,meaning_en,examples,tags,sense_uid,separable,intransitive
+bring up,to mention a topic for discussion,["She brought up the budget issue at the meeting.","Don't bring it up now, please."],["work","meetings"],bring_up__mention,true,false
+```
+
+## Generator and Known List
+
+- Build/update known list (phrasals + sense_uids, lowercase, comma-separated):
+
+```bash
+make known   # writes data/known_phrasals.txt
+```
+
+- Generate new CSV rows via OpenAI model without reading large seed files:
+
+```bash
+make gen TAGS=work,travel N=40 OUT=data/new.csv
+# Under the hood: scripts/gen_phrasals_via_codex.py --tags $(TAGS) --count $(N) --out $(OUT) --known data/known_phrasals.txt
+```
+
+Set `OPENAI_API_KEY` in your environment before running the generator.
 
 ## Menu Navigation
 
