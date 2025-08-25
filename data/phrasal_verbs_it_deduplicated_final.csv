@@ -420,6 +420,7 @@ mess up,to make a mistake,"[""He messed up the presentation."",""She messed up t
 miss out on,to fail to benefit,"[""She missed out on the opportunity."",""He missed out on the training.""]","[""work"",""career""]",miss_out_on__fail,false,false
 mix in with,to socialize,"[""He mixed in with the crowd."",""She mixed in with new colleagues.""]","[""work"",""daily""]",mix_in_with__socialize,false,false
 mix up,to confuse,"[""He mixed up the dates."",""I always mix up these terms.""]","[""work"",""daily""]",mix_up__confuse,true,false
+move away,to shift away from something (physically or figuratively),"["""He moved away from the door."",""The team is moving away from old technologies.""],"[""work"",""IT"",]",move_away__shift,false,true
 move forward,to make progress,"[""Let's move forward with the plan."", ""We are moving forward despite the challenges.""]","[""work"", ""projects""]",move_forward__progress,false,false
 move in on,to take control,"[""The company moved in on a competitor."",""Police moved in on the suspects.""]","[""work"",""projects""]",move_in_on__control,false,false
 move on,to continue,"[""Let's move on to the next topic."", ""He moved on after the breakup.""]","[""work"", ""daily""]",move_on__continue,false,false
