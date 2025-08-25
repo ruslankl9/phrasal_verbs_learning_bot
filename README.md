@@ -138,6 +138,11 @@ Set `OPENAI_API_KEY` in your environment before running the generator.
   - `📊 Stats`: view today/week stats with Back.
   - `😴 Snooze`: quick +1h/+3h/+6h options with Back.
 
+## Card Rendering
+
+- Cards render in HTML with bold phrasal, italic meaning, example bullets, and normalized hashtag tags.
+- A top-line 🆕 appears only the first time a card is ever shown to a user.
+
 ## License
 
 MIT

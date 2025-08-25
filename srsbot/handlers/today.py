@@ -13,7 +13,11 @@ from srsbot.db import (
     increment_day_counters,
     update_day_state,
 )
-from srsbot.formatters import format_round_complete, format_session_finished, render_card
+from srsbot.formatters import (
+    format_round_complete,
+    format_session_finished,
+    html_card_message,
+)
 from srsbot.keyboards import round_end_keyboard, today_card_kb, kb_main_menu
 from srsbot.models import Progress
 from srsbot.session import store
@@ -74,10 +78,15 @@ async def cmd_today(message: Message) -> None:
     next_id = s.queue.pop(0)
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
             (next_id,),
         )
         row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT last_seen_at FROM progress WHERE user_id=? AND card_id=?",
+            (user_id, next_id),
+        )
+        prow = await cur2.fetchone()
     if not row:
         await show_screen(
             bot=message.bot,
@@ -87,10 +96,16 @@ async def cmd_today(message: Message) -> None:
             screen_id=SCREEN_MENU,
         )
         return
+    # Determine if this is the first-ever show for this user
+    first_time_ever = prow is None or prow[0] is None
+    first_time_this_session = next_id not in s.shown_card_ids
+    is_new_badge = first_time_ever and first_time_this_session
+    s.shown_card_ids.add(next_id)
+    tags_list = [t for t in str(row[3] or "").split(",") if t]
     await show_screen(
         bot=message.bot,
         user_id=user_id,
-        text=render_card(row[0], row[1], row[2]),
+        text=html_card_message(row[0], row[1], row[2], is_new=is_new_badge, tags=tags_list),
         reply_markup=today_card_kb(next_id),
         screen_id=SCREEN_TODAY,
     )
@@ -146,10 +161,15 @@ async def on_today_from_menu(cb: CallbackQuery) -> None:
     next_id = s.queue.pop(0)
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
             (next_id,),
         )
         row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT last_seen_at FROM progress WHERE user_id=? AND card_id=?",
+            (user_id, next_id),
+        )
+        prow = await cur2.fetchone()
     if not row:
         await show_screen(
             bot=cb.message.bot,  # type: ignore[union-attr]
@@ -160,10 +180,15 @@ async def on_today_from_menu(cb: CallbackQuery) -> None:
         )
         await cb.answer()
         return
+    first_time_ever = prow is None or prow[0] is None
+    first_time_this_session = next_id not in s.shown_card_ids
+    is_new_badge = first_time_ever and first_time_this_session
+    s.shown_card_ids.add(next_id)
+    tags_list = [t for t in str(row[3] or "").split(",") if t]
     await show_screen(
         bot=cb.message.bot,  # type: ignore[union-attr]
         user_id=user_id,
-        text=render_card(row[0], row[1], row[2]),
+        text=html_card_message(row[0], row[1], row[2], is_new=is_new_badge, tags=tags_list),
         reply_markup=today_card_kb(next_id),
         screen_id=SCREEN_TODAY,
     )
@@ -375,13 +400,24 @@ async def on_ans(cb: CallbackQuery) -> None:
     print("next_id:", next_id)
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
             (next_id,),
         )
         row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT last_seen_at FROM progress WHERE user_id=? AND card_id=?",
+            (user_id, next_id),
+        )
+        prow = await cur2.fetchone()
     if row:
+        first_time_ever = prow is None or prow[0] is None
+        first_time_this_session = next_id not in s.shown_card_ids
+        is_new_badge = first_time_ever and first_time_this_session
+        s.shown_card_ids.add(next_id)
+        tags_list = [t for t in str(row[3] or "").split(",") if t]
         await cb.message.edit_text(
-            render_card(row[0], row[1], row[2]), reply_markup=today_card_kb(next_id)
+            html_card_message(row[0], row[1], row[2], is_new=is_new_badge, tags=tags_list),
+            reply_markup=today_card_kb(next_id),
         )
     await cb.answer()
 
@@ -430,15 +466,26 @@ async def on_round_repeat(cb: CallbackQuery) -> None:
     next_id = s.queue.pop(0)
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT phrasal, meaning_en, examples_json FROM cards WHERE id=?",
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
             (next_id,),
         )
         row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT last_seen_at FROM progress WHERE user_id=? AND card_id=?",
+            (user_id, next_id),
+        )
+        prow = await cur2.fetchone()
     if not row:
         await cb.message.edit_text("Card not found.")
     else:
+        first_time_ever = prow is None or prow[0] is None
+        first_time_this_session = next_id not in s.shown_card_ids
+        is_new_badge = first_time_ever and first_time_this_session
+        s.shown_card_ids.add(next_id)
+        tags_list = [t for t in str(row[3] or "").split(",") if t]
         await cb.message.edit_text(
-            render_card(row[0], row[1], row[2]), reply_markup=today_card_kb(next_id)
+            html_card_message(row[0], row[1], row[2], is_new=is_new_badge, tags=tags_list),
+            reply_markup=today_card_kb(next_id),
         )
     await cb.answer()
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import date, timedelta
+import random
 from typing import Iterable, Sequence
 
 from srsbot.content import NewCard, select_new_cards
@@ -50,10 +51,16 @@ def build_daily_queue_view(
     review_limit_per_day: int,
     daily_new_target: int,
 ) -> list[Item]:
-    """Return ordered items for today's session: learning -> reviews -> new."""
+    """Return ordered items for today's session: learning -> reviews -> new.
+
+    Within each bucket, order is randomized to avoid predictable order.
+    """
     learning = list(learning_due)
     reviews = list(reviews_due[:review_limit_per_day])
     new = list(new_candidates[:daily_new_target])
+    random.shuffle(learning)
+    random.shuffle(reviews)
+    random.shuffle(new)
     return learning + reviews + new
 
 
@@ -104,4 +111,8 @@ async def build_round_queue(
     learning, reviews_all, new_candidates = await compute_daily_candidates(user_id, today)
     reviews = list(reviews_all[: max(0, review_remaining)])
     picked_new = select_new_cards(new_candidates, pack_tags, limit=max(0, new_remaining))
+    # Shuffle inside buckets
+    random.shuffle(learning)
+    random.shuffle(reviews)
+    random.shuffle(picked_new)
     return [it.card_id for it in learning] + [it.card_id for it in reviews] + [c.id for c in picked_new]

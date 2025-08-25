@@ -1,19 +1,62 @@
 from __future__ import annotations
 
 import json
+import html
+import re
 from typing import Iterable
 
 
-def render_card(phrasal: str, meaning_en: str, examples_json: str) -> str:
+def escape_html(s: str) -> str:
+    """Escape text for safe HTML rendering in Telegram."""
+    return html.escape(s, quote=True)
+
+
+def normalize_tag(s: str) -> str:
+    """Normalize a tag to lowercase with non-word chars replaced by underscores."""
+    tag = re.sub(r"[^a-z0-9_]+", "_", s.lower()).strip("_")
+    return tag
+
+
+def html_card_message(
+    phrasal: str,
+    meaning_en: str,
+    examples_json: str,
+    *,
+    is_new: bool,
+    tags: list[str],
+) -> str:
+    """Compose the HTML message body for a card.
+
+    - Optional top-line badge "🆕" when is_new.
+    - Bold phrasal, italic meaning.
+    - Examples list with "- " bullets.
+    - Tags as space-separated hashtags (#tag) built from provided tags.
+    """
     examples: list[str] = []
     try:
-        examples = list(json.loads(examples_json))
+        loaded = json.loads(examples_json)
+        if isinstance(loaded, list):
+            examples = [str(x) for x in loaded]
     except Exception:
-        pass
-    lines = [phrasal, f"— {meaning_en}"]
-    for i, ex in enumerate(examples[:3], start=1):
-        lines.append(f"Ex{i}: {ex}")
-    return "\n".join(lines)
+        examples = []
+
+    badge = "🆕\n" if is_new else ""
+    tags_norm = [normalize_tag(t) for t in tags]
+    tags_norm = [t for t in tags_norm if t]
+    tags_line = "Tags: " + " ".join(f"#{t}" for t in tags_norm) if tags_norm else "Tags:"
+
+    parts: list[str] = []
+    if badge:
+        parts.append(badge.rstrip("\n"))
+    parts.append(f"<b>{escape_html(phrasal)}</b>")
+    parts.append("")
+    parts.append(f"<i>{escape_html(meaning_en)}</i>")
+    parts.append("Examples:")
+    for ex in examples:
+        parts.append(f"- {escape_html(ex)}")
+    parts.append("")
+    parts.append(tags_line)
+    return "\n".join(parts)
 
 
 def format_round_complete(

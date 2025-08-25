@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterable, Sequence
+import random
+from typing import Sequence
 
 
 @dataclass(frozen=True)
@@ -31,8 +32,9 @@ def select_new_cards(
     seen_sense: set[str] = set()
     picked: list[NewCard] = []
 
-    for c in candidates:
-        if 0 < len(tagset):
+    for i in random.sample(range(len(candidates)), k=len(candidates)):
+        c = candidates[i]
+        if len(tagset) > 0:
             if not any(t in tagset for t in (t.lower() for t in c.tags)):
                 continue
         # No duplicates per phrasal or sense

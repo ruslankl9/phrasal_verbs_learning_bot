@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import asyncio
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 
 @dataclass
@@ -11,6 +11,7 @@ class SessionData:
     shown: int = 0
     good: int = 0
     consecutive_good: int = 0
+    shown_card_ids: Set[int] = field(default_factory=set)
 
 
 class SessionStore:
@@ -28,4 +29,3 @@ class SessionStore:
 
 
 store = SessionStore()
-
