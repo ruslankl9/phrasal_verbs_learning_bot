@@ -21,6 +21,7 @@ SCREEN_CONFIG = SCREEN_SETTINGS  # backward alias
 SCREEN_PACKS = "packs"
 SCREEN_STATS = "stats"
 SCREEN_SNOOZE = "snooze"
+SCREEN_QUIZ = "quiz"
 
 
 async def show_screen(

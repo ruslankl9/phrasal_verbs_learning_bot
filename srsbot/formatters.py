@@ -86,3 +86,57 @@ def format_session_finished(
         "See you tomorrow!",
     ]
     return "\n".join(lines)
+
+
+# ---- Quiz formatters -------------------------------------------------------
+
+def format_quiz_question_html(phrasal: str, options: list[str]) -> str:
+    """Render a single quiz question in HTML.
+
+    Displays the phrasal verb in bold, a prompt line, and four numbered options.
+    If fewer than four options are provided, renders only available ones.
+    """
+    opts_lines: list[str] = []
+    for i, opt in enumerate(options[:4], start=1):
+        opts_lines.append(f"{i}) {escape_html(opt)}")
+    parts = [
+        f"<b>{escape_html(phrasal)}</b>",
+        "",
+        "Choose the correct meaning:",
+        *opts_lines,
+    ]
+    return "\n".join(parts)
+
+
+def format_quiz_summary_html(items: list[dict]) -> str:
+    """Render quiz summary with overall score and per-question breakdown.
+
+    Each item dict is expected to contain:
+    - phrasal: str
+    - options: list[str]
+    - correct_index: int
+    - user_choice: int | None
+    """
+    total = len(items)
+    correct = sum(1 for it in items if it.get("user_choice") == it.get("correct_index"))
+    lines: list[str] = [
+        "Quiz summary",
+        f"Correct: {correct} / {total}",
+    ]
+    for idx, it in enumerate(items, start=1):
+        phrasal = str(it.get("phrasal", ""))
+        opts: list[str] = [str(x) for x in it.get("options", [])]
+        ci = int(it.get("correct_index", 0))
+        uc = it.get("user_choice")
+        correct_text = opts[ci] if 0 <= ci < len(opts) else ""
+        lines.append("")
+        lines.append(f"{idx}) <b>{escape_html(phrasal)}</b>")
+        if uc == ci:
+            lines.append(f"✅ <b>{escape_html(correct_text)}</b>")
+        else:
+            if uc is not None and 0 <= uc < len(opts):
+                lines.append(f"❌ {escape_html(opts[uc])}")
+            else:
+                lines.append("❌")
+            lines.append(f"(Correct answer: <b>{escape_html(correct_text)}</b>)")
+    return "\n".join(lines)

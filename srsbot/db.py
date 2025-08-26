@@ -60,7 +60,8 @@ async def init_db() -> None:
                 review_limit_per_day INTEGER NOT NULL DEFAULT 35,
                 push_time TEXT NOT NULL DEFAULT '09:00',
                 pack_tags TEXT NOT NULL DEFAULT 'daily',
-                intra_spacing_k INTEGER NOT NULL DEFAULT 3
+                intra_spacing_k INTEGER NOT NULL DEFAULT 3,
+                quiz_question_limit INTEGER NOT NULL DEFAULT 10
             );
 
             -- Additional lightweight state for scheduling and stats
@@ -101,7 +102,8 @@ async def init_db() -> None:
                 user_id INTEGER PRIMARY KEY,
                 last_ui_message_id INTEGER,
                 current_screen TEXT,
-                awaiting_input_field TEXT
+                awaiting_input_field TEXT,
+                quiz_state_json TEXT
             );
             """
         )
@@ -110,6 +112,22 @@ async def init_db() -> None:
         try:
             await db.execute(
                 "ALTER TABLE user_ui_state ADD COLUMN awaiting_input_field TEXT"
+            )
+            await db.commit()
+        except Exception:
+            pass
+        # Migration: add quiz_state_json if missing
+        try:
+            await db.execute(
+                "ALTER TABLE user_ui_state ADD COLUMN quiz_state_json TEXT"
+            )
+            await db.commit()
+        except Exception:
+            pass
+        # Migration: add quiz_question_limit if missing
+        try:
+            await db.execute(
+                "ALTER TABLE user_config ADD COLUMN quiz_question_limit INTEGER NOT NULL DEFAULT 10"
             )
             await db.commit()
         except Exception:
@@ -192,6 +210,29 @@ async def clear_ui_message(user_id: int) -> None:
 async def set_awaiting_input(user_id: int, field: str | None) -> None:
     """Set or clear the awaiting input field in UI state."""
     await set_ui_state(user_id, awaiting_input_field=field)
+
+
+# ---- Quiz state helpers ----------------------------------------------------
+
+async def set_quiz_state(user_id: int, state_json: str | None) -> None:
+    """Persist or clear transient quiz state JSON for the user."""
+    async with get_db() as db:
+        await db.execute(
+            "INSERT INTO user_ui_state(user_id, quiz_state_json) VALUES(?, ?) "
+            "ON CONFLICT(user_id) DO UPDATE SET quiz_state_json=excluded.quiz_state_json",
+            (user_id, state_json),
+        )
+        await db.commit()
+
+
+async def get_quiz_state_json(user_id: int) -> str | None:
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT quiz_state_json FROM user_ui_state WHERE user_id=?",
+            (user_id,),
+        )
+        row = await cur.fetchone()
+    return str(row[0]) if row and row[0] is not None else None
 
 
 async def get_day_state(user_id: int, session_date: str) -> aiosqlite.Row | None:

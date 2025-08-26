@@ -20,6 +20,7 @@ A minimal, production-ready Telegram bot to learn English phrasal verbs using a 
 - `/settings` — Open Settings; edit Daily new cards, Review cap, Notification time, Packs, In-round spacing via inline UI with validation.
 - `/stats` — Shows streak, new learned today, reviews done, accuracy (today/week).
 - `/snooze` — Snooze today’s notification by N hours (default 3h) or open snooze screen.
+ - `📝 Quiz` — Start a multiple-choice quiz based on your review cards. Each question shows a phrasal verb and four meanings to choose from. Answers do not affect SRS scheduling.
 
 ## Setup
 
@@ -136,12 +137,20 @@ Set `OPENAI_API_KEY` in your environment before running the generator.
   - `▶️ Today`: study cards with Again/Good and a persistent `🏁 Finish session` button. When finished, you see a short summary and return to the menu.
   - `⚙️ Settings`: edit fields with per-item buttons; scalar values open an inline input screen with validation; `🧩 Active packs` lives here with checkbox toggles; Back returns cleanly.
   - `📊 Stats`: view today/week stats with Back.
+  - `📝 Quiz`: multiple-choice practice over today’s review pool. At the end, see a summary and try again.
   - `😴 Snooze`: quick +1h/+3h/+6h options with Back.
 
 ## Card Rendering
 
 - Cards render in HTML with bold phrasal, italic meaning, example bullets, and normalized hashtag tags.
 - A top-line 🆕 appears only the first time a card is ever shown to a user.
+
+## Quiz
+
+- Builds from your review-state cards; samples up to the limit from Settings.
+- Each question: 1 correct meaning + up to 3 distractors from global meanings; options are shuffled.
+- Clean UI: the bot edits a single message for navigation and summary.
+- Settings → “Quiz questions per session” controls the cap (default 10, range 5–30).
 
 ## License
 

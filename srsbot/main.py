@@ -11,7 +11,7 @@ from aiogram.types import Message
 
 from srsbot.config import BOT_TOKEN
 from srsbot.db import init_db
-from srsbot.handlers import menu, packs, settings, snooze, start, stats, today
+from srsbot.handlers import menu, packs, settings, snooze, start, stats, today, quiz
 from srsbot.scheduler import daily_tick
 
 
@@ -43,6 +43,7 @@ async def main() -> None:
     dp.include_router(packs.router)
     dp.include_router(stats.router)
     dp.include_router(snooze.router)
+    dp.include_router(quiz.router)
 
     # Background scheduler
     asyncio.create_task(run_scheduler(bot))

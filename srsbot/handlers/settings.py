@@ -38,11 +38,16 @@ FIELD_META = {
         "How many other cards to show before repeating a missed card within the same round.",
         lambda s: validate_int_in_range(s, 1, 6),
     ),
+    "quiz_question_limit": (
+        "Quiz questions per session",
+        "How many multiple-choice questions to include in one Quiz session (review cards only).",
+        lambda s: validate_int_in_range(s, 5, 30),
+    ),
 }
 
 
-def _fmt_settings_text(row: tuple[int, int, str, str, int]) -> str:
-    daily_new, review_cap, push_time, pack_tags, k = row
+def _fmt_settings_text(row: tuple[int, int, str, str, int, int]) -> str:
+    daily_new, review_cap, push_time, pack_tags, k, quiz_limit = row
     packs_display = (
         ", ".join(t.strip().title() for t in pack_tags.split(",") if t.strip()) or "All"
     )
@@ -52,20 +57,21 @@ def _fmt_settings_text(row: tuple[int, int, str, str, int]) -> str:
         f"• Daily review cap: {review_cap}\n"
         f"• Notification time: {push_time}\n"
         f"• Active packs: {packs_display}\n"
-        f"• In-round spacing: {k}"
+        f"• In-round spacing: {k}\n"
+        f"• Quiz questions per session: {quiz_limit}"
     )
 
 
-async def _load_settings_row(user_id: int) -> tuple[int, int, str, str, int]:
+async def _load_settings_row(user_id: int) -> tuple[int, int, str, str, int, int]:
     async with get_db() as db:
         cur = await db.execute(
-            "SELECT daily_new_target, review_limit_per_day, push_time, pack_tags, intra_spacing_k FROM user_config WHERE user_id=?",
+            "SELECT daily_new_target, review_limit_per_day, push_time, pack_tags, intra_spacing_k, quiz_question_limit FROM user_config WHERE user_id=?",
             (user_id,),
         )
         row = await cur.fetchone()
     if not row:
-        return (8, 35, "09:00", "", 3)
-    return int(row[0]), int(row[1]), str(row[2]), str(row[3] or ""), int(row[4])
+        return (8, 35, "09:00", "", 3, 10)
+    return int(row[0]), int(row[1]), str(row[2]), str(row[3] or ""), int(row[4]), int(row[5] if row[5] is not None else 10)
 
 
 async def show_settings(message_or_cb, user_id: int) -> None:

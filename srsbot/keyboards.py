@@ -10,7 +10,10 @@ def kb_main_menu() -> InlineKeyboardMarkup:
                 InlineKeyboardButton(text="▶️ Today", callback_data="ui:today"),
                 InlineKeyboardButton(text="⚙️ Settings", callback_data="ui:settings"),
             ],
-            [InlineKeyboardButton(text="📊 Stats", callback_data="ui:stats")],
+            [
+                InlineKeyboardButton(text="📝 Quiz", callback_data="ui:quiz"),
+                InlineKeyboardButton(text="📊 Stats", callback_data="ui:stats"),
+            ],
             [InlineKeyboardButton(text="😴 Snooze", callback_data="ui:snooze")],
         ]
     )
@@ -90,6 +93,7 @@ def kb_settings_list() -> InlineKeyboardMarkup:
             [InlineKeyboardButton(text="⏰ Notification time", callback_data="ui:settings.input:push_time")],
             [InlineKeyboardButton(text="🧩 Active packs", callback_data="ui:settings.packs")],
             [InlineKeyboardButton(text="↔️ In-round spacing", callback_data="ui:settings.input:intra_spacing_k")],
+            [InlineKeyboardButton(text="📝 Quiz questions per session", callback_data="ui:settings.input:quiz_question_limit")],
             [InlineKeyboardButton(text="◀️ Back", callback_data="ui:menu")],
         ]
     )
@@ -111,3 +115,26 @@ def kb_settings_packs(packs: list[tuple[str, int]], selected: set[str]) -> Inlin
         )
     rows.append([InlineKeyboardButton(text="◀️ Back", callback_data="ui:settings.packs.back")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def kb_quiz_question(qidx: int, n_options: int) -> InlineKeyboardMarkup:
+    """Keyboard with 1-4 options for a quiz question and Back button.
+
+    Buttons callback data carry the chosen index.
+    """
+    digits = ["1️⃣", "2️⃣", "3️⃣", "4️⃣"]
+    row = [
+        InlineKeyboardButton(text=digits[i], callback_data=f"ui:quiz.answer:{qidx}:{i}")
+        for i in range(min(max(2, n_options), 4))
+    ]
+    rows = [row, [InlineKeyboardButton(text="◀️ Back", callback_data="ui:quiz.back")]]
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def kb_quiz_summary() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="🔁 Take quiz again", callback_data="ui:quiz.again")],
+            [InlineKeyboardButton(text="◀️ Back to menu", callback_data="ui:menu")],
+        ]
+    )
