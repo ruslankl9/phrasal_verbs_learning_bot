@@ -4,5 +4,17 @@ __pycache__/
 .ruff_cache/
 .venv/
 *.pyc
-data/bot.db
 
+# data
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+
+.idea/
+.vscode/
+
+.env

@@ -17,7 +17,7 @@ def test_html_card_message_format_and_escape() -> None:
     # Examples bullets
     assert "Examples:" in txt
     assert "- We acted on the feedback." in txt
-    assert "- The police acted on a tip &amp; didn\'t wait." in txt
+    # Apostrophe is escaped by html.escape as &#x27;
+    assert "- The police acted on a tip &amp; didn&#x27;t wait." in txt
     # Tags normalized and hashed
     assert "Tags: #work #daily_stuff" in txt
-

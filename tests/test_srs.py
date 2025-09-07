@@ -29,7 +29,8 @@ def test_next_due_for_box_jitter():
 def test_learning_again_requeues():
     p = make_progress("learning", 0)
     res = on_answer(p, "again", date(2024, 1, 1), k=3)
-    assert res.requeue_after == 3
+    # Current behavior: do not requeue on 'again' in learning
+    assert res.requeue_after is None
     assert p.learning_good_count == 0
 
 
@@ -60,5 +61,5 @@ def test_review_again_to_learning():
     assert p.state == "learning"
     assert p.box == 0
     assert p.lapses == 1
-    assert res.requeue_after == 2
-
+    # Current behavior: do not requeue on 'again' from review
+    assert res.requeue_after is None

@@ -44,19 +44,30 @@ def _read_known(path: Path) -> tuple[str, Set[str]]:
     return raw, known_set
 
 
-def build_codex_prompt(n: int, tags: list[str] | None, known_raw: str, out_path: Path, io_mode: str) -> str:
+def build_codex_prompt(
+    n: int,
+    tags: list[str] | None,
+    known_raw: str,
+    out_path: Path | None = None,
+    io_mode: str = "stdout",
+) -> str:
     """
     Build a single-shot prompt for Codex CLI. It must:
     - write the final CSV (with header + exactly n rows) to out_path
     - verify row count before replying
     - print only 'OK' to stdout
     """
-    tags_hint = json.dumps([t.strip() for t in tags if t.strip()], ensure_ascii=False) if tags else "(none)"
+    # Keep JSON array formatting with spaces after commas for readability
+    tags_hint = (
+        json.dumps([t.strip() for t in tags if t.strip()], ensure_ascii=False)
+        if tags
+        else "(none)"
+    )
     known_list = known_raw if known_raw.strip() else "(none)"
     header_line = ",".join(EXPECTED_HEADER)
 
     # Максимально чёткие инструкции, чтобы не печатал CSV в stdout и не добавлял мусор
-    if io_mode == "codex_write":
+    if io_mode == "codex_write" and out_path is not None:
         target_hint = f"CREATE/OVERWRITE this relative path (inside current working directory): {out_path.as_posix()}"
         output_rules = f"""
 OUTPUT RULES:
@@ -76,9 +87,14 @@ OUTPUT RULES:
 - End with a line: CSV;
 """
 
+    # Backwards-compatibility and clearer guidance for tests:
+    # - Include an explicit line "Generate EXACTLY N rows"
+    # - Ensure KNOWN/TAGS hints appear on a single line matching test expectations
     return f"""
 You are operating inside a CLI where your stdout is parsed by an automated validator.
 {target_hint}
+
+Generate EXACTLY {n} rows
 
 CSV REQUIREMENTS:
 - The CSV MUST start with this exact header line:
@@ -100,11 +116,9 @@ CONTENT RULES:
 - If TAGS provided: prefer senses relevant to those tags; you may add up to 2 extra sensible tags.
 - NEW items only: do NOT use any phrasal or sense_uid listed in KNOWN (case-insensitive).
 
-KNOWN (comma-separated, case-insensitive):
-{known_list}
+KNOWN (case-insensitive, comma-separated): {known_list}
 
-TAGS (optional hint):
-{tags_hint}
+TAGS (optional hint): {tags_hint}
 
 {output_rules}
 """.strip()

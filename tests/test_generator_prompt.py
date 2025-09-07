@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from scripts.gen_phrasals_via_codex import build_prompt
+from scripts.gen_phrasals_via_codex import build_codex_prompt
 
 
 def test_prompt_contains_constraints() -> None:
-    p = build_prompt(5, ["work", "travel"], "bring up,bring_up__mention")
+    p = build_codex_prompt(5, ["work", "travel"], "bring up,bring_up__mention", out_path=None, io_mode="stdout")
     assert "Generate EXACTLY 5 rows" in p
     assert "KNOWN (case-insensitive, comma-separated): bring up,bring_up__mention" in p
     assert 'TAGS (optional hint): ["work", "travel"]' in p

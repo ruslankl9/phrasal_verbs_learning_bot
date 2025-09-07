@@ -1,0 +1,10 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run test suite (pytest)
+        entry: poetry run pytest -q
+        language: system
+        pass_filenames: false
+        stages: [commit]
+        always_run: true
