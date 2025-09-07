@@ -5,11 +5,11 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-COPY pyproject.toml poetry.lock* requirements.txt* README.md srsbot ./
+COPY pyproject.toml poetry.lock* requirements.txt* README.md ./
 
 RUN set -eux; \
     if [ -f "pyproject.toml" ]; then \
-      pip install --no-cache-dir poetry && poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi; \
+      pip install --no-cache-dir poetry && poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi --no-root; \
     elif [ -f "requirements.txt" ]; then \
       pip install --no-cache-dir -r requirements.txt; \
     fi
