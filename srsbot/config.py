@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ROOT_DIR: Final[Path] = Path(__file__).resolve().parents[1]
-DATA_DIR: Final[Path] = ROOT_DIR / "data"
+DATA_DIR: Final[Path] = Path(os.getenv("DATA_DIR", str(ROOT_DIR / "data")))
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 DB_PATH: Final[Path] = DATA_DIR / "bot.db"
 
@@ -24,10 +24,7 @@ DEFAULT_TZ: Final[str] = os.getenv("TZ", "Asia/Yerevan")
 EXPLAIN_API_BASE: Final[str] = os.getenv("EXPLAIN_API_BASE", "")
 EXPLAIN_API_KEY: Final[str] | None = os.getenv("EXPLAIN_API_KEY") or "no-key"
 EXPLAIN_MODEL: Final[str] = os.getenv("EXPLAIN_MODEL", "gpt-4o-mini")
-try:
-    EXPLAIN_TIMEOUT_SECONDS: Final[int] = int(os.getenv("EXPLAIN_TIMEOUT_SECONDS", "30"))
-except Exception:
-    EXPLAIN_TIMEOUT_SECONDS = 30
+EXPLAIN_TIMEOUT_SECONDS: Final[int] = int(os.getenv("EXPLAIN_TIMEOUT_SECONDS", "30"))
 
 # Leitner intervals in days for boxes 1..7
 BOX_INTERVALS: Final[dict[int, int]] = {

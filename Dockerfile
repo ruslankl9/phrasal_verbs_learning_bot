@@ -16,5 +16,7 @@ RUN set -eux; \
 
 COPY . .
 
+ENV PYTHONPATH=/app
+
 CMD ["python", "-m", "srsbot.main"]
 
