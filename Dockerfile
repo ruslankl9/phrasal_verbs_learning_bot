@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-COPY pyproject.toml poetry.lock* requirements.txt* README.md ./
+COPY pyproject.toml poetry.lock* requirements.txt* README.md srsbot ./
 
 RUN set -eux; \
     if [ -f "pyproject.toml" ]; then \
