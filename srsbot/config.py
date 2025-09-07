@@ -20,6 +20,15 @@ BOT_TOKEN: Final[str] = os.getenv("BOT_TOKEN", "")
 DEFAULT_PUSH_TIME: Final[str] = os.getenv("PUSH_TIME", "09:00")
 DEFAULT_TZ: Final[str] = os.getenv("TZ", "Asia/Yerevan")
 
+# Explain feature configuration
+EXPLAIN_API_BASE: Final[str] = os.getenv("EXPLAIN_API_BASE", "")
+EXPLAIN_API_KEY: Final[str] | None = os.getenv("EXPLAIN_API_KEY") or "no-key"
+EXPLAIN_MODEL: Final[str] = os.getenv("EXPLAIN_MODEL", "gpt-4o-mini")
+try:
+    EXPLAIN_TIMEOUT_SECONDS: Final[int] = int(os.getenv("EXPLAIN_TIMEOUT_SECONDS", "30"))
+except Exception:
+    EXPLAIN_TIMEOUT_SECONDS = 30
+
 # Leitner intervals in days for boxes 1..7
 BOX_INTERVALS: Final[dict[int, int]] = {
     1: 1,
@@ -44,4 +53,3 @@ def parse_push_time(s: str | None) -> time:
 class Today:
     today: date
     now: datetime
-

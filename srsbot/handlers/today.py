@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import logging
 
 from aiogram import F, Router
 from aiogram.filters import Command
@@ -17,16 +18,22 @@ from srsbot.formatters import (
     format_round_complete,
     format_session_finished,
     html_card_message,
+    build_card_prompt_text,
+    format_explain_loading_html,
+    format_explain_error_html,
 )
-from srsbot.keyboards import round_end_keyboard, today_card_kb, kb_main_menu
+from srsbot.keyboards import round_end_keyboard, today_card_kb, kb_main_menu, kb_explain_back
 from srsbot.models import Progress
 from srsbot.session import store
 from srsbot.srs import AnswerResult, on_answer
 from srsbot.queue import build_round_queue, compute_daily_candidates
 from srsbot.ui import SCREEN_TODAY, SCREEN_MENU, show_screen
+from srsbot.explain_client import get_explanation, ExplainClientError
 
 
 router = Router()
+
+logger = logging.getLogger(__name__)
 
 
 @router.message(Command("today"))
@@ -517,4 +524,100 @@ async def on_round_finish(cb: CallbackQuery) -> None:
         screen_id=SCREEN_MENU,
     )
     await store.clear(user_id)
+    await cb.answer()
+
+
+# ---- Explain feature -------------------------------------------------------
+
+
+@router.callback_query(F.data.startswith("ui:card.explain:"))
+async def on_card_explain(cb: CallbackQuery) -> None:
+    assert cb.from_user and cb.data
+    user_id = cb.from_user.id
+    _, _, card_id_s = cb.data.split(":", 2)
+    card_id = int(card_id_s)
+
+    # Show loading in place
+    await cb.message.edit_text(format_explain_loading_html())
+
+    # Check cache
+    from srsbot.db import get_explanation_cached, store_explanation
+
+    cached = await get_explanation_cached(card_id)
+    if cached is not None:
+        from srsbot.formatters import markdown_to_html_telegram
+        rendered = markdown_to_html_telegram(cached)
+        await cb.message.edit_text("\n".join(["<b>Explain</b>", "", rendered]), reply_markup=kb_explain_back(card_id))
+        await cb.answer()
+        return
+
+    # Load card to build prompt
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
+            (card_id,),
+        )
+        row = await cur.fetchone()
+    if not row:
+        await cb.message.edit_text(format_explain_error_html(), reply_markup=kb_explain_back(card_id))
+        await cb.answer()
+        return
+
+    tags_list = [t for t in str(row[3] or "").split(",") if t]
+    prompt = "\n".join(
+        [
+            "Explain the following card for an English learner who is not a native speaker.",
+            "Use clear B1-level English. Give only explanations; no questions, no chit-chat.",
+            "Add helpful details to make the meaning easy to understand. Keep it concise.",
+            "",
+            "CARD:",
+            build_card_prompt_text(row[0], row[1], row[2], tags=tags_list),
+        ]
+    )
+
+    try:
+        content = await get_explanation(prompt)
+        await store_explanation(card_id, content)
+        from srsbot.formatters import markdown_to_html_telegram
+        rendered = markdown_to_html_telegram(content)
+        await cb.message.edit_text("\n".join(["<b>Explain</b>", "", rendered]), reply_markup=kb_explain_back(card_id))
+    except Exception as e:
+        logger.exception("Failed to explain card", exc_info=e)
+        await cb.message.edit_text(format_explain_error_html(), reply_markup=kb_explain_back(card_id))
+    finally:
+        await cb.answer()
+
+
+@router.callback_query(F.data.startswith("ui:card.explain.back:"))
+async def on_card_explain_back(cb: CallbackQuery) -> None:
+    assert cb.from_user and cb.data
+    user_id = cb.from_user.id
+    _, _, card_id_s = cb.data.split(":", 3)
+    card_id = int(card_id_s)
+
+    # Re-render the same card view without changing SRS state
+    s = await store.get(user_id)
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT phrasal, meaning_en, examples_json, tags FROM cards WHERE id=?",
+            (card_id,),
+        )
+        row = await cur.fetchone()
+        cur2 = await db.execute(
+            "SELECT last_seen_at FROM progress WHERE user_id=? AND card_id=?",
+            (user_id, card_id),
+        )
+        prow = await cur2.fetchone()
+    if not row:
+        await cb.message.edit_text("Card not found.")
+        await cb.answer()
+        return
+    first_time_ever = prow is None or prow[0] is None
+    first_time_this_session = card_id not in s.shown_card_ids
+    is_new_badge = first_time_ever and first_time_this_session
+    tags_list = [t for t in str(row[3] or "").split(",") if t]
+    await cb.message.edit_text(
+        html_card_message(row[0], row[1], row[2], is_new=is_new_badge, tags=tags_list),
+        reply_markup=today_card_kb(card_id),
+    )
     await cb.answer()

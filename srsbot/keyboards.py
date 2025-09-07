@@ -32,14 +32,22 @@ def answer_kb(card_id: int) -> InlineKeyboardMarkup:
 
 
 def today_card_kb(card_id: int) -> InlineKeyboardMarkup:
-    """Answer keyboard with persistent Finish button for Today screen."""
+    """Answer keyboard with Explain on a second row for Today screen."""
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="Again", callback_data=f"ans:again:{card_id}"),
                 InlineKeyboardButton(text="Good", callback_data=f"ans:good:{card_id}"),
             ],
-            [InlineKeyboardButton(text="🏁 Finish session", callback_data="ui:today.finish")],
+            [InlineKeyboardButton(text="💡 Explain", callback_data=f"ui:card.explain:{card_id}")],
+        ]
+    )
+
+
+def kb_explain_back(card_id: int) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="◀️ Back", callback_data=f"ui:card.explain.back:{card_id}")]
         ]
     )
 

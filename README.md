@@ -20,7 +20,8 @@ A minimal, production-ready Telegram bot to learn English phrasal verbs using a 
 - `/settings` — Open Settings; edit Daily new cards, Review cap, Notification time, Packs, In-round spacing via inline UI with validation.
 - `/stats` — Shows streak, new learned today, reviews done, accuracy (today/week).
 - `/snooze` — Snooze today’s notification by N hours (default 3h) or open snooze screen.
- - `📝 Quiz` — Start a multiple-choice quiz based on your review cards. Each question shows a phrasal verb and four meanings to choose from. Answers do not affect SRS scheduling.
+- `📝 Quiz` — Start a multiple-choice quiz based on your review cards. Each question shows a phrasal verb and four meanings to choose from. Answers do not affect SRS scheduling.
+- `💡 Explain` — On a card, tap to see a concise explanation generated via an OpenAI-compatible API, then go back to the same card.
 
 ## Setup
 
@@ -47,6 +48,10 @@ Copy `.env.example` to `.env` and set values:
 BOT_TOKEN=123456:ABC-DEF...
 PUSH_TIME=09:00
 TZ=Asia/Yerevan
+EXPLAIN_API_BASE=https://api.openai.com/v1
+# EXPLAIN_API_KEY=sk-...
+# EXPLAIN_MODEL=gpt-4o-mini
+# EXPLAIN_TIMEOUT_SECONDS=30
 ```
 
 ## Running
@@ -96,6 +101,12 @@ docker compose up --build
 ```
 
 The bot reads `.env` for the token and config.
+
+Explain feature notes:
+
+- If `EXPLAIN_API_BASE` is set, cards show a second-row `💡 Explain` button.
+- Explanations are cached per card in SQLite (`explain_cache`).
+- Only card content (phrasal, meaning, examples, tags) is sent; no user identifiers.
 
 ## CSV Seed Format
 

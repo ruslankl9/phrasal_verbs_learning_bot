@@ -105,6 +105,13 @@ async def init_db() -> None:
                 awaiting_input_field TEXT,
                 quiz_state_json TEXT
             );
+
+            -- Cache for Explain feature
+            CREATE TABLE IF NOT EXISTS explain_cache (
+                card_id INTEGER PRIMARY KEY,
+                content TEXT NOT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
             """
         )
         await db.commit()
@@ -128,6 +135,21 @@ async def init_db() -> None:
         try:
             await db.execute(
                 "ALTER TABLE user_config ADD COLUMN quiz_question_limit INTEGER NOT NULL DEFAULT 10"
+            )
+            await db.commit()
+        except Exception:
+            pass
+
+        # Ensure explain_cache exists (noop if present)
+        try:
+            await db.execute(
+                """
+                CREATE TABLE IF NOT EXISTS explain_cache (
+                    card_id INTEGER PRIMARY KEY,
+                    content TEXT NOT NULL,
+                    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+                );
+                """
             )
             await db.commit()
         except Exception:
@@ -304,5 +326,28 @@ async def increment_day_counters(
             WHERE user_id=? AND session_date=?
             """,
             (good_delta, again_delta, review_served_delta, new_shown_delta, user_id, session_date),
+        )
+        await db.commit()
+
+
+# ---- Explain cache helpers -------------------------------------------------
+
+async def get_explanation_cached(card_id: int) -> str | None:
+    """Return cached explanation content for card_id, if present."""
+    async with get_db() as db:
+        cur = await db.execute(
+            "SELECT content FROM explain_cache WHERE card_id=?",
+            (card_id,),
+        )
+        row = await cur.fetchone()
+        return str(row[0]) if row else None
+
+
+async def store_explanation(card_id: int, content: str) -> None:
+    """Store or replace cached explanation for a card."""
+    async with get_db() as db:
+        await db.execute(
+            "INSERT INTO explain_cache(card_id, content) VALUES(?, ?)\n             ON CONFLICT(card_id) DO UPDATE SET content=excluded.content, created_at=CURRENT_TIMESTAMP",
+            (card_id, content),
         )
         await db.commit()
