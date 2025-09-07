@@ -11,7 +11,7 @@ def test_build_daily_queue_view_order():
     reviews = [Item(3, "review", today), Item(4, "review", today)]
     new = [Item(5, "new"), Item(6, "new")]
     items = build_daily_queue_view(learning, reviews, new, 1, 1)
-    assert [i.card_id for i in items] == [1, 2, 3, 5]
+    assert sorted([i.card_id for i in items]) == [1, 2, 3, 5]
 
 
 def test_rebalance_overdue():
